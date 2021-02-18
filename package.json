@@ -5,11 +5,22 @@
   "main": "index.js",
   "scripts": {
     "dev": "parcel index.html",
-    "build": "parcel build index.html"
+    "build": "parcel build index.html",
+    "lint": "eslint --fix src"
   },
   "author": "He4eT",
   "license": "MIT",
   "devDependencies": {
+    "eslint": "^7.20.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-config-standard-preact": "^1.1.6",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
     "parcel-bundler": "^1.12.4"
+  },
+  "dependencies": {
+    "preact": "^10.5.12",
+    "wouter-preact": "^2.7.3"
   }
 }
