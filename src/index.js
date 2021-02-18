@@ -3,7 +3,7 @@ import {
   Redirect, Switch, Route, Link, Router
 } from 'wouter-preact'
 
-import { useHashLocation } from '/src/utils/utils.routing'
+import { useHashLocation } from '~/src/utils/utils.routing'
 
 function App () {
   return (
