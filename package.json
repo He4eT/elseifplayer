@@ -1,0 +1,11 @@
+{
+  "name": "ifplayer",
+  "version": "0.0.0",
+  "description": "Play interactive fiction games in your browser",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "He4eT",
+  "license": "MIT"
+}
