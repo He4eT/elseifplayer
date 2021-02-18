@@ -3,7 +3,7 @@ import { Link, Route, Router, Switch } from 'wouter-preact'
 
 import { useHashLocation } from '~/src/utils/utils.routing'
 
-import Index from '~/src/views/Index'
+import Home from '~/src/views/Home'
 import Player from '~/src/views/Player'
 
 function App () {
@@ -12,15 +12,13 @@ function App () {
       <div className='App'>
         <nav>
           <Link href='/'>Root</Link>
-          <Link href='/#/about'>About</Link>
-          <Link href='/#/404'>404</Link>
         </nav>
 
         <main>
           <Switch>
             <Route
               path='/'
-              component={Index} />
+              component={Home} />
             <Route
               path='/play/:theme/:encodedUrl'
               component={Player} />

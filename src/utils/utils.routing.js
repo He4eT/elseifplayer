@@ -19,3 +19,6 @@ export const useHashLocation = () => {
     (window.location.hash = to.replace('#/', '')), [])
   return [loc, navigate]
 }
+
+export const buildPlayLinkHref = (url, theme = 'default') =>
+  `/#/play/${theme}/${encodeURIComponent(url)}`
