@@ -1,9 +1,10 @@
 import { h, render } from 'preact'
-import {
-  Redirect, Switch, Route, Link, Router
-} from 'wouter-preact'
+import { Link, Route, Router, Switch } from 'wouter-preact'
 
 import { useHashLocation } from '~/src/utils/utils.routing'
+
+import Index from '~/src/views/Index'
+import Player from '~/src/views/Player'
 
 function App () {
   return (
@@ -12,22 +13,21 @@ function App () {
         <nav>
           <Link href='/'>Root</Link>
           <Link href='/#/about'>About</Link>
-          <Link href='/#/info'>Redirect</Link>
           <Link href='/#/404'>404</Link>
         </nav>
 
         <main>
           <Switch>
-            <Route path='/'>
-              Root
+            <Route
+              path='/'
+              component={Index} />
+            <Route
+              path='/play/:theme/:encodedUrl'
+              component={Player} />
+            <Route path='/top100'>
+              top100
             </Route>
-            <Route path='/about'>
-              About
-            </Route>
-            <Route path='/info'>
-              <Redirect to='/about' />
-            </Route>
-            <Route path='/:anything*'>
+            <Route>
               404
             </Route>
           </Switch>
