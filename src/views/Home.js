@@ -5,17 +5,18 @@ import { Link } from 'wouter-preact'
 
 import FileSelector from '~/src/components/FileSelector'
 import URLSelector from '~/src/components/URLSelector'
+import ThemeSelector from '~/src/components/ThemeSelector'
 
 import { buildPlayLinkHref } from '~/src/utils/utils.routing'
 
-export default function () {
-  const [targetName, setTargetName] = useState(null)
-  const [targetURL, setTargetURL] = useState(null)
+const playButton = (name, url, theme) => (
+  <Link href={buildPlayLinkHref(url, theme)}>
+    Play "{name}"
+  </Link>)
 
-  const playButton = (
-    <Link href={buildPlayLinkHref(targetURL)}>
-      Play "{targetName}"
-    </Link>)
+export default function ({ themeList, currentTheme, setTheme }) {
+  const [targetName, setTargetName] = useState(null)
+  const [targetUrl, setTargetUrl] = useState(null)
 
   return (
     <main>
@@ -26,16 +27,27 @@ export default function () {
       </p>
       <ul>
         <li>
-          <FileSelector
-            emitName={setTargetName}
-            emitURL={setTargetURL} />
+          <ThemeSelector {...{
+            currentTheme,
+            themeList,
+            setTheme
+          }} />
         </li>
         <li>
-          <URLSelector
-            emitName={setTargetName}
-            emitURL={setTargetURL} />
+          <FileSelector {...{
+            setTargetName,
+            setTargetUrl
+          }} />
+        </li>
+        <li>
+          <URLSelector {...{
+            setTargetName,
+            setTargetUrl
+          }} />
         </li>
       </ul>
-      { targetURL ? playButton : null }
+      { targetUrl
+        ? playButton(targetName, targetUrl, currentTheme)
+        : null }
     </main>)
 }

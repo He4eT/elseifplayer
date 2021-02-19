@@ -2,7 +2,9 @@ import { h } from 'preact'
 
 import { getFileExtension } from '~/src/utils/utils.routing'
 
-export default function ({params: {theme, encodedUrl}}) {
+export default function ({setTheme, theme, encodedUrl}) {
+  setTheme(theme)
+
   const url = decodeURIComponent(encodedUrl)
   const type = getFileExtension(url)
 

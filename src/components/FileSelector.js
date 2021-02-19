@@ -1,10 +1,10 @@
 import { h } from 'preact'
 
-export default function ({ emitName, emitURL }) {
+export default function ({ setTargetName, setTargetUrl }) {
   const fileInputHandler = ({ target }) => {
     const file = target.files[0]
-    emitName(file.name)
-    emitURL(`${URL.createObjectURL(file)}#${file.name}`)
+    setTargetName(file.name)
+    setTargetUrl(`${URL.createObjectURL(file)}#${file.name}`)
     target.value = null
   }
 

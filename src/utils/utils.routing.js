@@ -20,7 +20,7 @@ export const useHashLocation = () => {
   return [loc, navigate]
 }
 
-export const buildPlayLinkHref = (url, theme = 'default') =>
+export const buildPlayLinkHref = (url, theme) =>
   `/#/play/${theme}/${encodeURIComponent(url)}`
 
 export const getFileExtension = fileName =>

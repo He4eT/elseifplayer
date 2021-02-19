@@ -1,16 +1,16 @@
 import { h } from 'preact'
 
-export default function ({ emitName, emitURL }) {
-  const reURL = /^(http|https):\/\/[^ "]+$/
+export default function ({ setTargetName, setTargetUrl }) {
+  const urlRE = /^(http|https):\/\/[^ "]+$/
 
   const emit = url => {
-    emitName(url)
-    emitURL(url)
+    setTargetName(url)
+    setTargetUrl(url)
   }
 
   const urlInputHandler = ({ target }) => {
     const url = target.value
-    emit(reURL.test(url)
+    emit(urlRE.test(url)
       ? url
       : null)
   }
