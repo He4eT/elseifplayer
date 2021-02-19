@@ -1,3 +1,5 @@
+import '~/src/style/themes.css'
+
 export const themeList = [
   'default',
   'default-dark',
