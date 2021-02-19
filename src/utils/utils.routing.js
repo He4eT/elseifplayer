@@ -22,3 +22,6 @@ export const useHashLocation = () => {
 
 export const buildPlayLinkHref = (url, theme = 'default') =>
   `/#/play/${theme}/${encodeURIComponent(url)}`
+
+export const getFileExtension = fileName =>
+  fileName.split('.').pop()
