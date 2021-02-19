@@ -4,7 +4,7 @@ export default function ({ emitName, emitURL }) {
   const fileInputHandler = ({ target }) => {
     const file = target.files[0]
     emitName(file.name)
-    emitURL(URL.createObjectURL(file))
+    emitURL(`${URL.createObjectURL(file)}#${file.name}`)
     target.value = null
   }
 
