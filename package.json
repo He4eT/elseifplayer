@@ -17,10 +17,17 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.3.1",
-    "parcel-bundler": "^1.12.4"
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-static-files-copy": "^2.5.1"
   },
   "dependencies": {
+    "cheap-glkote": "^0.1.0",
+    "emglken": "^0.3.3",
     "preact": "^10.5.12",
     "wouter-preact": "^2.7.3"
+  },
+  "staticFiles": {
+    "staticPath": "node_modules/emglken/build",
+    "excludeGlob": "*.js"
   }
 }
