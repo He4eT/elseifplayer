@@ -27,6 +27,7 @@
     "wouter-preact": "^2.7.3"
   },
   "staticFiles": {
-    "staticPath": "node_modules/emglken/build/*.wasm"
+    "staticPath": "node_modules/emglken/build",
+    "excludeGlob": "*.js"
   }
 }

@@ -1,30 +1,51 @@
 import { h } from 'preact'
 import { useState, useEffect } from 'preact/hooks'
 
-import { prepareVM } from './common/if'
+import { engineByFilename } from './common/engines'
+
+import Player from './Player'
 
 const INITIAL_STATUS = {
   stage: 'loading',
   details: 'Loading...'
 }
 
+const prepareVM = ({ url, setStatus, setParts }) => {
+  const st = (stage, details) => args => {
+    setStatus({ stage, details })
+    return args
+  }
+
+  return Promise.resolve()
+    .then(st('loading', 'Downloading file...'))
+    .then(_ => fetch(url))
+    .then(st('loading', 'Processing file...'))
+    .then(response => response.arrayBuffer())
+    .then(arrayBuffer => new Uint8Array(arrayBuffer))
+    .then(st('loading', 'Downloading engine...'))
+    .then(file => setParts({
+      file,
+      engine: engineByFilename(url)
+    }))
+    .then(st('loading', 'Running...'))
+    .catch(e => {
+      console.error(e)
+      setStatus({ stage: 'fail', details: e.message })
+    })
+}
+
 export default function ({ url }) {
   const [status, setStatus] = useState(INITIAL_STATUS)
-
-  const [vm, setVM] = useState(null)
-
-  useEffect(prepareVM({
-    url,
-    setStatus,
-    setVM
-  }), [url])
+  const [vmParts, setParts] = useState(null)
 
   useEffect(() => {
-    if (vm) console.log('success', vm)
-  }, [vm])
+    setStatus(INITIAL_STATUS)
+    setParts(null)
 
-  return (
-    <main>
-      {status.details}
-    </main>)
+    prepareVM({ url, setStatus, setParts })
+  }, [url])
+
+  return vmParts
+    ? (<Player vmParts={vmParts} />)
+    : (<div>{status.details}</div>)
 }
