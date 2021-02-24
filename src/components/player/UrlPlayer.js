@@ -9,7 +9,6 @@ const INITIAL_STATUS = {
 }
 
 export default function ({url}) {
-  console.log(123, url)
   const [status, setStatus] = useState(INITIAL_STATUS)
 
   const [vm, setVM] = useState(null)

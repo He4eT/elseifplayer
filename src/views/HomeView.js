@@ -14,7 +14,7 @@ const playButton = (name, url, theme) => (
     Play "{name}"
   </Link>)
 
-export default function ({ themeList, currentTheme, setTheme }) {
+export default function ({ themeEngine }) {
   const [targetName, setTargetName] = useState(null)
   const [targetUrl, setTargetUrl] = useState(null)
 
@@ -28,9 +28,7 @@ export default function ({ themeList, currentTheme, setTheme }) {
       <ul>
         <li>
           <ThemeSelector {...{
-            currentTheme,
-            themeList,
-            setTheme
+            themeEngine
           }} />
         </li>
         <li>
@@ -47,7 +45,7 @@ export default function ({ themeList, currentTheme, setTheme }) {
         </li>
       </ul>
       { targetUrl
-        ? playButton(targetName, targetUrl, currentTheme)
+        ? playButton(targetName, targetUrl, themeEngine.currentTheme)
         : null }
     </main>)
 }

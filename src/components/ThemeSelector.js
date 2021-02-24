@@ -1,15 +1,16 @@
 import { h } from 'preact'
 
-export default function ({ themeList, currentTheme, setTheme }) {
-  const options = themeList.map(theme => (
+export default function ({ themeEngine }) {
+  const options = themeEngine.themes.map(theme => (
     <option value={theme}>
       {theme}
     </option>))
 
   return (
     <select
-      value={currentTheme}
-      onChange={({ target }) => setTheme(target.value)}>
+      value={themeEngine.currentTheme}
+      onChange={({ target }) =>
+        themeEngine.setTheme(target.value)}>
       {options}
     </select>)
 }
