@@ -9,8 +9,8 @@ import {
   assertTheme
 } from '~/src/themes/themes'
 
-import Home from '~/src/views/Home'
-import Player from '~/src/views/Player'
+import HomeView from '~/src/views/HomeView'
+import PlayerView from '~/src/views/PlayerView'
 
 import '~/src/style/base.css'
 
@@ -26,14 +26,14 @@ function App () {
       <div className={['app', currentTheme].join(' ')}>
         <Switch>
           <Route path='/'>
-            <Home {...{
+            <HomeView {...{
               setTheme,
               themeList,
               currentTheme
             }} />
           </Route>
           <Route path='/play/:theme/:encodedUrl'>
-            {params => <Player {...{
+            {params => <PlayerView {...{
               setTheme,
               ...params
             }} />}
