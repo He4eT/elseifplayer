@@ -18,13 +18,13 @@ const assertTheme = theme =>
     ? theme
     : DEFAULT_THEME
 
-export const useThemeEngine = (defaultTheme = DEFAULT_THEME) => {
+export const useThemeEngine = (initialTheme = DEFAULT_THEME) => {
   const [currentTheme, setCurrentTheme] =
-    useState(DEFAULT_THEME)
+    useState(initialTheme)
 
-    const setTheme = useCallback(theme => {
-      setCurrentTheme(assertTheme(theme))
-    }, [currentTheme]);
+  const setTheme = useCallback(theme => {
+    setCurrentTheme(assertTheme(theme))
+  }, [currentTheme])
 
-  return { currentTheme, setTheme, themes };
+  return { currentTheme, setTheme, themes }
 }

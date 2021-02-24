@@ -1,14 +1,14 @@
 import { h } from 'preact'
 import { useState, useEffect } from 'preact/hooks'
 
-import { prepareVM } from '~/src/common/if'
+import { prepareVM } from './common/if'
 
 const INITIAL_STATUS = {
   stage: 'loading',
   details: 'Loading...'
 }
 
-export default function ({url}) {
+export default function ({ url }) {
   const [status, setStatus] = useState(INITIAL_STATUS)
 
   const [vm, setVM] = useState(null)
@@ -25,7 +25,6 @@ export default function ({url}) {
 
   return (
     <main>
-      {url}
       {status.details}
     </main>)
 }

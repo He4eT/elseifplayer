@@ -1,7 +1,7 @@
 // import CheapGlkOte from 'cheap-glkote'
 // import engine from 'emglken/src/tads.js'
 
-import { engineByFilename } from '~/src/common/engines'
+import { engineByFilename } from './engines'
 
 export const prepareVM = ({ url, setStatus, setVM }) => _ => {
   const st = (stage, details) => args => {
