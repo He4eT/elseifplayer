@@ -21,7 +21,7 @@
     "parcel-plugin-static-files-copy": "^2.5.1"
   },
   "dependencies": {
-    "cheap-glkote": "^0.1.0",
+    "cheap-glkote": "^0.2.3",
     "emglken": "^0.3.3",
     "preact": "^10.5.12",
     "wouter-preact": "^2.7.3"
