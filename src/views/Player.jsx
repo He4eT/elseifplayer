@@ -1,42 +1,31 @@
 import { h } from 'preact'
 
-import { getFileExtension } from '~/src/utils/utils.routing'
+import { useState, useEffect } from 'preact/hooks'
+import { prepareVM } from '~/src/common/if'
 
-import CheapGlkOte from 'cheap-glkote'
-import engine from 'emglken/src/tads.js'
-
-const blobToFile = fileName => theBlob =>{
-  return new File([theBlob], fileName)
+const INITIAL_STATUS = {
+  level: 'loading',
+  details: 'Loading...'
 }
 
 export default function ({setTheme, theme, encodedUrl}) {
-  setTheme(theme)
+  const [url] = useState(decodeURIComponent(encodedUrl))
+  const [status, setStatus] = useState(INITIAL_STATUS)
 
-  const url = decodeURIComponent(encodedUrl)
-  const type = getFileExtension(url)
+  const [vm, setVM] = useState(null)
 
-  const fetchGameFile = fetch(url)
-    .then(response => (console.log(response), response))
-    .then(response => response.blob())
-    .then(blob => new Response(blob).arrayBuffer())
-    .then(buffer => new Uint8Array(buffer))
-    .then(file => {
-      console.log(file)
-      const {glkInterface, sendFn} = CheapGlkOte({
-        onUpdateContent: messages => console.log(messages)
-      })
-      window.send = sendFn
+  useEffect(() => setTheme(theme), [theme])
+  useEffect(prepareVM({
+    url,
+    setStatus,
+    setVM
+  }), [url])
 
-      const vm = new engine()
-      vm.prepare(file, glkInterface)
-      vm.start()
-    })
-    .catch(console.log)
-
+  useEffect(() => {
+    if (vm) console.log('success', vm)
+  }, [vm])
   return (
-    <div>
-      {theme} <br/>
-      {type} <br/>
-      {url}
-    </div>)
+    <main>
+      {status.details}
+    </main>)
 }
