@@ -4,8 +4,8 @@
 import { engineByFilename } from '~/src/common/engines'
 
 export const prepareVM = ({ url, setStatus, setVM }) => _ => {
-  const st = (step, details) => args => {
-    setStatus({ step, details })
+  const st = (stage, details) => args => {
+    setStatus({ stage, details })
     return args
   }
 
@@ -23,7 +23,7 @@ export const prepareVM = ({ url, setStatus, setVM }) => _ => {
     .then(st('loading', 'Running...'))
     .catch(e => {
       console.error(e)
-      setStatus({ level: 'fail', details: e.message })
+      setStatus({ stage: 'fail', details: e.message })
     })
 }
 
