@@ -21,12 +21,25 @@ const Handlers = ({
   setInbox
 }) => ({
   onInit: () => {},
-  onUpdateWindows: windows => {},
-  onUpdateInputs: type => {},
-  onUpdateContent: messages => {
-    console.log(messages)
+  onUpdateWindows: windows => {
+    setCurrentWindow(windows
+      .filter(x => x.type === 'buffer')
+      .slice(-1)[0])
   },
-  onDisable: () => {},
+  onUpdateInputs: setInputType,
+  onUpdateContent: messagesByWindow => {
+    const inbox =
+      messagesByWindow
+        .reduce((acc, {id, text}) => {
+          acc[id] = text
+            .map(({content}) => content || [null])
+            .reduce((xs, x) => [...xs, ...x], [])
+          return acc
+        }, {})
+    console.log(JSON.stringify(inbox, null, 1))
+    setInbox(inbox)
+  },
+  onDisable: () => setInputType(null),
   onFileNameRequest: (tosave, usage, _, setFileName) => {
     setFileName({ filename: 'filename', usage })
   },
@@ -34,7 +47,7 @@ const Handlers = ({
     return 'content'
   },
   onFileWrite: (filename, content) => {},
-  onExit: () => {}
+  onExit: () => setInputType(null)
 })
 
 export default function ({ vmParts: { file, engine } }) {
@@ -70,8 +83,8 @@ export default function ({ vmParts: { file, engine } }) {
   }, [vm])
 
   useEffect(() => {
-    window.send = sendMessage
-  }, [sendMessage])
+    window.send = x => sendMessage(x, currentWindow)
+  }, [sendMessage, currentWindow])
 
   return (
     <div>
