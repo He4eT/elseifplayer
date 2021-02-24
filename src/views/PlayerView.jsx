@@ -8,14 +8,14 @@ const decode = encodedUrl => decodeURIComponent(encodedUrl)
 export default function ({setTheme, theme, encodedUrl}) {
   useEffect(() => setTheme(theme), [theme])
 
-  const [url, setUrl] = useState(decode(encodedUrl))
+  const [targetUrl, setTargetUrl] = useState(decode(encodedUrl))
 
   useEffect(() => {
-    setUrl(decode(encodedUrl))
+    setTargetUrl(decode(encodedUrl))
   }, [encodedUrl])
 
   return (
     <main>
-      <UrlPlayer url={url} />
+      <UrlPlayer url={targetUrl} />
     </main>)
 }
