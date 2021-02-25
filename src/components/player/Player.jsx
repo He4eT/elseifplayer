@@ -41,12 +41,20 @@ const Handlers = ({
   onDisable: _ => setInputType(null),
   /* */
   onFileNameRequest: (tosave, usage, _, setFileName) => {
-    setFileName({ filename: 'filename', usage })
+    setFileName({
+      usage,
+      filename: tosave ? 'save' : 'load'
+    })
   },
-  onFileRead: filename => {
-    return 'content'
+  onFileRead: ({ filename }) => {
+    if (filename === 'save') return null
+    const token = prompt('Enter your SAVE_TOKEN here')
+    return token
   },
-  onFileWrite: (filename, content) => {},
+  onFileWrite: ({ filename }, content) => {
+    const token = content
+    prompt('Copy your SAVE_TOKEN', token)
+  },
   /* */
   onExit: _ => setInputType(null)
 })
