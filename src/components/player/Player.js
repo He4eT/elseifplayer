@@ -58,8 +58,6 @@ export default function ({ vmParts: { file, engine } }) {
   const [inputType, setInputType] = useState(null)
   const [inbox, setInbox] = useState([])
 
-  const [messages, setMessages] = useState([])
-
   const [vm, setVm] = useState(null)
   const [sendMessage, setSendMessage] = useState(null)
 
@@ -86,10 +84,6 @@ export default function ({ vmParts: { file, engine } }) {
       : null)
   }, [vm])
 
-  useEffect(() => {
-    window.send = x => sendMessage(x, currentWindow)
-  }, [sendMessage, currentWindow])
-
   return status.stage !== 'ready'
     ? (<div>{status.details}</div>)
     : (<section>
@@ -97,6 +91,10 @@ export default function ({ vmParts: { file, engine } }) {
           inbox,
           currentWindow
         }}/>
-        <InputBox/>
+        <InputBox {...{
+          currentWindow,
+          inputType,
+          sendMessage
+        }}/>
       </section>)
 }
