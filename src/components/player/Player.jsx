@@ -1,5 +1,9 @@
 import { h } from 'preact'
 import { useState, useEffect } from 'preact/hooks'
+import {
+  compressToUTF16 as encode,
+  decompressFromUTF16 as decode
+} from 'lz-string'
 
 import CheapGlkOte from 'cheap-glkote'
 
@@ -48,12 +52,17 @@ const Handlers = ({
   },
   onFileRead: ({ filename }) => {
     if (filename === 'save') return null
-    const token = prompt('Enter your SAVE_TOKEN here')
-    return token
+
+    const lsName = prompt('Enter RecordID:')
+
+    const record = localStorage.getItem(`save-${lsName}`)
+    return decode(record)
   },
   onFileWrite: ({ filename }, content) => {
-    const token = content
-    prompt('Copy your SAVE_TOKEN', token)
+    const lsName = prompt('Choose RecordID:')
+    const record = encode(content)
+
+    localStorage.setItem(`save-${lsName}`, record)
   },
   /* */
   onExit: _ => setInputType(null)
@@ -94,15 +103,16 @@ export default function ({ vmParts: { file, engine } }) {
 
   return status.stage !== 'ready'
     ? (<div>{status.details}</div>)
-    : (<section>
+    : (
+      <section>
         <TextBuffer {...{
           inbox,
           currentWindow
-        }}/>
+        }} />
         <InputBox {...{
           currentWindow,
           inputType,
           sendMessage
-        }}/>
+        }} />
       </section>)
 }

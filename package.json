@@ -23,6 +23,7 @@
   "dependencies": {
     "cheap-glkote": "^0.2.4",
     "emglken": "^0.3.3",
+    "lz-string": "^1.4.4",
     "preact": "^10.5.12",
     "wouter-preact": "^2.7.3"
   },
