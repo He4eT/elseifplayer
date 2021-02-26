@@ -5,7 +5,7 @@ import UrlPlayer from '~/src/components/player/UrlPlayer'
 
 const decode = encodedUrl => decodeURIComponent(encodedUrl)
 
-export default function ({setTheme, theme, encodedUrl}) {
+export default function ({ setTheme, theme, encodedUrl }) {
   useEffect(() => setTheme(theme), [theme])
 
   const [targetUrl, setTargetUrl] = useState(decode(encodedUrl))

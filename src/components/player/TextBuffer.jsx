@@ -3,24 +3,27 @@ import { useState, useEffect } from 'preact/hooks'
 
 const parseInbox = (inbox, currentWindow) => {
   const currentInbox =
-    inbox.find(({id}) =>
+    inbox.find(({ id }) =>
       id === currentWindow.id)
 
-  if (!currentInbox) return {
-    clear: false,
-    incoming: []}
+  if (!currentInbox) {
+    return {
+      clear: false,
+      incoming: []
+    }
+  }
 
-  const {clear, text: inboxMessagesRaw} =
+  const { clear, text: inboxMessagesRaw } =
     currentInbox
 
   const incoming =
     inboxMessagesRaw
       /* Normalize. */
-      .map(({content}) =>
+      .map(({ content }) =>
         content || [{ style: 'emptyLine' }])
       /* Flatten. */
       .reduce((acc, x) =>
-         acc.concat(x), [])
+        acc.concat(x), [])
       /* Collapse empty lines. */
       .reduce((acc, x, i, xs) => {
         if (x.style !== 'emptyLine') return [...acc, x]
@@ -31,14 +34,14 @@ const parseInbox = (inbox, currentWindow) => {
           : [...acc, x]
       }, [])
 
-  return {clear, incoming}
+  return { clear, incoming }
 }
 
 export default function ({ inbox, currentWindow }) {
   const [messages, setMessages] = useState([])
 
   useEffect(() => {
-    const {incoming, clear} =
+    const { incoming, clear } =
       parseInbox(inbox, currentWindow)
 
     setMessages(clear
@@ -48,7 +51,7 @@ export default function ({ inbox, currentWindow }) {
 
   return (
     <div>
-      {messages?.map(({text}) =>
+      {messages.map(({ text }) =>
         (<div>{text}</div>))}
     </div>
   )

@@ -7,6 +7,11 @@ module.exports = {
     'standard',
     'standard-preact'
   ],
+  overrides: [
+    {
+      files: ['*.jsx', '*.js']
+    }
+  ],
   parserOptions: {
     ecmaVersion: 12,
     sourceType: 'module'
@@ -15,7 +20,7 @@ module.exports = {
   },
   settings: {
     react: {
-        version: 'latest',
-    },
+        version: 'latest'
+    }
   }
 }
