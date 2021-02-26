@@ -1,5 +1,5 @@
 import { h } from 'preact'
-// import { useState, useEffect } from 'preact/hooks'
+import { useEffect, useRef, useState } from 'preact/hooks'
 
 /* eslint-disable */
 const keyCodes = {
@@ -32,6 +32,18 @@ const keyNames = {
 /* eslint-enable */
 
 export default function ({ currentWindow, inputType, sendMessage }) {
+  const [inputText, setInputText] = useState('')
+  const inputEl = useRef(null)
+
+  useEffect(() => {
+    inputEl.current && inputEl.current.focus()
+  }, [inputType])
+
+  const send = x => {
+    sendMessage(x, currentWindow)
+    setInputText('')
+  }
+
   const charHandler = event => {
     event.preventDefault()
 
@@ -39,25 +51,30 @@ export default function ({ currentWindow, inputType, sendMessage }) {
       keyNames[event.keyCode] ||
       event.key
 
-    sendMessage(key, currentWindow)
+    send(key)
   }
 
   const lineHandler = ({ keyCode, target: { value } }) => {
     if (keyCode === keyCodes.KEY_RETURN) {
-      sendMessage(value, currentWindow)
+      send(value)
     }
   }
 
   const inputHandlers = {
-    'char': {
+    char: {
       onKeyDown: charHandler
     },
-    'line': {
+    line: {
       onKeyPress: lineHandler
     }
   }
+
   return (
     <input {...inputHandlers[inputType]}
-      type="text"/>
+      ref={inputEl}
+      value={inputText}
+      autofocus={true}
+      onInput={({ target: {value}}) => setInputText(value)}
+      type='text' />
   )
 }
