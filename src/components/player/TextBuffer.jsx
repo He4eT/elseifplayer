@@ -1,5 +1,5 @@
 import { h } from 'preact'
-import { useState, useEffect } from 'preact/hooks'
+import { useEffect, useRef, useState } from 'preact/hooks'
 
 import TextMessage from './TextMessage'
 
@@ -48,6 +48,7 @@ const parseInbox = (inbox, currentWindow) => {
 
 export default function ({ inbox, currentWindow }) {
   const [messages, setMessages] = useState([])
+  const textBufferEl = useRef(null)
 
   useEffect(() => {
     const { incoming, clear } =
@@ -56,10 +57,17 @@ export default function ({ inbox, currentWindow }) {
     setMessages(clear
       ? incoming
       : messages.concat(incoming))
+
+    setTimeout(() => {
+      textBufferEl.current.scrollTop =
+        textBufferEl.current.scrollHeight * 2
+    }, 0)
   }, [inbox])
 
   return (
-    <section className='textBuffer'>
+    <section
+      ref={textBufferEl}
+      className='textBuffer'>
       {messages.map(TextMessage)}
     </section>
   )
