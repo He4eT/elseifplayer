@@ -69,12 +69,19 @@ export default function ({ currentWindow, inputType, sendMessage }) {
     }
   }
 
+  const placeholder = {
+    char: 'Press any key',
+    line: ' > '
+  }
+
   return (
     <input {...inputHandlers[inputType]}
+      className='inputBox'
       ref={inputEl}
       value={inputText}
-      autofocus={true}
-      onInput={({ target: {value}}) => setInputText(value)}
+      placeholder={placeholder[inputType]}
+      autofocus
+      onInput={({ target: { value } }) => setInputText(value)}
       type='text' />
   )
 }
