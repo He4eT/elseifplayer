@@ -1,6 +1,15 @@
 import { h } from 'preact'
 import { useState, useEffect } from 'preact/hooks'
 
+import TextMessage from './TextMessage'
+
+const trimImputPrompt = messages =>
+  messages.length < 1
+    ? messages
+    : messages.slice(-1)[0].text === '>'
+      ? messages.slice(0, messages.length - 1)
+      : messages
+
 const parseInbox = (inbox, currentWindow) => {
   const currentInbox =
     inbox.find(({ id }) =>
@@ -16,7 +25,7 @@ const parseInbox = (inbox, currentWindow) => {
   const { clear, text: inboxMessagesRaw } =
     currentInbox
 
-  const incoming =
+  const incoming = trimImputPrompt(
     inboxMessagesRaw
       /* Normalize. */
       .map(({ content }) =>
@@ -32,7 +41,7 @@ const parseInbox = (inbox, currentWindow) => {
         return prev.style === 'emptyLine'
           ? acc
           : [...acc, x]
-      }, [])
+      }, []))
 
   return { clear, incoming }
 }
@@ -50,9 +59,8 @@ export default function ({ inbox, currentWindow }) {
   }, [inbox])
 
   return (
-    <div>
-      {messages.map(({ text }) =>
-        (<div>{text}</div>))}
-    </div>
+    <section className='textBuffer'>
+      {messages.map(TextMessage)}
+    </section>
   )
 }
