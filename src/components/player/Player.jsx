@@ -10,6 +10,8 @@ import CheapGlkOte from 'cheap-glkote'
 import TextBuffer from './TextBuffer'
 import InputBox from './InputBox'
 
+import './player.css'
+
 const INITIAL_STATUS = {
   stage: 'loading',
   details: 'Preparing...'
@@ -104,7 +106,7 @@ export default function ({ vmParts: { file, engine } }) {
   return status.stage !== 'ready'
     ? (<div>{status.details}</div>)
     : (
-      <section>
+      <section className='ifplayer'>
         <TextBuffer {...{
           inbox,
           currentWindow

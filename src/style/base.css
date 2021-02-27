@@ -1,3 +1,17 @@
 html, body {
   margin: 0;
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#root {
+  height: 100%;
+}
+
+.app {
+  height: 100%;
+}
