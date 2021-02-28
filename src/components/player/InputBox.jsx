@@ -74,6 +74,9 @@ export default function ({ currentWindow, inputType, sendMessage }) {
     line: ' > '
   }
 
+  const enterFullscreen = _ =>
+    document.documentElement.requestFullscreen()
+
   return (
     <input {...inputHandlers[inputType]}
       className='inputBox'
@@ -82,6 +85,7 @@ export default function ({ currentWindow, inputType, sendMessage }) {
       placeholder={placeholder[inputType]}
       autofocus
       autocomplete="off"
+      onDblClick={enterFullscreen}
       onInput={({ target: { value } }) => setInputText(value)}
       type='search' />
   )
