@@ -7,13 +7,27 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   font-size: 18px;
   line-height: 27px;
+
 }
 
 #root {
+  flex: 1 1 auto;
+
   height: 100%;
+  width: 100%;
+}
+@media (min-width: 800px) {
+  #root {
+    height: 90%;
+    max-height: 90%;
+
+    max-width: 800px;
+  }
 }
 
 .app {
