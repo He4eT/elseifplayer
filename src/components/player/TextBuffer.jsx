@@ -54,8 +54,15 @@ export default function ({ inbox, currentWindow }) {
       : messages.concat(incoming))
 
     setTimeout(() => {
+      const inputs =
+        textBufferEl.current.querySelectorAll('.message.input')
+      const lastInput =
+        inputs[inputs.length- 1]
+
       textBufferEl.current.scrollTop =
-        textBufferEl.current.scrollHeight * 2
+        lastInput
+          ? lastInput.offsetTop
+          : textBufferEl.current.scrollHeight * 2
     }, 0)
   }, [inbox])
 
