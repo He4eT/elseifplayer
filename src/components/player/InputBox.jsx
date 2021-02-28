@@ -84,7 +84,7 @@ export default function ({ currentWindow, inputType, sendMessage }) {
       value={inputText}
       placeholder={placeholder[inputType]}
       autofocus
-      autocomplete="off"
+      autocomplete='off'
       onDblClick={enterFullscreen}
       onInput={({ target: { value } }) => setInputText(value)}
       type='search' />

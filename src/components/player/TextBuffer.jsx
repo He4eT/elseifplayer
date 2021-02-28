@@ -57,7 +57,7 @@ export default function ({ inbox, currentWindow }) {
       const inputs =
         textBufferEl.current.querySelectorAll('.message.input')
       const lastInput =
-        inputs[inputs.length- 1]
+        inputs[inputs.length - 1]
 
       textBufferEl.current.scrollTop =
         lastInput

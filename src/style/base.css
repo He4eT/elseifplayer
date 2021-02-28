@@ -4,7 +4,14 @@ html, body {
   font-family: 'Open Sans', sans-serif;
 }
 
-body {
+#root {
+  height: 100%;
+}
+
+.app {
+  height: 100%;
+  box-sizing: border-box;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,23 +20,23 @@ body {
   font-size: 18px;
   line-height: 27px;
 
+  background-color: var(--bg-color);
+  color: var(--main-color);
+  padding: var(--outer-padding);
 }
 
-#root {
+.app > main {
   flex: 1 1 auto;
 
   height: 100%;
   width: 100%;
+  box-sizing: border-box;
 }
 @media (min-width: 800px) {
-  #root {
+  .app > main {
     height: 90%;
     max-height: 90%;
 
     max-width: 800px;
   }
-}
-
-.app {
-  height: 100%;
 }

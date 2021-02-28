@@ -14,5 +14,9 @@ export default function ({ setTheme, theme, encodedUrl }) {
     setTargetUrl(decode(encodedUrl))
   }, [encodedUrl])
 
-  return (<UrlPlayer url={targetUrl} />)
+  return (
+    <main>
+      <UrlPlayer url={targetUrl} />
+    </main>
+  )
 }
