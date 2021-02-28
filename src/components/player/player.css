@@ -26,3 +26,9 @@
   margin-bottom: 8px;
 }
 
+.textBuffer > br:first-child,
+.textBuffer > br:last-child,
+.textBuffer > br + br + br {
+  display: none;
+}
+
