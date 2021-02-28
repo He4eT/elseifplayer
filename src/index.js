@@ -9,6 +9,7 @@ import {
 import HomeView from '~/src/views/HomeView'
 import PlayerView from '~/src/views/PlayerView'
 
+import '@fontsource/open-sans'
 import '~/src/style/base.css'
 
 function App () {
