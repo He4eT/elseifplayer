@@ -4,10 +4,17 @@ import '~/src/style/themes.css'
 
 const themes = [
   'default',
+  'default-borders',
   'default-dark',
-  'nord',
-  'solarized-dark',
+  'default-dark-borders',
+  'default-dim',
+  'default-dim-borders',
   'solarized-light',
+  'solarized-light-borders',
+  'solarized-dark',
+  'solarized-dark-borders',
+  'nord',
+  'nord-borders',
   '_raw'
 ]
 
