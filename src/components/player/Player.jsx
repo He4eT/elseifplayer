@@ -55,13 +55,13 @@ const Handlers = ({
   onFileRead: ({ filename }) => {
     if (filename === 'save') return null
 
-    const lsName = prompt('Enter RecordID:')
+    const lsName = prompt('Enter the name of the saved file:')
 
     const record = localStorage.getItem(`save-${lsName}`)
     return decode(record)
   },
   onFileWrite: ({ filename }, content) => {
-    const lsName = prompt('Choose RecordID:')
+    const lsName = prompt('Select a name for the saved file:')
     const record = encode(content)
 
     localStorage.setItem(`save-${lsName}`, record)

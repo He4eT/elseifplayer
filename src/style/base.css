@@ -1,11 +1,14 @@
 html, body {
   margin: 0;
+  height: 100%;
 }
 
 body {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+
+  font-size: 18px;
+  line-height: 27px;
 }
 
 #root {

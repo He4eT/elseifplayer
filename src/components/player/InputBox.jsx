@@ -81,7 +81,8 @@ export default function ({ currentWindow, inputType, sendMessage }) {
       value={inputText}
       placeholder={placeholder[inputType]}
       autofocus
+      autocomplete="off"
       onInput={({ target: { value } }) => setInputText(value)}
-      type='text' />
+      type='search' />
   )
 }
