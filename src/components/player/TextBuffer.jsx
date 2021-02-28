@@ -25,23 +25,18 @@ const parseInbox = (inbox, currentWindow) => {
   const { clear, text: inboxMessagesRaw } =
     currentInbox
 
-  const incoming = trimImputPrompt(
+  const eol = { style: 'endOfLine' }
+
+  const incoming =
     inboxMessagesRaw
       /* Normalize. */
       .map(({ content }) =>
-        content || [{ style: 'emptyLine' }])
+        content
+          ? [...trimImputPrompt(content), eol]
+          : [eol])
       /* Flatten. */
       .reduce((acc, x) =>
         acc.concat(x), [])
-      /* Collapse empty lines. */
-      .reduce((acc, x, i, xs) => {
-        if (x.style !== 'emptyLine') return [...acc, x]
-
-        const prev = xs[i - 1] || {}
-        return prev.style === 'emptyLine'
-          ? acc
-          : [...acc, x]
-      }, []))
 
   return { clear, incoming }
 }
