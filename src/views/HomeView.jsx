@@ -28,10 +28,10 @@ export default function ({ themeEngine }) {
         <p>
           Interactive Fiction interpreter
           that runs right in your browser.
-          <br/>
+          <br />
           Source code can be found in this <a
-            target="_blank"
-            href="https://github.com/He4eT/ifplayer">
+            target='_blank'
+            href='https://github.com/He4eT/ifplayer'>
             repository
           </a>.
         </p>

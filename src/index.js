@@ -1,7 +1,10 @@
 import { h, render } from 'preact'
 import { Route, Router, Switch } from 'wouter-preact'
 
-import { useHashLocation } from '~/src/utils/utils.routing'
+import {
+  useHashLocation,
+  extractView
+} from '~/src/utils/utils.routing'
 import {
   useThemeEngine
 } from '~/src/themes/themes'
@@ -14,10 +17,15 @@ import '~/src/style/base.css'
 
 function App () {
   const themeEngine = useThemeEngine()
+  const [location] = useHashLocation()
 
   return (
     <Router hook={useHashLocation}>
-      <div className={['app', themeEngine.currentTheme].join(' ')}>
+      <div className={[
+        'app',
+        extractView(location),
+        themeEngine.currentTheme].join(' ')}>
+
         <Switch>
           <Route path='/'>
             <HomeView {...{
@@ -37,6 +45,7 @@ function App () {
             404
           </Route>
         </Switch>
+
       </div>
     </Router>
   )

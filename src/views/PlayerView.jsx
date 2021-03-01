@@ -15,7 +15,7 @@ export default function ({ setTheme, theme, encodedUrl }) {
   }, [encodedUrl])
 
   return (
-    <main className='view playerView'>
+    <main>
       <UrlPlayer url={targetUrl} />
     </main>
   )

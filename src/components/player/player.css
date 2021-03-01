@@ -1,3 +1,7 @@
+.app.play {
+  height: 100%;
+}
+
 .ifplayer {
   height: 100%;
   display: flex;

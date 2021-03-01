@@ -11,7 +11,7 @@ html, body {
 }
 
 .app {
-  height: 100%;
+  min-height: 100%;
   box-sizing: border-box;
 
   display: flex;
@@ -66,14 +66,14 @@ ul {
 
 /* Home */
 
-.app > main.home {
+.app > .view.home {
   padding: var(--inner-padding);
   max-height: unset;
   height: 200%;
 }
 
-.home input,
-.home select {
+.view.home input,
+.view.view.home select {
   padding: 4px 8px;
   color: var(--main-color);
   background-color: var(--bg-color);
@@ -82,20 +82,20 @@ ul {
   font: inherit;
 }
 
-.home summary {
+.view.home summary {
   display: inline-block;
   padding-right: 4px;
   cursor: pointer;
 }
 
-.home .play label {
+.view.home .play label {
   display: inline-block;
   margin-bottom: 16px;
   width: 100%;
   max-width: 400px;
 }
 
-.home .play input {
+.view.home .play input {
   box-sizing: border-box;
   width: 100%;
 }
