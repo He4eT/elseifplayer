@@ -1,3 +1,5 @@
+/* Layout */
+
 html, body {
   margin: 0;
   height: 100%;
@@ -52,7 +54,17 @@ a:focus {
   background-color: hsl(0, 0%, 0%, 0.1);
 }
 
+a:hover {
+  border-width: 3px;
+}
+
+ul {
+  list-style: square;
+}
+
 /* Dirty views */
+
+/* Home */
 
 .app > main.home {
   padding: var(--inner-padding);
@@ -76,17 +88,14 @@ a:focus {
   cursor: pointer;
 }
 
-.home details > ul {
-  border-left: 4px solid currentColor;
-}
-
 .home .play label {
-  display: block;
+  display: inline-block;
   margin-bottom: 16px;
+  width: 100%;
+  max-width: 400px;
 }
 
 .home .play input {
   box-sizing: border-box;
   width: 100%;
-  max-width: 400px;
 }

@@ -69,6 +69,7 @@
   --outer-padding: 8px;
   --inner-padding: 8px;
   --border-width: 2px;
+  --input-box-margin: 8px;
 }
 
 .solarized-light,
