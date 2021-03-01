@@ -5,16 +5,14 @@ import '~/src/style/themes.css'
 const themes = [
   'default',
   'default-borders',
-  'default-dark',
-  'default-dark-borders',
   'default-dim',
   'default-dim-borders',
+  'default-dark',
+  'default-dark-borders',
   'solarized-light',
   'solarized-light-borders',
   'solarized-dark',
   'solarized-dark-borders',
-  'nord',
-  'nord-borders',
   '_raw'
 ]
 
