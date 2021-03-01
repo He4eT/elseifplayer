@@ -34,8 +34,18 @@
   border: var(--border-width) solid var(--main-color);
   padding: var(--inner-padding);
 
-  scrollbar-color: hsl(0, 0%, 50%, 0.5) var(--bg-color);
+  scrollbar-color: var(--main-color) var(--bg-color);
   scrollbar-width: thin;
+}
+
+.textBuffer::-webkit-scrollbar {
+  width: 8px;
+}
+
+.textBuffer::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+  border: 4px solid var(--bg-color);
+  border-left-width: 0px;
 }
 
 .textBuffer > br:first-child,
