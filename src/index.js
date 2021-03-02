@@ -11,6 +11,7 @@ import {
 
 import HomeView from '~/src/views/HomeView'
 import PlayerView from '~/src/views/PlayerView'
+import NotFoundView from '~/src/views/NotFoundView'
 
 import '@fontsource/open-sans'
 import '~/src/style/base.css'
@@ -42,16 +43,7 @@ function App () {
             top100
           </Route>
           <Route>
-            <div>
-              <h1>404</h1>
-              <a href='/'>
-                Home
-              </a>
-              |
-              <a href='https://github.com/He4eT/ifplayer/issues'>
-                Report bug
-              </a>
-            </div>
+            <NotFoundView />
           </Route>
         </Switch>
 
