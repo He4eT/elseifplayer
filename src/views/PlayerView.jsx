@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import { useState, useEffect } from 'preact/hooks'
 
-import UrlPlayer from '~/src/components/player/UrlPlayer'
+import UrlPlayer from '~/src/components/Player/UrlPlayer'
 
 import '~/src/style/views/PlayerView.css'
 

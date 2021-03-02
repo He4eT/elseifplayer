@@ -1,13 +1,15 @@
 import { h } from 'preact'
 import { useState } from 'preact/hooks'
-
 import { Link } from 'wouter-preact'
 
-import FileSelector from '~/src/components/FileSelector'
-import URLSelector from '~/src/components/URLSelector'
-import ThemeSelector from '~/src/components/ThemeSelector'
-
 import { buildPlayLinkHref } from '~/src/utils/utils.routing'
+
+import LocalFileSelector from
+  '~/src/components/FileSelector/LocalFileSelector'
+import TargetURLSelector from
+  '~/src/components/FileSelector/TargetURLSelector'
+import ThemeSelector from
+  '~/src/components/ThemeSelector/ThemeSelector'
 
 import '~/src/style/views/HomeView.css'
 
@@ -100,7 +102,7 @@ export default function ({ themeEngine }) {
         <p>
           <label>
             Local file: <br />
-            <FileSelector {...{
+            <LocalFileSelector {...{
               setTargetName,
               setTargetUrl
             }} />
@@ -110,7 +112,7 @@ export default function ({ themeEngine }) {
         <p>
           <label>
             Direct link: <br />
-            <URLSelector {...{
+            <TargetURLSelector {...{
               setTargetName,
               setTargetUrl
             }} />
