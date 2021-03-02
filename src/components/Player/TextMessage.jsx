@@ -9,6 +9,7 @@ export default function ({ style, text }) {
   return ({
     input: (<span class='message input'>&gt; {text}</span>),
     subheader: (<strong>{text}</strong>),
+    emphasized: (<em>{text}</em>),
     endOfLine: (<br />)
   })[style] || defaultContent
 }
