@@ -1,3 +1,10 @@
 .app.play {
   height: 100%;
 }
+
+@media (min-width: 800px) {
+  .app.play main {
+    max-height: 90%;
+    margin: auto;
+  }
+}
