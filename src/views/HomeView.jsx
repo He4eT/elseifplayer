@@ -43,11 +43,14 @@ export default function ({ themeEngine }) {
         <h3>
           Interface theme
         </h3>
+
         <p>
           <ThemeSelector {...{
             themeEngine
           }} />
-          <br /><br />
+        </p>
+
+        <p>
           <small>
             Themes without borders
             are better suited for small screens.
@@ -80,6 +83,7 @@ export default function ({ themeEngine }) {
         <h3>
           Play the game from a file
         </h3>
+
         <p>
           <details>
             <summary>Supported formats</summary>
@@ -92,6 +96,7 @@ export default function ({ themeEngine }) {
             </ul>
           </details>
         </p>
+
         <p className='play'>
           <label>
             Local file: <br />
@@ -100,7 +105,9 @@ export default function ({ themeEngine }) {
               setTargetUrl
             }} />
           </label>
-          <br />
+        </p>
+
+        <p className='play'>
           <label>
             Direct link: <br />
             <URLSelector {...{
