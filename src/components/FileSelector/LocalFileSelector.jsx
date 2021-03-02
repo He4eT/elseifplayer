@@ -1,11 +1,11 @@
 import { h } from 'preact'
 
-export default function ({ setTargetName, setTargetUrl }) {
+export default function ({ theme, setLocation, buildLink }) {
   const fileInputHandler = ({ target }) => {
     const file = target.files[0]
-    setTargetName(file.name)
-    setTargetUrl(`${URL.createObjectURL(file)}#${file.name}`)
-    target.value = null
+    const url = `${URL.createObjectURL(file)}#${file.name}`
+
+    setLocation(buildLink({ url, theme }))
   }
 
   return (

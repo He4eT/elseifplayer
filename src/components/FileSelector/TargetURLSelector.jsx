@@ -1,23 +1,21 @@
 import { h } from 'preact'
 
-export default function ({ setTargetName, setTargetUrl }) {
+export default function ({ theme, setLocation, buildLink }) {
   const urlRE = /^(http|https):\/\/[^ "]+$/
 
-  const emit = url => {
-    setTargetName(url)
-    setTargetUrl(url)
-  }
+  const onKeyPress = ({ keyCode, target }) => {
+    if (keyCode !== 13) return
 
-  const urlInputHandler = ({ target }) => {
     const url = target.value
-    emit(urlRE.test(url)
-      ? url
-      : null)
+
+    if (urlRE.test(url)) {
+      setLocation(buildLink({ url, theme }))
+    }
   }
 
   return (
     <input
       type='text'
       placeholder='https://...'
-      onInput={urlInputHandler} />)
+      onKeyPress={onKeyPress} />)
 }

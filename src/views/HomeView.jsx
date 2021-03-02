@@ -1,8 +1,10 @@
 import { h } from 'preact'
-import { useState } from 'preact/hooks'
 import { Link } from 'wouter-preact'
 
-import { buildPlayLinkHref } from '~/src/utils/utils.routing'
+import {
+  useHashLocation,
+  buildPlayLinkHref
+} from '~/src/utils/utils.routing'
 
 import LocalFileSelector from
   '~/src/components/FileSelector/LocalFileSelector'
@@ -13,14 +15,8 @@ import ThemeSelector from
 
 import '~/src/style/views/HomeView.css'
 
-const playButton = (name, url, theme) => (
-  <Link href={buildPlayLinkHref(url, theme)}>
-    Play "{name}"
-  </Link>)
-
 export default function ({ themeEngine }) {
-  const [targetName, setTargetName] = useState(null)
-  const [targetUrl, setTargetUrl] = useState(null)
+  const setLocation = useHashLocation()[1]
 
   return (
     <main className='view home'>
@@ -103,8 +99,9 @@ export default function ({ themeEngine }) {
           <label>
             Local file: <br />
             <LocalFileSelector {...{
-              setTargetName,
-              setTargetUrl
+              setLocation,
+              buildLink: buildPlayLinkHref,
+              theme: themeEngine.currentTheme
             }} />
           </label>
         </p>
@@ -113,15 +110,13 @@ export default function ({ themeEngine }) {
           <label>
             Direct link: <br />
             <TargetURLSelector {...{
-              setTargetName,
-              setTargetUrl
+              setLocation,
+              buildLink: buildPlayLinkHref,
+              theme: themeEngine.currentTheme
             }} />
           </label>
         </p>
       </section>
 
-      { targetUrl
-        ? playButton(targetName, targetUrl, themeEngine.currentTheme)
-        : null }
     </main>)
 }
