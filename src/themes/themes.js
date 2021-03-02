@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'preact/hooks'
+import { useState } from 'preact/hooks'
 
 import '~/src/style/themes.css'
 
@@ -12,8 +12,7 @@ const themes = [
   'solarized-light',
   'solarized-light-borders',
   'solarized-dark',
-  'solarized-dark-borders',
-  '_raw'
+  'solarized-dark-borders'
 ]
 
 const DEFAULT_THEME = themes[0]
@@ -27,9 +26,9 @@ export const useThemeEngine = (initialTheme = DEFAULT_THEME) => {
   const [currentTheme, setCurrentTheme] =
     useState(initialTheme)
 
-  const setTheme = useCallback(theme => {
+  const setTheme = theme => {
     setCurrentTheme(assertTheme(theme))
-  }, [currentTheme])
+  }
 
   return { currentTheme, setTheme, themes }
 }

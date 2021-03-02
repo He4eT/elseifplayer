@@ -11,5 +11,6 @@ export default function ({ theme, setLocation, buildLink }) {
   return (
     <input
       type='file'
-      onChange={fileInputHandler} />)
+      onChange={fileInputHandler} />
+  )
 }

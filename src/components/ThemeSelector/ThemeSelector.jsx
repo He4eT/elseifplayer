@@ -12,5 +12,6 @@ export default function ({ themeEngine }) {
       onChange={({ target }) =>
         themeEngine.setTheme(target.value)}>
       {options}
-    </select>)
+    </select>
+  )
 }

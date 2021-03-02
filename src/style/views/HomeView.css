@@ -2,11 +2,6 @@
   padding: var(--inner-padding);
 }
 
-.view.home summary {
-  display: inline;
-  cursor: pointer;
-}
-
 .view.home input,
 .view.home select {
   box-sizing: border-box;

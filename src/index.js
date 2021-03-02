@@ -35,7 +35,7 @@ function App () {
           </Route>
           <Route path='/play/:theme/:encodedUrl'>
             {params => <PlayerView {...{
-              setTheme: themeEngine.setTheme,
+              ...themeEngine,
               ...params
             }} />}
           </Route>

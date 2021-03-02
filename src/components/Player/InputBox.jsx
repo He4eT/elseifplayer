@@ -14,7 +14,8 @@ const keyCodes = {
   KEY_LEFT:     37,
   KEY_UP:       38,
   KEY_RIGHT:    39,
-  KEY_DOWN:     40}
+  KEY_DOWN:     40
+}
 
 const keyNames = {
   [keyCodes.KEY_BACKSPACE]: 'delete',
@@ -28,7 +29,8 @@ const keyNames = {
   [keyCodes.KEY_LEFT]: 'left',
   [keyCodes.KEY_UP]: 'up',
   [keyCodes.KEY_RIGHT]: 'right',
-  [keyCodes.KEY_DOWN]: 'down'}
+  [keyCodes.KEY_DOWN]: 'down'
+}
 /* eslint-enable */
 
 export default function ({ currentWindow, inputType, sendMessage }) {
@@ -62,16 +64,13 @@ export default function ({ currentWindow, inputType, sendMessage }) {
 
   const inputHandlers = {
     char: {
+      placeholder: 'Press any key',
       onKeyDown: charHandler
     },
     line: {
+      placeholder: ' > ',
       onKeyPress: lineHandler
     }
-  }
-
-  const placeholder = {
-    char: 'Press any key',
-    line: ' > '
   }
 
   const enterFullscreen = _ =>
@@ -82,7 +81,6 @@ export default function ({ currentWindow, inputType, sendMessage }) {
       className='inputBox'
       ref={inputEl}
       value={inputText}
-      placeholder={placeholder[inputType]}
       autofocus
       autocomplete='off'
       onDblClick={enterFullscreen}

@@ -17,5 +17,6 @@ export default function ({ theme, setLocation, buildLink }) {
     <input
       type='text'
       placeholder='https://...'
-      onKeyPress={onKeyPress} />)
+      onKeyPress={onKeyPress} />
+  )
 }

@@ -19,8 +19,6 @@ const INITIAL_STATUS = {
 }
 
 const runMachine = ({ Engine, file, handlers }) => {
-  console.log('runMachine')
-
   const vm = new Engine()
   const { glkInterface, sendFn } = CheapGlkOte(handlers)
 
@@ -117,5 +115,6 @@ export default function ({ vmParts: { file, engine } }) {
           inputType,
           sendMessage
         }} />
-      </section>)
+      </section>
+      )
 }

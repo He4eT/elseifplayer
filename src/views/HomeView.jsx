@@ -117,6 +117,5 @@ export default function ({ themeEngine }) {
           </label>
         </p>
       </section>
-
     </main>)
 }

@@ -1,15 +1,20 @@
 import { h } from 'preact'
+import { Link } from 'wouter-preact'
 
 const fail = details => (
   <div class='status fail'>
-    <h1>Error</h1>
+    <h1>
+      Error
+    </h1>
     {details.map(x => (<p>{x}</p>))}
     <hr />
-    <a href='/'>
+    <Link href='/'>
       Home
-    </a>
+    </Link>
     |
-    <a href='https://github.com/He4eT/ifplayer/issues'>
+    <a
+      target='_blank'
+      href='https://github.com/He4eT/ifplayer/issues'>
       Report bug
     </a>
   </div>
