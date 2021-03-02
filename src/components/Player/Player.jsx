@@ -9,12 +9,13 @@ import CheapGlkOte from 'cheap-glkote'
 
 import TextBuffer from './TextBuffer'
 import InputBox from './InputBox'
+import Status from './Status'
 
 import './player.css'
 
 const INITIAL_STATUS = {
   stage: 'loading',
-  details: 'Preparing...'
+  details: ['Preparing']
 }
 
 const runMachine = ({ Engine, file, handlers }) => {
@@ -104,7 +105,7 @@ export default function ({ vmParts: { file, engine } }) {
   }, [vm])
 
   return status.stage !== 'ready'
-    ? (<div>{status.details}</div>)
+    ? (<Status {...status} />)
     : (
       <section className='ifplayer'>
         <TextBuffer {...{

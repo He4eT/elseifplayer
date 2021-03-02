@@ -67,3 +67,7 @@ summary:hover {
 ul {
   list-style: square;
 }
+
+.status {
+  padding: 8px;
+}

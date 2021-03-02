@@ -33,6 +33,6 @@ export const engineByFilename = filename => {
   if (format) {
     return format.engine
   } else {
-    throw new Error(`Unsupported file type: ${filename}`)
+    throw new Error('Unsupported file type')
   }
 }

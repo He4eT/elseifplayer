@@ -4,33 +4,34 @@ import { useState, useEffect } from 'preact/hooks'
 import { engineByFilename } from './common/engines'
 
 import Player from './Player'
+import Status from './Status'
 
 const INITIAL_STATUS = {
   stage: 'loading',
-  details: 'Loading...'
+  details: ['Loading']
 }
 
 const prepareVM = ({ url, setStatus, setParts }) => {
   const st = (stage, details) => args => {
-    setStatus({ stage, details })
+    setStatus({ stage, details: [details] })
     return args
   }
 
   return Promise.resolve()
-    .then(st('loading', 'Downloading file...'))
+    .then(st('loading', 'Downloading file'))
     .then(_ => fetch(url))
-    .then(st('loading', 'Processing file...'))
+    .then(st('loading', 'Processing file'))
     .then(response => response.arrayBuffer())
     .then(arrayBuffer => new Uint8Array(arrayBuffer))
-    .then(st('loading', 'Downloading engine...'))
+    .then(st('loading', 'Downloading engine'))
     .then(file => setParts({
       file,
       engine: engineByFilename(url)
     }))
-    .then(st('loading', 'Running...'))
+    .then(st('loading', 'Running'))
     .catch(e => {
       console.error(e)
-      setStatus({ stage: 'fail', details: e.message })
+      setStatus({ stage: 'fail', details: [e.message, url] })
     })
 }
 
@@ -47,5 +48,5 @@ export default function ({ url }) {
 
   return vmParts
     ? (<Player vmParts={vmParts} />)
-    : (<div>{status.details}</div>)
+    : (<Status {...status} />)
 }
