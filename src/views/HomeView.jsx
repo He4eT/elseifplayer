@@ -9,6 +9,8 @@ import ThemeSelector from '~/src/components/ThemeSelector'
 
 import { buildPlayLinkHref } from '~/src/utils/utils.routing'
 
+import '~/src/style/views/HomeView.css'
+
 const playButton = (name, url, theme) => (
   <Link href={buildPlayLinkHref(url, theme)}>
     Play "{name}"
@@ -44,11 +46,9 @@ export default function ({ themeEngine }) {
           Interface theme
         </h3>
 
-        <p>
-          <ThemeSelector {...{
-            themeEngine
-          }} />
-        </p>
+        <ThemeSelector {...{
+          themeEngine
+        }} />
 
         <p>
           <small>
@@ -97,7 +97,7 @@ export default function ({ themeEngine }) {
           </details>
         </p>
 
-        <p className='play'>
+        <p>
           <label>
             Local file: <br />
             <FileSelector {...{
@@ -107,7 +107,7 @@ export default function ({ themeEngine }) {
           </label>
         </p>
 
-        <p className='play'>
+        <p>
           <label>
             Direct link: <br />
             <URLSelector {...{
