@@ -55,7 +55,7 @@ export default function ({ themeEngine }) {
           </small>
           <br />
           <small>
-            Double-click on the input field during the game
+            Double-click the input field during the game
             to enter full-screen mode.
           </small>
         </p>

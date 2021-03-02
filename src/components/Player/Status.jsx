@@ -10,6 +10,13 @@ const fail = details => (
     <h1>Error</h1>
     {details.map(x => (<p>{x}</p>))}
     <hr />
+    <a href='/'>
+      Home
+    </a>
+    |
+    <a href='https://github.com/He4eT/ifplayer/issues'>
+      Report bug
+    </a>
   </div>
 )
 

@@ -42,7 +42,16 @@ function App () {
             top100
           </Route>
           <Route>
-            404
+            <div>
+              <h1>404</h1>
+              <a href='/'>
+                Home
+              </a>
+              |
+              <a href='https://github.com/He4eT/ifplayer/issues'>
+                Report bug
+              </a>
+            </div>
           </Route>
         </Switch>
 
