@@ -64,7 +64,7 @@ export default function ({ currentWindow, inputType, sendMessage }) {
 
   const inputHandlers = {
     char: {
-      placeholder: 'Press any key',
+      placeholder: 'Press any key here',
       onKeyDown: charHandler
     },
     line: {

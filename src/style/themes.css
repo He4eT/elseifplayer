@@ -1,99 +1,52 @@
-.default {
-  --bg-color: #ffffff;
+body {
+  --outer-padding: 0px;
+  --border-width: 0px;
+  --inner-padding: 8px;
+  --input-box-margin: 0px;
+}
+@media (min-width: 800px) {
+  body {
+    --outer-padding: 8px;
+    --border-width: 2px;
+    --input-box-margin: 8px;
+  }
+}
+
+/* */
+
+.light {
+  --bg-color: hsl(0, 0%, 100%, 1);
   --main-color: hsl(0, 0%, 0%, 0.8);
-  --outer-padding: 0px;
-  --inner-padding: 8px;
-  --border-width: 0px;
-  --input-box-margin: 8px;
 }
 
-.default-borders {
-  --bg-color: #ffffff;
-  --main-color: hsl(0, 0%, 0%, 0.8);
-  --outer-padding: 8px;
-  --inner-padding: 8px;
-  --border-width: 2px;
-  --input-box-margin: 8px;
-}
-
-.default-dim {
-  --bg-color: hsl(0, 0%, 20%);
+.dim {
+  --bg-color: hsl(0, 0%, 20%, 1);
   --main-color: hsl(0, 0%, 100%, 0.8);
-  --outer-padding: 0px;
-  --inner-padding: 8px;
-  --border-width: 0px;
-  --input-box-margin: 8px;
 }
 
-.default-dim-borders {
-  --bg-color: hsl(0, 0%, 20%);
-  --main-color: hsl(0, 0%, 100%, 0.8);
-  --outer-padding: 8px;
-  --inner-padding: 8px;
-  --border-width: 2px;
-  --input-box-margin: 8px;
-}
-
-.default-dark {
-  --bg-color: #000000;
-  --main-color: #ffffff;
-  --outer-padding: 0px;
-  --inner-padding: 8px;
-  --border-width: 0px;
-  --input-box-margin: 8px;
-}
-
-.default-dark-borders {
-  --bg-color: #000000;
-  --main-color: #ffffff;
-  --outer-padding: 8px;
-  --inner-padding: 8px;
-  --border-width: 2px;
-  --input-box-margin: 8px;
+.dark {
+  --bg-color: hsl(0, 0%, 0%, 1);
+  --main-color: hsl(0, 0%, 100%, 1);
 }
 
 /* solarized */
 
-.solarized-light,
-.solarized-light-borders,
-.solarized-dark,
-.solarized-dark-borders {
-  --outer-padding: 0px;
-  --inner-padding: 8px;
-  --border-width: 0px;
-  --input-box-margin: 8px;
-}
-
-.solarized-light-borders,
-.solarized-dark-borders {
-  --outer-padding: 8px;
-  --inner-padding: 8px;
-  --border-width: 2px;
-  --input-box-margin: 8px;
-}
-
-.solarized-light,
-.solarized-light-borders {
+.solarized-light {
   --main-color: #586e75;
   --bg-color: #eee8d5;
 }
 
-.solarized-dark,
-.solarized-dark-borders {
+.solarized-dark {
   --main-color: #93a1a1;
   --bg-color: #073642;
 }
 
 .solarized-light strong,
-.solarized-light-borders strong,
-.solarized-dark strong,
-.solarized-dark-borders strong{
+.solarized-dark strong {
   color: #b58900;
 }
 
 .solarized-light .message.input,
-.solarized-light-borders .message.input,
-.solarized-dark .message.input,
-.solarized-dark-borders .message.input{
+.solarized-dark .message.input {
   color: #2aa198;
 }

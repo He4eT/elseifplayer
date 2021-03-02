@@ -3,16 +3,11 @@ import { useState } from 'preact/hooks'
 import '~/src/style/themes.css'
 
 const themes = [
-  'default',
-  'default-borders',
-  'default-dim',
-  'default-dim-borders',
-  'default-dark',
-  'default-dark-borders',
+  'light',
+  'dim',
+  'dark',
   'solarized-light',
-  'solarized-light-borders',
-  'solarized-dark',
-  'solarized-dark-borders'
+  'solarized-dark'
 ]
 
 const DEFAULT_THEME = themes[0]
