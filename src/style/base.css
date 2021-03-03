@@ -53,18 +53,33 @@ summary {
 }
 
 a:focus,
-summary:focus {
-  background-color: hsl(0, 0%, 0%, 0.1);
+a:hover,
+summary:focus,
+summary:hover {
+  opacity: 0.8;
 }
 
-a:hover,
-summary:hover {
+*:focus {
+  outline: 1px solid var(--main-color);
+  outline-offset: 3px;
+}
+
+input::placeholder {
+  color: var(--main-color);
   opacity: 0.8;
 }
 
 ul {
   list-style: square;
 }
+
+hr {
+  border: 0;
+  height: 0;
+  border-top: 2px solid var(--main-color);
+}
+
+/*  */
 
 .status {
   padding: 8px;

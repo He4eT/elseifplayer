@@ -22,6 +22,14 @@
   margin-top: var(--input-box-margin);
 }
 
+.ifplayer .inputBox::placeholder {
+  color: var(--main-color);
+  opacity: 1;
+}
+.ifplayer .inputBox:focus::placeholder {
+  opacity: 0.5;
+}
+
 .ifplayer .textBuffer {
   flex: 2 1 auto;
   overflow-y: scroll;

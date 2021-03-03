@@ -50,11 +50,6 @@ export default function ({ themeEngine }) {
 
         <p>
           <small>
-            Themes without borders
-            are better suited for small screens.
-          </small>
-          <br />
-          <small>
             Double-click the input field during the game
             to enter full-screen mode.
           </small>

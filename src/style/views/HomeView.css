@@ -14,13 +14,25 @@
   font: inherit;
 }
 
+.view.home select {
+  cursor: pointer;
+  appearance: none;
+  width: 200px;
+}
+
 .view.home label {
   display: inline-block;
   width: 100%;
   max-width: 400px;
 }
 
-.view.home label input,
-.view.home label select {
+.view.home label input {
   width: 100%;
+}
+
+.view.home input[type='file'] {
+  position: relative;
+  font-size: 0;
+  text-indent: -100%;
+  cursor: pointer;
 }
