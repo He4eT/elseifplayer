@@ -12,6 +12,7 @@ export const useHashLocation = () => {
     const handler = () => setLoc(currentLoc())
 
     window.addEventListener('hashchange', handler)
+    handler()
     return () => window.removeEventListener('hashchange', handler)
   }, [])
 

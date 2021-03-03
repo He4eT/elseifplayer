@@ -1,5 +1,5 @@
 import { h, render } from 'preact'
-import { Route, Router, Switch } from 'wouter-preact'
+import { Route, Router, Redirect, Switch } from 'wouter-preact'
 
 import {
   useHashLocation,
@@ -39,6 +39,10 @@ function App () {
               ...themeEngine,
               ...params
             }} />}
+          </Route>
+          <Route path='/games'>
+            <Redirect
+              to={`/games/${themeEngine.currentTheme}/`} />
           </Route>
           <Route path='/play/:theme/:encodedUrl'>
             {params => <PlayerView {...{
