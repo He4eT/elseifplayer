@@ -50,3 +50,35 @@ body {
 .solarized-dark .message.input {
   color: #2aa198;
 }
+
+/* named */
+
+.emo {
+  --bg-color: #4d4d4d;
+  --main-color: #ff77aa;
+}
+
+.nord {
+  --bg-color: #50586c;
+  --main-color: #dce2f0;
+}
+
+.redrum {
+  --bg-color: #000000;
+  --main-color: #ff0000;
+}
+
+.toxin {
+  --bg-color: #606060;
+  --main-color: #d6ed17;
+}
+
+.valve {
+  --bg-color: #292929;
+  --main-color: #fb7e14;
+}
+
+.wasp {
+  --bg-color: #f9d142;
+  --main-color: #292826;
+}

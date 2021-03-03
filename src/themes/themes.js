@@ -7,7 +7,13 @@ const themes = [
   'dim',
   'dark',
   'solarized-light',
-  'solarized-dark'
+  'solarized-dark',
+  'emo',
+  'nord',
+  'redrum',
+  'toxin',
+  'valve',
+  'wasp'
 ]
 
 const DEFAULT_THEME = themes[0]
