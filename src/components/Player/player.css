@@ -26,8 +26,13 @@
   color: var(--main-color);
   opacity: 1;
 }
+
 .ifplayer .inputBox:focus::placeholder {
   opacity: 0.5;
+}
+
+.ifplayer .inputBox::-webkit-search-cancel-button {
+  display: none;
 }
 
 .ifplayer .textBuffer {
