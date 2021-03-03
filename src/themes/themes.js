@@ -1,6 +1,6 @@
 import { useState } from 'preact/hooks'
 
-import '~/src/style/themes.css'
+import './themes.css'
 
 const themes = [
   'light',
