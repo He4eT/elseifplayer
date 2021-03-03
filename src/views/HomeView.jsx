@@ -64,8 +64,8 @@ export default function ({ themeEngine }) {
         </h3>
 
         <p>
-          <Link href='/top100'>
-            IFDB Top 100 games
+          <Link href={`/games/${themeEngine.currentTheme}`}>
+            IFDB games
           </Link>
         </p>
       </section>

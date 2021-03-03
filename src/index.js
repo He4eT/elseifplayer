@@ -10,6 +10,7 @@ import {
 } from '~/src/themes/themes'
 
 import HomeView from '~/src/views/HomeView'
+import GamesView from '~/src/views/GamesView'
 import PlayerView from '~/src/views/PlayerView'
 import NotFoundView from '~/src/views/NotFoundView'
 
@@ -33,14 +34,17 @@ function App () {
               themeEngine
             }} />
           </Route>
+          <Route path='/games/:theme'>
+            {params => <GamesView {...{
+              ...themeEngine,
+              ...params
+            }} />}
+          </Route>
           <Route path='/play/:theme/:encodedUrl'>
             {params => <PlayerView {...{
               ...themeEngine,
               ...params
             }} />}
-          </Route>
-          <Route path='/top100'>
-            top100
           </Route>
           <Route>
             <NotFoundView />

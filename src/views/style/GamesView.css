@@ -1,0 +1,7 @@
+.app > .view.games {
+  padding: var(--inner-padding);
+}
+
+h4 {
+  margin: 0;
+}
