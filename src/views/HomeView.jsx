@@ -13,7 +13,7 @@ import TargetURLSelector from
 import ThemeSelector from
   '~/src/components/ThemeSelector/ThemeSelector'
 
-import '~/src/style/views/HomeView.css'
+import './style/HomeView.css'
 
 export default function ({ themeEngine }) {
   const setLocation = useHashLocation()[1]
