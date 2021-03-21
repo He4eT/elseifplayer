@@ -83,4 +83,5 @@ hr {
 
 .status {
   padding: 8px;
+  word-break: break-word;
 }

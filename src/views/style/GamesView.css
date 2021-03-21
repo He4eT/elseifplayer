@@ -2,6 +2,10 @@
   padding: var(--inner-padding);
 }
 
-h4 {
+.view.games h4 {
   margin: 0;
+}
+
+.view.games li {
+  margin-bottom: 1em;
 }
