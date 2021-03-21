@@ -9,9 +9,9 @@ import {
   useThemeEngine
 } from '~/src/themes/themes'
 
-import HomeView from '~/src/views/HomeView'
-import GamesView from '~/src/views/GamesView'
-import PlayerView from '~/src/views/PlayerView'
+import HomeView from '~/src/views/HomeView/HomeView'
+import GamesView from '~/src/views/GamesView/GamesView'
+import PlayerView from '~/src/views/PlayerView/PlayerView'
 import NotFoundView from '~/src/views/NotFoundView'
 
 import '@fontsource/open-sans'

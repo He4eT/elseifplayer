@@ -3,7 +3,7 @@ import { useState, useEffect } from 'preact/hooks'
 
 import UrlPlayer from '~/src/components/Player/UrlPlayer'
 
-import './style/PlayerView.css'
+import './PlayerView.css'
 
 const decode = encodedUrl => decodeURIComponent(encodedUrl)
 

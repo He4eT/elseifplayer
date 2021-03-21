@@ -5,7 +5,7 @@ import { Link } from 'wouter-preact'
 import GameEntry from
   '~/src/components/GameEntry/GameEntry'
 
-import './style/GamesView.css'
+import './GamesView.css'
 
 const tutorialGame = {
   name: 'The Dreamhold',
