@@ -18,7 +18,7 @@ const INITIAL_STATUS = {
   details: ['Preparing']
 }
 
-const runMachine = ({ Engine, file, handlers }) => {
+const runMachine = ({ engine: Engine, file, handlers }) => {
   const vm = new Engine()
   const { glkInterface, sendFn } = CheapGlkOte(handlers)
 
@@ -48,22 +48,15 @@ const Handlers = ({
   onFileNameRequest: (tosave, usage, _, setFileName) => {
     setFileName({
       usage,
-      filename: tosave ? 'save' : 'load'
+      filename: prompt('Enter the filename')
     })
   },
   onFileRead: ({ filename }) => {
-    if (filename === 'save') return null
-
-    const lsName = prompt('Enter the name of the saved file:')
-
-    const record = localStorage.getItem(`save-${lsName}`)
-    return decode(record)
+    const content = localStorage.getItem(`fake-fs/${filename}`)
+    return decode(content)
   },
   onFileWrite: ({ filename }, content) => {
-    const lsName = prompt('Select a name for the saved file:')
-    const record = encode(content)
-
-    localStorage.setItem(`save-${lsName}`, record)
+    localStorage.setItem(`fake-fs/${filename}`, encode(content))
   },
   /* */
   onExit: _ => setInputType(null)
@@ -80,17 +73,15 @@ export default function ({ vmParts: { file, engine } }) {
   const [sendMessage, setSendMessage] = useState(null)
 
   useEffect(() => {
-    const handlers = Handlers({
-      setStatus,
-      setCurrentWindow,
-      setInputType,
-      setInbox
-    })
-
     const vm = runMachine({
-      Engine: engine,
+      engine,
       file,
-      handlers
+      handlers: Handlers({
+        setStatus,
+        setCurrentWindow,
+        setInputType,
+        setInbox
+      })
     })
 
     setVm(vm)
