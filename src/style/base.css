@@ -64,6 +64,11 @@ summary:hover {
   outline-offset: 3px;
 }
 
+*::selection {
+  color: var(--bg-color);
+  background: var(--main-color);
+}
+
 input::placeholder {
   color: var(--main-color);
   opacity: 0.8;
