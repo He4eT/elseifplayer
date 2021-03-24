@@ -5,7 +5,7 @@ import {
   buildPlayLinkHref
 } from '~/src/utils/utils.routing'
 
-export default ({ name, ifdb, url, theme }) => (
+export default ({ name, ifdb, url }) => (
   <div>
     <h4>{name}</h4>
     <a
@@ -15,7 +15,7 @@ export default ({ name, ifdb, url, theme }) => (
     </a>
     <span> | </span>
     <Link
-      href={buildPlayLinkHref({ url, theme })}>
+      href={buildPlayLinkHref({ url })}>
       Play
     </Link>
   </div>

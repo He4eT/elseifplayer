@@ -64,7 +64,7 @@ export default function ({ themeEngine }) {
         </h3>
 
         <p>
-          <Link href={`/#/games/${themeEngine.currentTheme}`}>
+          <Link href={'/#/games/'}>
             IFDB games
           </Link>
         </p>

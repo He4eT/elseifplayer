@@ -1,5 +1,4 @@
 import { h } from 'preact'
-import { useEffect } from 'preact/hooks'
 import { Link } from 'wouter-preact'
 
 import GameEntry from
@@ -15,9 +14,7 @@ const tutorialGame = {
   url: 'http://mirror.ifarchive.org/if-archive/games/zcode/dreamhold.z8'
 }
 
-export default function ({ setTheme, theme }) {
-  useEffect(() => setTheme(theme), [theme])
-
+export default function () {
   return (
     <main className='view games'>
 
@@ -32,7 +29,7 @@ export default function ({ setTheme, theme }) {
 
       <p>
         Choose one or <Link href='/'>
-          go back </Link>.
+          go back</Link>.
       </p>
 
       <h3>
@@ -48,8 +45,7 @@ export default function ({ setTheme, theme }) {
       <ul>
         <li>
           <GameEntry {...{
-            ...tutorialGame,
-            theme
+            ...tutorialGame
           }} />
         </li>
       </ul>
@@ -77,8 +73,7 @@ export default function ({ setTheme, theme }) {
         {top2019.map(game => (
           <li>
             <GameEntry {...{
-              ...game,
-              theme
+              ...game
             }} />
           </li>
         ))}

@@ -21,8 +21,8 @@ export const useHashLocation = () => {
   return [loc, navigate]
 }
 
-export const buildPlayLinkHref = ({ url, theme }) =>
-  `/#/play/${theme}/${encodeURIComponent(url)}`
+export const buildPlayLinkHref = ({ url }) =>
+  `/#/play/${encodeURIComponent(url)}`
 
 export const extractView = location => {
   const currentView = location.split('/').filter(Boolean)[0]

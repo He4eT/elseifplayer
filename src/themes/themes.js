@@ -16,19 +16,28 @@ const themes = [
   'wasp'
 ]
 
+const LS_THEME_KEY = 'ifplayer/theme'
 const DEFAULT_THEME = themes[0]
+
+const getSavedTheme = () => {
+  const savedTheme = localStorage.getItem(LS_THEME_KEY)
+  return savedTheme || DEFAULT_THEME
+}
 
 const assertTheme = theme =>
   themes.includes(theme)
     ? theme
-    : DEFAULT_THEME
+    : getSavedTheme()
 
-export const useThemeEngine = (initialTheme = DEFAULT_THEME) => {
+export const useThemeEngine = (initialTheme = getSavedTheme()) => {
   const [currentTheme, setCurrentTheme] =
     useState(initialTheme)
 
   const setTheme = theme => {
-    setCurrentTheme(assertTheme(theme))
+    const newTheme = assertTheme(theme)
+
+    setCurrentTheme(newTheme)
+    localStorage.setItem(LS_THEME_KEY, newTheme)
   }
 
   return { currentTheme, setTheme, themes }
