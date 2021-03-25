@@ -35,6 +35,7 @@ const keyNames = {
 
 export default function ({ currentWindow, inputType, sendMessage }) {
   const [inputText, setInputText] = useState('')
+  const [lastInput, setLastInput] = useState('')
   const inputEl = useRef(null)
 
   useEffect(() => {
@@ -43,6 +44,7 @@ export default function ({ currentWindow, inputType, sendMessage }) {
 
   const send = x => {
     sendMessage(x, currentWindow)
+    setLastInput(x)
     setInputText('')
   }
 
@@ -62,6 +64,20 @@ export default function ({ currentWindow, inputType, sendMessage }) {
     }
   }
 
+  const lineArrowHandler = ({ keyCode }) => {
+    if (keyCode === keyCodes.KEY_UP) {
+      setInputText(lastInput)
+
+      setTimeout(_ => {
+        const end = lastInput.length
+        inputEl.current.setSelectionRange(end, end)
+      }, 0)
+    }
+    if (keyCode === keyCodes.KEY_DOWN) {
+      setInputText('')
+    }
+  }
+
   const inputHandlers = {
     char: {
       placeholder: 'Press any key here',
@@ -69,6 +85,7 @@ export default function ({ currentWindow, inputType, sendMessage }) {
     },
     line: {
       placeholder: ' > ',
+      onKeyDown: lineArrowHandler,
       onKeyPress: lineHandler
     }
   }
