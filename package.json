@@ -1,6 +1,6 @@
 {
   "name": "ifplayer",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Play interactive fiction games in your browser",
   "main": "index.js",
   "scripts": {
