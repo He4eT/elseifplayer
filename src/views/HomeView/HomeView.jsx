@@ -31,6 +31,7 @@ export default function ({ themeEngine }) {
           <br />
           Source code can be found in this <a
             target='_blank'
+            rel='noopener'
             href='https://github.com/He4eT/ifplayer'>
             repository
           </a>.
@@ -40,9 +41,9 @@ export default function ({ themeEngine }) {
       <hr />
 
       <section>
-        <h3>
+        <h2>
           Interface theme
-        </h3>
+        </h2>
 
         <ThemeSelector {...{
           themeEngine
@@ -59,9 +60,9 @@ export default function ({ themeEngine }) {
       <hr />
 
       <section>
-        <h3>
+        <h2>
           Play a game from the list
-        </h3>
+        </h2>
 
         <p>
           <Link href={'/#/games/'}>
@@ -73,9 +74,9 @@ export default function ({ themeEngine }) {
       <hr />
 
       <section>
-        <h3>
+        <h2>
           Play the game from a file
-        </h3>
+        </h2>
 
         <p>
           <details>

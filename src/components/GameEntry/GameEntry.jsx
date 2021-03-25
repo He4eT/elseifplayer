@@ -10,6 +10,7 @@ export default ({ name, ifdb, url }) => (
     <h4>{name}</h4>
     <a
       target='_blank'
+      rel='noopener'
       href={ifdb}>
       IFDB page
     </a>

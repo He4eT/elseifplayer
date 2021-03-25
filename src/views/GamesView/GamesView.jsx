@@ -21,6 +21,7 @@ export default function () {
       <h1>
         <a
           target='_blank'
+          rel='noopener'
           href='https://ifdb.org/'
           title='The Interactive Fiction Database'>
           IFDB
@@ -32,9 +33,9 @@ export default function () {
           go back</Link>.
       </p>
 
-      <h3>
+      <h2>
         Tutorial
-      </h3>
+      </h2>
 
       <p>
         If you are not familiar with Interactive Fiction,
@@ -52,19 +53,21 @@ export default function () {
 
       <br />
 
-      <h3>
+      <h2>
         Interactive Fiction Top 50 of All Time
-      </h3>
+      </h2>
 
       <p>
         <a
           target='_blank'
+          rel='noopener'
           href='https://ifdb.org/search?comp&sortby=awn&searchfor=series%3AInteractive+Fiction+Top+50+of+All+Time'>
           Every four years </a>, Victor Gijsbers puts
         together a list of the top 50 IF games of all time.
 
         Here is an almost complete version of the <a
           target='_blank'
+          rel='noopener'
           href='https://ifdb.org/viewcomp?id=1lv599reviaxvwo7'>
           list for 2019</a>:
       </p>

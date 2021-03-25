@@ -17,6 +17,7 @@ export default () => (
       |
       <a
         target='_blank'
+        rel='noopener'
         href='https://github.com/He4eT/ifplayer/issues'>
         Report bug
       </a>
