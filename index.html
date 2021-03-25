@@ -24,9 +24,21 @@
     </div>
 
   </div>
+
   <script src="./src/index.js"></script>
+
+  <!-- <goatcounter> -->
+  <script>
+    window.goatcounter = { no_onload: true }
+    window.addEventListener('hashchange', _ => {
+      window.goatcounter.count({
+        path: location.pathname + location.hash
+      })
+    })
+  </script>
   <script
     data-goatcounter="https://odd-ifplayer.goatcounter.com/count"
     async src="//gc.zgo.at/count.js"></script>
+  <!-- </goatcounter> -->
 </body>
 </html>
