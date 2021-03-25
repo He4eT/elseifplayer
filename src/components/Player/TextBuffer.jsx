@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'preact/hooks'
 
 import TextMessage from './TextMessage'
 
-const trimImputPrompt = messages =>
+const trimInputPrompt = messages =>
   messages.length < 1
     ? messages
     : messages.slice(-1)[0].text === '>'
@@ -32,7 +32,7 @@ const parseInbox = (inbox, currentWindow) => {
       /* Normalize. */
       .map(({ content }) =>
         content
-          ? [...trimImputPrompt(content), eol]
+          ? [...trimInputPrompt(content), eol]
           : [eol])
       /* Flatten. */
       .reduce((acc, x) =>
