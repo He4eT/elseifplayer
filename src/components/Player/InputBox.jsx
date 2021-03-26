@@ -39,6 +39,7 @@ export default function ({ currentWindow, inputType, sendMessage }) {
   const inputEl = useRef(null)
 
   useEffect(() => {
+    setInputText('')
     inputEl.current && inputEl.current.focus()
   }, [inputType])
 
