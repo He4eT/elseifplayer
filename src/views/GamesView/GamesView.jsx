@@ -11,7 +11,7 @@ import './GamesView.css'
 const tutorialGame = {
   name: 'The Dreamhold',
   ifdb: 'https://ifdb.org/viewgame?id=3myqnrs64nbtwdaz',
-  url: 'http://mirror.ifarchive.org/if-archive/games/zcode/dreamhold.z8'
+  url: 'https://mirror.ifarchive.org/if-archive/games/zcode/dreamhold.z8'
 }
 
 export default function () {
