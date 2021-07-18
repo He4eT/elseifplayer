@@ -33,7 +33,12 @@ const keyNames = {
 }
 /* eslint-enable */
 
-export default function ({ currentWindow, inputType, sendMessage }) {
+export default function ({
+  inputType,
+  windows,
+  currentWindowId,
+  sendMessage
+}) {
   const [inputText, setInputText] = useState('')
   const [lastInput, setLastInput] = useState('')
   const inputEl = useRef(null)
@@ -43,9 +48,14 @@ export default function ({ currentWindow, inputType, sendMessage }) {
     inputEl.current && inputEl.current.focus()
   }, [inputType])
 
-  const send = x => {
-    sendMessage(x, currentWindow)
-    setLastInput(x)
+  const send = message => {
+    sendMessage(
+      message,
+      inputType,
+      windows
+        .find(({id}) =>
+          id === currentWindowId))
+    setLastInput(message)
     setInputText('')
   }
 

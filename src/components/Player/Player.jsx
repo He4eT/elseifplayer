@@ -30,18 +30,20 @@ const runMachine = ({ engine: Engine, file, handlers }) => {
 
 const Handlers = ({
   setStatus,
-  setCurrentWindow,
+  setWindows,
+  setCurrentWindowId,
   setInputType,
   setInbox
 }) => ({
   onInit: _ => setStatus({ stage: 'ready' }),
   /* */
   onUpdateWindows: windows => {
-    setCurrentWindow(windows
-      .filter(x => x.type === 'buffer')
-      .slice(-1)[0])
+    setWindows(windows)
   },
-  onUpdateInputs: setInputType,
+  onUpdateInputs: ([{type, id}]) => {
+    setCurrentWindowId(id)
+    setInputType(type)
+  },
   onUpdateContent: setInbox,
   onDisable: _ => setInputType(null),
   /* */
@@ -65,7 +67,8 @@ const Handlers = ({
 export default function ({ vmParts: { file, engine } }) {
   const [status, setStatus] = useState(INITIAL_STATUS)
 
-  const [currentWindow, setCurrentWindow] = useState(null)
+  const [windows, setWindows] = useState([])
+  const [currentWindowId, setCurrentWindowId] = useState(null)
   const [inputType, setInputType] = useState(null)
   const [inbox, setInbox] = useState([])
 
@@ -78,7 +81,8 @@ export default function ({ vmParts: { file, engine } }) {
       file,
       handlers: Handlers({
         setStatus,
-        setCurrentWindow,
+        setWindows,
+        setCurrentWindowId,
         setInputType,
         setInbox
       })
@@ -93,19 +97,28 @@ export default function ({ vmParts: { file, engine } }) {
       : null)
   }, [vm])
 
+  const textWindow = inbox => currentWindow => {
+    const props = {
+      inbox,
+      currentWindow
+    }
+
+    return ({
+      'buffer': <TextBuffer {...props} />,
+      'grid': <div>GridView</div>
+    })[currentWindow.type]
+  }
+
   return status.stage !== 'ready'
     ? (<Status {...status} />)
-    : (
-      <section className='ifplayer'>
-        <TextBuffer {...{
-          inbox,
-          currentWindow
-        }} />
+    : (<section className='ifplayer'>
+        { windows
+            .filter(({id}) => id === currentWindowId)
+            .map(textWindow(inbox)) }
         <InputBox {...{
-          currentWindow,
           inputType,
-          sendMessage
-        }} />
-      </section>
-      )
+          windows,
+          currentWindowId,
+          sendMessage }} />
+      </section>)
 }
