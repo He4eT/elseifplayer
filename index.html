@@ -31,6 +31,8 @@
   <script>
     window.goatcounter = { no_onload: true }
     window.addEventListener('hashchange', _ => {
+      if (!window.goatcounter.count) return void null
+
       window.goatcounter.count({
         path: location.pathname + location.hash
       })
