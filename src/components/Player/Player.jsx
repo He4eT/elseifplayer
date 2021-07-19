@@ -42,7 +42,10 @@ const Handlers = ({
   onUpdateWindows: windows => {
     setWindows(windows)
   },
-  onUpdateInputs: ([{type, id}]) => {
+  onUpdateInputs: data => {
+    if (data.length === 0) return void null
+
+    const {type, id} = data[0]
     setCurrentWindowId(id)
     setInputType(type)
   },
@@ -111,12 +114,18 @@ export default function ({ vmParts: { file, engine } }) {
     })[currentWindow.type]
   }
 
+  const byTop = (a, b) =>
+    a.top - b.top
+
   return status.stage !== 'ready'
     ? (<Status {...status} />)
     : (<section className='ifplayer'>
-        { windows
+        <section className='output'>{
+          windows
+            .sort(byTop)
             // .filter(({id}) => id === currentWindowId)
-            .map(textWindow(inbox)) }
+            .map(textWindow(inbox))}
+        </section>
         <InputBox {...{
           inputType,
           windows,

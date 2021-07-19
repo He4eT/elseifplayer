@@ -35,11 +35,19 @@
   display: none;
 }
 
+.ifplayer .output {
+  display: flex;
+  flex-grow: 2;
+  flex-direction: column;
+  overflow-y: hidden;
+
+  border: var(--border-width) solid var(--main-color);
+}
+
 .ifplayer .buffer {
   overflow-y: scroll;
   box-sizing: border-box;
 
-  border: var(--border-width) solid var(--main-color);
   padding: var(--inner-padding);
 
   scrollbar-color: var(--main-color) var(--bg-color);
@@ -58,11 +66,11 @@
 
 .ifplayer .gridBuffer {
   flex-shrink: 0;
-  border-bottom: 0;
+  border-bottom: var(--border-width) solid var(--main-color);
 }
 
 .ifplayer .textBuffer {
-  flex: 2 1 auto;
+  flex: 2 1;
 }
 
 .ifplayer .textBuffer > br:first-child,
