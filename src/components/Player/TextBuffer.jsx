@@ -82,6 +82,7 @@ export default function ({ inbox, currentWindow }) {
 
   return (
     <section
+      tabindex='0'
       ref={textBufferEl}
       className={classes}>
         {messages.map(TextMessage)}
