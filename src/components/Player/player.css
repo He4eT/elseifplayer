@@ -54,6 +54,10 @@
   scrollbar-width: thin;
 }
 
+.ifplayer .buffer:empty {
+  display: none;
+}
+
 .ifplayer .buffer::-webkit-scrollbar {
   width: 8px;
 }
