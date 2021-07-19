@@ -44,7 +44,7 @@
   border: var(--border-width) solid var(--main-color);
 }
 
-.ifplayer .buffer {
+.ifplayer .output .buffer {
   overflow-y: scroll;
   box-sizing: border-box;
 
@@ -54,32 +54,33 @@
   scrollbar-width: thin;
 }
 
-.ifplayer .buffer:empty {
+.ifplayer .output .buffer:empty {
   display: none;
 }
 
-.ifplayer .buffer::-webkit-scrollbar {
+.ifplayer .output .buffer::-webkit-scrollbar {
   width: 8px;
 }
 
-.ifplayer .buffer::-webkit-scrollbar-thumb {
+.ifplayer .output .buffer::-webkit-scrollbar-thumb {
   background-color: var(--main-color);
   border: 4px solid var(--bg-color);
   border-left-width: 0px;
 }
 
-.ifplayer .gridBuffer {
+.ifplayer .output .gridBuffer {
   flex-shrink: 0;
   border-bottom: var(--border-width) solid var(--main-color);
 }
 
-.ifplayer .textBuffer {
+.ifplayer .output .textBuffer {
   flex: 2 1;
+  outline: none;
 }
 
-.ifplayer .textBuffer > br:first-child,
-.ifplayer .textBuffer > br:last-child,
-.ifplayer .textBuffer > br + br + br {
+.ifplayer .output .textBuffer > br:first-child,
+.ifplayer .output .textBuffer > br:last-child,
+.ifplayer .output .textBuffer > br + br + br {
   display: none;
 }
 
