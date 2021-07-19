@@ -8,9 +8,11 @@ export default function ({ inbox, currentWindow }) {
   const [messages, setMessages] = useState([])
 
   useEffect(() => {
-    const currentInbox =
+    const currentInboxObj =
       inbox.find(({ id }) =>
-        id === currentWindow.id).lines
+        id === currentWindow.id)
+
+    const currentInbox = currentInboxObj?.lines ?? []
 
     const newOrPrev = (cur, prev) => i => {
       const byId = (list, i) =>
