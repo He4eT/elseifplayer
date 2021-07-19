@@ -3,6 +3,9 @@ import { useEffect, useRef, useState } from 'preact/hooks'
 
 import TextMessage from './TextMessage'
 
+const isFakeStatus = w =>
+  w.height < 5
+
 const trimInputPrompt = messages =>
   messages.length < 1
     ? messages
@@ -22,7 +25,7 @@ const parseInbox = (inbox, currentWindow) => {
     }
   }
 
-  const { clear, text: inboxMessagesRaw } =
+  const { text: inboxMessagesRaw } =
     currentInbox
 
   const eol = { style: 'endOfLine' }
@@ -38,7 +41,12 @@ const parseInbox = (inbox, currentWindow) => {
       .reduce((acc, x) =>
         acc.concat(x), [])
 
-  return { clear, incoming }
+  return {
+    incoming,
+    clear: isFakeStatus(currentWindow)
+      ? true
+      : currentInbox.clear
+  }
 }
 
 export default function ({ inbox, currentWindow }) {
@@ -66,11 +74,17 @@ export default function ({ inbox, currentWindow }) {
     }, 0)
   }, [inbox])
 
+  const classes = [
+    isFakeStatus(currentWindow)
+      ? 'gridBuffer'
+      : 'textBuffer',
+    'buffer'].join(' ')
+
   return (
     <section
       ref={textBufferEl}
-      className='buffer textBuffer'>
-      {messages.map(TextMessage)}
+      className={classes}>
+        {messages.map(TextMessage)}
     </section>
   )
 }
