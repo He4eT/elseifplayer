@@ -39,6 +39,7 @@ export default function ({
   currentWindowId,
   sendMessage
 }) {
+  const [targetWindow, setTargetWindow] = useState(null)
   const [inputText, setInputText] = useState('')
   const [lastInput, setLastInput] = useState('')
   const inputEl = useRef(null)
@@ -48,13 +49,18 @@ export default function ({
     inputEl.current && inputEl.current.focus()
   }, [inputType])
 
+  useEffect(() => {
+    setTargetWindow(
+      windows
+        .find(({id}) =>
+          id === currentWindowId))
+  }, [currentWindowId, windows])
+
   const send = message => {
     sendMessage(
       message,
       inputType,
-      windows
-        .find(({id}) =>
-          id === currentWindowId))
+      targetWindow)
     setLastInput(message)
     setInputText('')
   }

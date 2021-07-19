@@ -7,6 +7,7 @@ export default function ({ style, text }) {
     </span>)
 
   return ({
+    grid: (<div>{text}&nbsp;</div>),
     input: (<span class='message input'>&gt; {text}</span>),
     subheader: (<strong>{text}</strong>),
     emphasized: (<em>{text}</em>),
