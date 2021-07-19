@@ -69,7 +69,7 @@ export default function ({ inbox, currentWindow }) {
   return (
     <section
       ref={textBufferEl}
-      className='textBuffer'>
+      className='buffer textBuffer'>
       {messages.map(TextMessage)}
     </section>
   )

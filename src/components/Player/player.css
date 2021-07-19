@@ -35,8 +35,7 @@
   display: none;
 }
 
-.ifplayer .textBuffer {
-  flex: 2 1 auto;
+.ifplayer .buffer {
   overflow-y: scroll;
   box-sizing: border-box;
 
@@ -47,14 +46,23 @@
   scrollbar-width: thin;
 }
 
-.ifplayer .textBuffer::-webkit-scrollbar {
+.ifplayer .buffer::-webkit-scrollbar {
   width: 8px;
 }
 
-.ifplayer .textBuffer::-webkit-scrollbar-thumb {
+.ifplayer .buffer::-webkit-scrollbar-thumb {
   background-color: var(--main-color);
   border: 4px solid var(--bg-color);
   border-left-width: 0px;
+}
+
+.ifplayer .gridBuffer {
+  flex-shrink: 0;
+  border-bottom: 0;
+}
+
+.ifplayer .textBuffer {
+  flex: 2 1 auto;
 }
 
 .ifplayer .textBuffer > br:first-child,

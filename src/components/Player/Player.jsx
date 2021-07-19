@@ -8,6 +8,8 @@ import {
 import CheapGlkOte from 'cheap-glkote'
 
 import TextBuffer from './TextBuffer'
+import GridBuffer from './GridBuffer'
+
 import InputBox from './InputBox'
 import Status from './Status'
 
@@ -105,7 +107,7 @@ export default function ({ vmParts: { file, engine } }) {
 
     return ({
       'buffer': <TextBuffer {...props} />,
-      'grid': <div>GridView</div>
+      'grid': <GridBuffer {...props} />
     })[currentWindow.type]
   }
 
@@ -113,7 +115,7 @@ export default function ({ vmParts: { file, engine } }) {
     ? (<Status {...status} />)
     : (<section className='ifplayer'>
         { windows
-            .filter(({id}) => id === currentWindowId)
+            // .filter(({id}) => id === currentWindowId)
             .map(textWindow(inbox)) }
         <InputBox {...{
           inputType,
