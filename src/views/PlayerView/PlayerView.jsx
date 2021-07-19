@@ -7,7 +7,9 @@ import './PlayerView.css'
 
 const decode = encodedUrl => decodeURIComponent(encodedUrl)
 
-export default function ({ setTheme, theme, encodedUrl }) {
+export default function ({
+  setTheme, theme, encodedUrl, singleWindow
+}) {
   useEffect(() => setTheme(theme), [theme])
 
   const [targetUrl, setTargetUrl] = useState(decode(encodedUrl))
@@ -18,7 +20,9 @@ export default function ({ setTheme, theme, encodedUrl }) {
 
   return (
     <main>
-      <UrlPlayer url={targetUrl} />
+      <UrlPlayer {...{
+        url: targetUrl,
+        singleWindow}}/>
     </main>
   )
 }

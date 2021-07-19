@@ -35,7 +35,7 @@ const prepareVM = ({ url, setStatus, setParts }) => {
     })
 }
 
-export default function ({ url }) {
+export default function ({ url, singleWindow }) {
   const [status, setStatus] = useState(INITIAL_STATUS)
   const [vmParts, setParts] = useState(null)
 
@@ -47,6 +47,9 @@ export default function ({ url }) {
   }, [url])
 
   return vmParts
-    ? (<Player vmParts={vmParts} />)
+    ? (<Player {...{
+        vmParts,
+        singleWindow
+      }}/>)
     : (<Status {...status} />)
 }
