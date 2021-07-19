@@ -21,6 +21,12 @@ function App () {
   const themeEngine = useThemeEngine()
   const [location] = useHashLocation()
 
+  const playerView = (themeEngine, singleWindow) => params =>
+    (<PlayerView {...{
+      ...themeEngine,
+      ...params,
+      singleWindow}}/>)
+
   return (
     <Router hook={useHashLocation}>
       <div className={[
@@ -37,18 +43,20 @@ function App () {
           <Route path='/games/'>
             <GamesView />
           </Route>
+
           <Route path='/play/:encodedUrl'>
-            {params => <PlayerView {...{
-              ...themeEngine,
-              ...params
-            }} />}
+            { playerView(themeEngine, false) }
+          </Route>
+          <Route path='/play/:encodedUrl/focus'>
+            { playerView(themeEngine, true) }
+          </Route>
+          <Route path='/play/:encodedUrl/:theme/focus'>
+            { playerView(themeEngine, true) }
           </Route>
           <Route path='/play/:encodedUrl/:theme'>
-            {params => <PlayerView {...{
-              ...themeEngine,
-              ...params
-            }} />}
+            { playerView(themeEngine, false) }
           </Route>
+
           <Route>
             <NotFoundView />
           </Route>

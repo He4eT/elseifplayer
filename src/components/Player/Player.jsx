@@ -37,7 +37,9 @@ const Handlers = ({
   setInputType,
   setInbox
 }) => ({
-  onInit: _ => setStatus({ stage: 'ready' }),
+  onInit: _ => {
+    setStatus({ stage: 'ready' })
+  },
   /* */
   onUpdateWindows: windows => {
     setWindows(windows)
@@ -49,8 +51,12 @@ const Handlers = ({
     setCurrentWindowId(id)
     setInputType(type)
   },
-  onUpdateContent: setInbox,
-  onDisable: _ => setInputType(null),
+  onUpdateContent: inbox => {
+    setInbox(inbox)
+  },
+  onDisable: _ => {
+    setInputType(null)
+  },
   /* */
   onFileNameRequest: (tosave, usage, _, setFileName) => {
     setFileName({
@@ -66,10 +72,14 @@ const Handlers = ({
     localStorage.setItem(`fake-fs/${filename}`, encode(content))
   },
   /* */
-  onExit: _ => setInputType(null)
+  onExit: _ => {
+    setInputType(null)
+  }
 })
 
-export default function ({ vmParts: { file, engine } }) {
+export default function ({
+  vmParts: { file, engine }, singleWindow
+}) {
   const [status, setStatus] = useState(INITIAL_STATUS)
 
   const [windows, setWindows] = useState([])
@@ -123,7 +133,9 @@ export default function ({ vmParts: { file, engine } }) {
         <section className='output'>{
           windows
             .sort(byTop)
-            // .filter(({id}) => id === currentWindowId)
+            .filter(singleWindow
+              ? ({id}) => id === currentWindowId
+              : _ => true)
             .map(textWindow(inbox))}
         </section>
         <InputBox {...{
