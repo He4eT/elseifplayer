@@ -28,17 +28,28 @@ export default function ({ inbox, currentWindow }) {
         .map(newOrPrev(currentInbox, prevMessages))
 
     setPrevMessages(rawMessages)
-    setMessages(rawMessages
-      .map(x => x.content)
-      .map(([x]) => x)
-      .map(({text}) => text)
-      .map(text => text.trim())
-      .map(text =>
-        text.replace('   ', ' / '))
-      .map(text => ({
-        style: 'grid',
-        text}))
-    )
+
+    const rawMessagesContent =
+      rawMessages
+        .map(x => x.content)
+        .map(([x]) => x)
+        .map(({text}) => text)
+        .map(text => text.trim())
+
+    const isEmpty =
+      rawMessagesContent
+        .map(text => text.length)
+        .every(l => l === 0)
+
+    const messages =
+      rawMessagesContent
+        .map(text =>
+          text.replace('   ', ' / '))
+        .map(text => ({
+          style: 'grid',
+          text}))
+
+    setMessages(isEmpty ? [] : messages)
   }, [inbox, currentWindow])
 
   return (
