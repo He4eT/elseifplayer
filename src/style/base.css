@@ -24,6 +24,9 @@ html, body {
 
   background-color: var(--bg-color);
   color: var(--main-color);
+
+  /* Fix for Jumping Scrollbar Issue  */
+  padding-left: calc(100vw - 100%);
 }
 
 .app > main {
