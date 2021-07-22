@@ -1,3 +1,8 @@
+import {
+  compressToUTF16 as encode,
+  decompressFromUTF16 as decode
+} from 'lz-string'
+
 export const Handlers = ({
   setStatus,
   setWindows,
@@ -13,9 +18,9 @@ export const Handlers = ({
     setWindows(windows)
   },
   onUpdateInputs: data => {
-    if (data.length === 0) return void null
+    if (data.length === 0) return null
 
-    const {type, id} = data[0]
+    const { type, id } = data[0]
     setCurrentWindowId(id)
     setInputType(type)
   },

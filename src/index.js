@@ -25,7 +25,8 @@ function App () {
     (<PlayerView {...{
       ...themeEngine,
       ...params,
-      singleWindow}}/>)
+      singleWindow
+    }} />)
 
   return (
     <Router hook={useHashLocation}>

@@ -1,9 +1,5 @@
 import { h } from 'preact'
 import { useState, useEffect } from 'preact/hooks'
-import {
-  compressToUTF16 as encode,
-  decompressFromUTF16 as decode
-} from 'lz-string'
 
 import CheapGlkOte from 'cheap-glkote'
 
@@ -13,7 +9,7 @@ import GridBuffer from './GridBuffer'
 import InputBox from './InputBox'
 import Status from './Status'
 
-import {Handlers} from './playerHandlers'
+import { Handlers } from './playerHandlers'
 
 import './player.css'
 
@@ -74,8 +70,8 @@ export default function ({
     }
 
     return ({
-      'buffer': <TextBuffer {...props} />,
-      'grid': <GridBuffer {...props} />
+      buffer: <TextBuffer {...props} />,
+      grid: <GridBuffer {...props} />
     })[currentWindow.type]
   }
 
@@ -85,18 +81,19 @@ export default function ({
   return status.stage !== 'ready'
     ? (<Status {...status} />)
     : (<section className='ifplayer'>
-        <section className='output'>{
+      <section className='output'>{
           windows
             .sort(byTop)
             .filter(singleWindow
-              ? ({id}) => id === currentWindowId
+              ? ({ id }) => id === currentWindowId
               : _ => true)
             .map(textWindow(inbox))}
-        </section>
-        <InputBox {...{
-          inputType,
-          windows,
-          currentWindowId,
-          sendMessage }} />
-      </section>)
+      </section>
+      <InputBox {...{
+        inputType,
+        windows,
+        currentWindowId,
+        sendMessage
+      }} />
+    </section>)
 }

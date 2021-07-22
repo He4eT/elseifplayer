@@ -52,7 +52,7 @@ export default function ({
   useEffect(() => {
     setTargetWindow(
       windows
-        .find(({id}) =>
+        .find(({ id }) =>
           id === currentWindowId))
   }, [currentWindowId, windows])
 

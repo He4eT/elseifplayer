@@ -22,7 +22,8 @@ export default function ({
     <main>
       <UrlPlayer {...{
         url: targetUrl,
-        singleWindow}}/>
+        singleWindow
+      }} />
     </main>
   )
 }

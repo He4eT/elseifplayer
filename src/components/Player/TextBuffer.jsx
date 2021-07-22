@@ -85,7 +85,7 @@ export default function ({ inbox, currentWindow }) {
       tabindex='0'
       ref={textBufferEl}
       className={classes}>
-        {messages.map(TextMessage)}
+      {messages.map(TextMessage)}
     </section>
   )
 }

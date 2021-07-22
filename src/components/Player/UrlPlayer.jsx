@@ -50,6 +50,6 @@ export default function ({ url, singleWindow }) {
     ? (<Player {...{
         vmParts,
         singleWindow
-      }}/>)
+      }} />)
     : (<Status {...status} />)
 }
