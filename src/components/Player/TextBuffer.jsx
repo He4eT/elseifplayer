@@ -57,7 +57,7 @@ export default function ({ inbox, currentWindow }) {
     const { incoming, clear } =
       parseInbox(inbox, currentWindow)
 
-    setMessages(clear
+    setMessages(messages => clear
       ? incoming
       : messages.concat(incoming))
 
@@ -72,7 +72,7 @@ export default function ({ inbox, currentWindow }) {
           ? lastInput.offsetTop
           : textBufferEl.current.scrollHeight * 2
     }, 0)
-  }, [inbox])
+  }, [currentWindow, inbox])
 
   const classes = [
     isFakeStatus(currentWindow)
@@ -85,7 +85,7 @@ export default function ({ inbox, currentWindow }) {
       tabindex='0'
       ref={textBufferEl}
       className={classes}>
-      {messages.map(TextMessage)}
+        {messages.map(TextMessage)}
     </section>
   )
 }

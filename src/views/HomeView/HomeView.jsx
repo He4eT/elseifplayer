@@ -31,7 +31,7 @@ export default function ({ themeEngine }) {
           <br />
           Source code can be found in this <a
             target='_blank'
-            rel='noopener'
+            rel='noopener noreferrer'
             href='https://github.com/He4eT/ifplayer'>
             repository
           </a>.

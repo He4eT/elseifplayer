@@ -6,7 +6,7 @@ const fail = details => (
     <h1>
       Error
     </h1>
-    {details.map(x => (<p>{x}</p>))}
+    {details.map(x => (<p key={x}>{x}</p>))}
     <hr />
     <Link href='/'>
       Home
@@ -14,7 +14,7 @@ const fail = details => (
     |
     <a
       target='_blank'
-      rel='noopener'
+      rel='noopener noreferrer'
       href='https://github.com/He4eT/ifplayer/issues'>
       Report bug
     </a>
@@ -23,7 +23,7 @@ const fail = details => (
 
 const loading = details => (
   <div class='status loading'>
-    {details.map(x => (<div>{x}</div>))}
+    {details.map(x => (<div key={x}>{x}</div>))}
   </div>
 )
 

@@ -1,5 +1,5 @@
 import { h } from 'preact'
-import { useEffect, useRef, useState } from 'preact/hooks'
+import { useEffect, useState } from 'preact/hooks'
 
 import TextMessage from './TextMessage'
 
@@ -16,7 +16,7 @@ export default function ({ inbox, currentWindow }) {
 
     const newOrPrev = (cur, prev) => i => {
       const byId = (list, i) =>
-        list.find(({line}) => line === i)
+        list.find(({ line }) => line === i)
 
       return byId(cur, i) || byId(prev, i)
     }
@@ -33,7 +33,7 @@ export default function ({ inbox, currentWindow }) {
       rawMessages
         .map(x => x.content)
         .map(([x]) => x)
-        .map(({text}) => text)
+        .map(({ text }) => text)
         .map(text => text.trim())
 
     const isEmpty =
@@ -47,10 +47,11 @@ export default function ({ inbox, currentWindow }) {
           text.replace('   ', ' / '))
         .map(text => ({
           style: 'grid',
-          text}))
+          text
+        }))
 
     setMessages(isEmpty ? [] : messages)
-  }, [inbox, currentWindow])
+  }, [inbox, currentWindow, prevMessages])
 
   return (
     <section

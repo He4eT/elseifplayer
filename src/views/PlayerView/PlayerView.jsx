@@ -10,7 +10,7 @@ const decode = encodedUrl => decodeURIComponent(encodedUrl)
 export default function ({
   setTheme, theme, encodedUrl, singleWindow
 }) {
-  useEffect(() => setTheme(theme), [theme])
+  useEffect(() => setTheme(theme), [setTheme, theme])
 
   const [targetUrl, setTargetUrl] = useState(decode(encodedUrl))
 
