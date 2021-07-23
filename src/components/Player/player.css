@@ -70,6 +70,7 @@
 
 .ifplayer .output .gridBuffer {
   flex-shrink: 0;
+  max-height: 100%;
   border-bottom: var(--border-width) solid var(--main-color);
 }
 

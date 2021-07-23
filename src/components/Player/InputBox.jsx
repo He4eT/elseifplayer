@@ -65,7 +65,12 @@ export default function ({
     setInputText('')
   }
 
-  const charHandler = event => {
+  const charHandler = event =>
+    (event.keyCode === 229
+      ? charHandlerMobile
+      : charHandlerDefault)(event)
+
+  const charHandlerDefault = event => {
     event.preventDefault()
 
     const key =
@@ -74,6 +79,12 @@ export default function ({
 
     send(key)
   }
+
+  const charHandlerMobile = event =>
+    setTimeout(_ => {
+      send(event.target.value.slice(-1).toUpperCase())
+      setInputText('')
+    })
 
   const lineHandler = ({ keyCode, target: { value } }) => {
     if (keyCode === keyCodes.KEY_RETURN) {
@@ -97,6 +108,10 @@ export default function ({
 
   const inputHandlers = {
     char: {
+      maxlength: '1',
+      autocapitalize: 'off',
+      autocorrect: 'off',
+      spellcheck: 'false',
       placeholder: 'Press any key here',
       onKeyDown: charHandler
     },
