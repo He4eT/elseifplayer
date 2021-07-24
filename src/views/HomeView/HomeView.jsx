@@ -21,7 +21,7 @@ export default function ({ themeEngine }) {
   return (
     <main className='view home'>
       <h1>
-        ifplayer
+        ElseIFPlayer
       </h1>
 
       <section>
@@ -32,7 +32,7 @@ export default function ({ themeEngine }) {
           Source code can be found in this <a
             target='_blank'
             rel='noopener noreferrer'
-            href='https://github.com/He4eT/ifplayer'>
+            href='https://github.com/He4eT/elseifplayer'>
             repository
           </a>.
         </p>

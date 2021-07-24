@@ -2,7 +2,7 @@
 
 CURRENT_TIMESTAMP=`date +"%Y-%m-%d-%H%M%S"`
 
-GH_REPO_NAME='ifplayer'
+GH_REPO_NAME='elseifplayer'
 RELEASE_BRANCH='release'
 BUILD_DIR='docs'
 

@@ -15,7 +15,7 @@ const fail = details => (
     <a
       target='_blank'
       rel='noopener noreferrer'
-      href='https://github.com/He4eT/ifplayer/issues'>
+      href='https://github.com/He4eT/elseifplayer/issues'>
       Report bug
     </a>
   </div>

@@ -16,7 +16,7 @@ const themes = [
   'wasp'
 ]
 
-const LS_THEME_KEY = 'ifplayer/theme'
+const LS_THEME_KEY = 'elseifplayer/theme'
 const DEFAULT_THEME = themes[0]
 
 const getSavedTheme = () => {
