@@ -1,5 +1,5 @@
 {
-  "name": "ifplayer",
+  "name": "elseifplayer",
   "version": "0.1.0",
   "description": "Play interactive fiction games in your browser",
   "main": "index.js",
