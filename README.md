@@ -19,6 +19,6 @@ You can provide the direct link to your game:
 
 ### Examples
 - [Play "Lost Pig" with default or last used theme](https://he4et.github.io/elseifplayer/#/play/https%3A%2F%2Fmirror.ifarchive.org%2Fif-archive%2Fgames%2Fzcode%2FLostPig.z8/);
-- [Play "Lost Pig" without statusbar with default or last used theme](https://he4et.github.io/elseifplayer/#/play/https%3A%2F%2Fmirror.ifarchive.org%2Fif-archive%2Fgames%2Fzcode%2FLostPig.z8/);
+- [Play "Lost Pig" without statusbar with default or last used theme](https://he4et.github.io/elseifplayer/#/play/https%3A%2F%2Fmirror.ifarchive.org%2Fif-archive%2Fgames%2Fzcode%2FLostPig.z8/focus/);
 - [Play "Lost Pig" with Nord theme](https://he4et.github.io/elseifplayer/#/play/https%3A%2F%2Fmirror.ifarchive.org%2Fif-archive%2Fgames%2Fzcode%2FLostPig.z8/nord/);
 - [Play "Lost Pig" without statusbar with Dim theme](https://he4et.github.io/elseifplayer/#/play/https%3A%2F%2Fmirror.ifarchive.org%2Fif-archive%2Fgames%2Fzcode%2FLostPig.z8/dim/focus/);
