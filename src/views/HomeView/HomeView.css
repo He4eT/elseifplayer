@@ -17,6 +17,8 @@
 .view.home select {
   cursor: pointer;
   appearance: none;
+  -webkit-appearance: none;
+  border-radius: 0;
   width: 200px;
 }
 
