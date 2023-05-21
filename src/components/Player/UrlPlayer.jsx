@@ -8,16 +8,16 @@ import Status from './Status'
 
 const INITIAL_STATUS = {
   stage: 'loading',
-  details: ['Loading']
+  details: ['Loading'],
 }
 
 const prepareVM = ({ url, setStatus, setParts }) => {
-  const st = (stage, details) => args => {
+  const st = (stage, details) => (args) => {
     setStatus({ stage, details: [details] })
     return args
   }
 
-  const cleanUrl = url =>
+  const cleanUrl = (url) =>
     url.startsWith('blob:')
       ? url.replace(/#(.*)$/g, '')
       : url
@@ -27,21 +27,21 @@ const prepareVM = ({ url, setStatus, setParts }) => {
     .then(cleanUrl)
     .then(fetch)
     .then(st('loading', 'Processing file'))
-    .then(response => response.arrayBuffer())
-    .then(arrayBuffer => new Uint8Array(arrayBuffer))
+    .then((response) => response.arrayBuffer())
+    .then((arrayBuffer) => new Uint8Array(arrayBuffer))
     .then(st('loading', 'Downloading engine'))
-    .then(file => setParts({
+    .then((file) => setParts({
       file,
-      engine: engineByFilename(url)
+      engine: engineByFilename(url),
     }))
     .then(st('loading', 'Running'))
-    .catch(e => {
+    .catch((e) => {
       console.error(e)
       setStatus({ stage: 'fail', details: [e.message, url] })
     })
 }
 
-export default function ({ url, singleWindow }) {
+export default function UrlPlayer ({ url, singleWindow }) {
   const [status, setStatus] = useState(INITIAL_STATUS)
   const [vmParts, setParts] = useState(null)
 
@@ -54,8 +54,8 @@ export default function ({ url, singleWindow }) {
 
   return vmParts
     ? (<Player {...{
-        vmParts,
-        singleWindow
-      }} />)
+      vmParts,
+      singleWindow,
+    }} />)
     : (<Status {...status} />)
 }

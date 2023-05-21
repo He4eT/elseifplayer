@@ -33,11 +33,11 @@ const keyNames = {
 }
 /* eslint-enable */
 
-export default function ({
+export default function InputBox ({
   inputType,
   windows,
   currentWindowId,
-  sendMessage
+  sendMessage,
 }) {
   const [targetWindow, setTargetWindow] = useState(null)
   const [inputText, setInputText] = useState('')
@@ -56,7 +56,7 @@ export default function ({
           id === currentWindowId))
   }, [currentWindowId, windows])
 
-  const send = message => {
+  const send = (message) => {
     sendMessage(
       message,
       inputType,
@@ -65,12 +65,12 @@ export default function ({
     setInputText('')
   }
 
-  const charHandler = event =>
+  const charHandler = (event) =>
     (event.keyCode === 229
       ? charHandlerMobile
       : charHandlerDefault)(event)
 
-  const charHandlerDefault = event => {
+  const charHandlerDefault = (event) => {
     event.preventDefault()
 
     const key =
@@ -80,8 +80,8 @@ export default function ({
     send(key)
   }
 
-  const charHandlerMobile = event =>
-    setTimeout(_ => {
+  const charHandlerMobile = (event) =>
+    setTimeout(() => {
       send(event.target.value.slice(-1).toUpperCase())
       setInputText('')
     })
@@ -96,7 +96,7 @@ export default function ({
     if (keyCode === keyCodes.KEY_UP) {
       setInputText(lastInput)
 
-      setTimeout(_ => {
+      setTimeout(() => {
         const end = lastInput.length
         inputEl.current.setSelectionRange(end, end)
       }, 0)
@@ -113,16 +113,16 @@ export default function ({
       autocorrect: 'off',
       spellcheck: 'false',
       placeholder: 'Press any key here',
-      onKeyDown: charHandler
+      onKeyDown: charHandler,
     },
     line: {
       placeholder: ' > ',
       onKeyDown: lineArrowHandler,
-      onKeyPress: lineHandler
-    }
+      onKeyPress: lineHandler,
+    },
   }
 
-  const enterFullscreen = _ =>
+  const enterFullscreen = () =>
     document.documentElement.requestFullscreen()
 
   return (

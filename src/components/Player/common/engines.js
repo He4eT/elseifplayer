@@ -7,27 +7,27 @@ const formats = [
   {
     id: 'bocfel',
     extensions: /z([3458]|blorb)$/,
-    engine: bocfel
+    engine: bocfel,
   },
   {
     id: 'git',
     extensions: /(gblorb|ulx)$/,
-    engine: git
+    engine: git,
   },
   {
     id: 'hugo',
     extensions: /hex$/,
-    engine: hugo
+    engine: hugo,
   },
   {
     id: 'tads',
     extensions: /(gam|t3)$/,
-    engine: tads
-  }
+    engine: tads,
+  },
 ]
 
-export const engineByFilename = filename => {
-  const format = formats.find(x =>
+export const engineByFilename = (filename) => {
+  const format = formats.find((x) =>
     x.extensions.test(filename))
 
   if (format) {

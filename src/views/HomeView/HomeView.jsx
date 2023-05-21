@@ -3,7 +3,7 @@ import { Link } from 'wouter-preact'
 
 import {
   useHashLocation,
-  buildPlayLinkHref
+  buildPlayLinkHref,
 } from '~/src/utils/utils.routing'
 
 import LocalFileSelector from
@@ -15,7 +15,7 @@ import ThemeSelector from
 
 import './HomeView.css'
 
-export default function ({ themeEngine }) {
+export default function HomeView ({ themeEngine }) {
   const setLocation = useHashLocation()[1]
 
   return (
@@ -46,7 +46,7 @@ export default function ({ themeEngine }) {
         </h2>
 
         <ThemeSelector {...{
-          themeEngine
+          themeEngine,
         }} />
 
         <p>
@@ -97,7 +97,7 @@ export default function ({ themeEngine }) {
             <LocalFileSelector {...{
               setLocation,
               buildLink: buildPlayLinkHref,
-              theme: themeEngine.currentTheme
+              theme: themeEngine.currentTheme,
             }} />
           </label>
         </p>
@@ -108,7 +108,7 @@ export default function ({ themeEngine }) {
             <TargetURLSelector {...{
               setLocation,
               buildLink: buildPlayLinkHref,
-              theme: themeEngine.currentTheme
+              theme: themeEngine.currentTheme,
             }} />
           </label>
         </p>

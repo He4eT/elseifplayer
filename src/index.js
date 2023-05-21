@@ -3,10 +3,10 @@ import { Route, Router, Switch } from 'wouter-preact'
 
 import {
   useHashLocation,
-  extractView
+  extractView,
 } from '~/src/utils/utils.routing'
 import {
-  useThemeEngine
+  useThemeEngine,
 } from '~/src/themes/themes'
 
 import HomeView from '~/src/views/HomeView/HomeView'
@@ -21,12 +21,14 @@ function App () {
   const themeEngine = useThemeEngine()
   const [location] = useHashLocation()
 
-  const playerView = (themeEngine, singleWindow) => params =>
-    (<PlayerView {...{
-      ...themeEngine,
-      ...params,
-      singleWindow
-    }} />)
+  const playerView = (themeEngine, singleWindow) =>
+    function view (params) {
+      return (<PlayerView {...{
+        ...themeEngine,
+        ...params,
+        singleWindow,
+      }} />)
+    }
 
   return (
     <Router hook={useHashLocation}>
@@ -38,7 +40,7 @@ function App () {
         <Switch>
           <Route path='/'>
             <HomeView {...{
-              themeEngine
+              themeEngine,
             }} />
           </Route>
           <Route path='/games/'>

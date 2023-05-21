@@ -1,12 +1,12 @@
 import { h } from 'preact'
 import { Link } from 'wouter-preact'
 
-const fail = details => (
+const fail = (details) => (
   <div className='status fail'>
     <h1>
       Error
     </h1>
-    {details.map(x => (<p key={x}>{x}</p>))}
+    {details.map((x) => (<p key={x}>{x}</p>))}
     <hr />
     <Link href='/'>
       Home
@@ -21,9 +21,9 @@ const fail = details => (
   </div>
 )
 
-const loading = details => (
+const loading = (details) => (
   <div className='status loading'>
-    {details.map(x => (<div key={x}>{x}</div>))}
+    {details.map((x) => (<div key={x}>{x}</div>))}
   </div>
 )
 

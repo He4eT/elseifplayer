@@ -11,10 +11,10 @@ import './GamesView.css'
 const tutorialGame = {
   name: 'The Dreamhold',
   ifdb: 'https://ifdb.org/viewgame?id=3myqnrs64nbtwdaz',
-  url: 'https://mirror.ifarchive.org/if-archive/games/zcode/dreamhold.z8'
+  url: 'https://mirror.ifarchive.org/if-archive/games/zcode/dreamhold.z8',
 }
 
-export default function () {
+export default function GamesView () {
   return (
     <main className='view games'>
 
@@ -46,7 +46,7 @@ export default function () {
       <ul>
         <li>
           <GameEntry {...{
-            ...tutorialGame
+            ...tutorialGame,
           }} />
         </li>
       </ul>
@@ -73,10 +73,10 @@ export default function () {
       </p>
 
       <ol>
-        {top2019.map(game => (
+        {top2019.map((game) => (
           <li key={game[0]}>
             <GameEntry {...{
-              ...game
+              ...game,
             }} />
           </li>
         ))}

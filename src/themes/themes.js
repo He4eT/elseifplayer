@@ -13,7 +13,7 @@ const themes = [
   'redrum',
   'toxin',
   'valve',
-  'wasp'
+  'wasp',
 ]
 
 const LS_THEME_KEY = 'elseifplayer/theme'
@@ -24,7 +24,7 @@ const getSavedTheme = () => {
   return savedTheme || DEFAULT_THEME
 }
 
-const assertTheme = theme =>
+const assertTheme = (theme) =>
   themes.includes(theme)
     ? theme
     : getSavedTheme()
@@ -33,7 +33,7 @@ export const useThemeEngine = (initialTheme = getSavedTheme()) => {
   const [currentTheme, setCurrentTheme] =
     useState(initialTheme)
 
-  const setTheme = theme => {
+  const setTheme = (theme) => {
     const newTheme = assertTheme(theme)
 
     setCurrentTheme(newTheme)

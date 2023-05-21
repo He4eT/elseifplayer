@@ -1,6 +1,6 @@
 import {
   compressToUTF16 as encode,
-  decompressFromUTF16 as decode
+  decompressFromUTF16 as decode,
 } from 'lz-string'
 
 export const Handlers = ({
@@ -8,33 +8,33 @@ export const Handlers = ({
   setWindows,
   setCurrentWindowId,
   setInputType,
-  setInbox
+  setInbox,
 }) => ({
-  onInit: _ => {
+  onInit: () => {
     setStatus({ stage: 'ready' })
   },
   /* */
-  onUpdateWindows: windows => {
+  onUpdateWindows: (windows) => {
     setWindows(windows)
   },
-  onUpdateInputs: data => {
+  onUpdateInputs: (data) => {
     if (data.length === 0) return null
 
     const { type, id } = data[0]
     setCurrentWindowId(id)
     setInputType(type)
   },
-  onUpdateContent: inbox => {
+  onUpdateContent: (inbox) => {
     setInbox(inbox)
   },
-  onDisable: _ => {
+  onDisable: () => {
     setInputType(null)
   },
   /* */
   onFileNameRequest: (tosave, usage, _, setFileName) => {
     setFileName({
       usage,
-      filename: prompt('Enter the filename')
+      filename: prompt('Enter the filename'),
     })
   },
   onFileRead: ({ filename }) => {
@@ -45,7 +45,7 @@ export const Handlers = ({
     localStorage.setItem(`fake-fs/${filename}`, encode(content))
   },
   /* */
-  onExit: _ => {
+  onExit: () => {
     setInputType(null)
-  }
+  },
 })

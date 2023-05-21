@@ -1,6 +1,6 @@
 import { h } from 'preact'
 
-export default function ({ theme, setLocation, buildLink }) {
+export default function TargetURLSelector ({ theme, setLocation, buildLink }) {
   const urlRE = /^(http|https):\/\/[^ "]+$/
 
   const onKeyPress = ({ keyCode, target }) => {

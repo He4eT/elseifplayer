@@ -5,10 +5,10 @@ import UrlPlayer from '~/src/components/Player/UrlPlayer'
 
 import './PlayerView.css'
 
-const decode = encodedUrl => decodeURIComponent(encodedUrl)
+const decode = (encodedUrl) => decodeURIComponent(encodedUrl)
 
-export default function ({
-  setTheme, theme, encodedUrl, singleWindow
+export default function PlayerView ({
+  setTheme, theme, encodedUrl, singleWindow,
 }) {
   useEffect(() => setTheme(theme), [setTheme, theme])
 
@@ -22,7 +22,7 @@ export default function ({
     <main>
       <UrlPlayer {...{
         url: targetUrl,
-        singleWindow
+        singleWindow,
       }} />
     </main>
   )
