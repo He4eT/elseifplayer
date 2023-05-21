@@ -18,18 +18,23 @@ const INITIAL_STATUS = {
   details: ['Preparing'],
 }
 
-const runMachine = ({ engine: Engine, file, handlers }) => {
+const runMachine = ({ engine: Engine, wasmBinary, storyfile, handlers }) => {
+  const { Dialog, GlkOte, send } = CheapGlkOte(handlers)
   const vm = new Engine()
-  const { glkInterface, sendFn } = CheapGlkOte(handlers)
 
-  vm.prepare(file, glkInterface)
+  vm.init(storyfile, {
+    Dialog,
+    GlkOte,
+    Glk: {},
+    wasmBinary,
+  })
   vm.start()
 
-  return { sendFn, instance: vm }
+  return { send, instance: vm }
 }
 
 export default function Player ({
-  vmParts: { file, engine }, singleWindow,
+  vmParts: { storyfile, engine, wasmBinary }, singleWindow,
 }) {
   const [status, setStatus] = useState(INITIAL_STATUS)
 
@@ -44,7 +49,8 @@ export default function Player ({
   useEffect(() => {
     const vm = runMachine({
       engine,
-      file,
+      wasmBinary,
+      storyfile,
       handlers: Handlers({
         setStatus,
         setWindows,
@@ -55,11 +61,11 @@ export default function Player ({
     })
 
     setVm(vm)
-  }, [file, engine])
+  }, [storyfile, engine, wasmBinary])
 
   useEffect(() => {
     setSendMessage(() => vm
-      ? vm.sendFn
+      ? vm.send
       : null)
   }, [vm])
 

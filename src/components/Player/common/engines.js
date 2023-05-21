@@ -31,7 +31,11 @@ export const engineByFilename = (filename) => {
     x.extensions.test(filename))
 
   if (format) {
-    return format.engine
+    return {
+      ...format,
+      /* @see staticFiles in package.json */
+      wasmBinaryName: `emglken/${format.id}-core.wasm`,
+    }
   }
   throw new Error('Unsupported file type')
 }
