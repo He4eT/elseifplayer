@@ -17,7 +17,11 @@ module.exports = {
     'sourceType': 'module'
   },
   'rules': {
-    "jest/no-deprecated-functions": 0,
+    'jest/no-deprecated-functions': 0,
+
+    'arrow-parens': ['error', 'always'],
+    'comma-dangle': ['error', 'always-multiline'],
+
     'indent': [
       'error',
       2
