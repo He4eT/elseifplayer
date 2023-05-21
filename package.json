@@ -2,19 +2,31 @@
   "name": "elseifplayer",
   "version": "0.1.0",
   "description": "Play interactive fiction games in your browser",
-  "main": "index.js",
   "scripts": {
     "dev": "parcel index.html",
-    "build": "parcel build index.html --out-dir docs --public-url",
+    "build": "parcel build index.html --dist-dir docs --public-url",
     "lint": "eslint --fix src"
   },
   "author": "He4eT",
   "license": "MIT",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "alias": {
+    "preact/jsx-dev-runtime": "preact/jsx-runtime"
+  },
   "devDependencies": {
+    "buffer": "^5.7.1",
+    "crypto-browserify": "^3.12.0",
     "eslint": "^8.41.0",
     "eslint-config-preact": "^1.3.0",
-    "parcel-bundler": "^1.8.1",
-    "parcel-plugin-static-files-copy": "^2.6.0"
+    "events": "^3.3.0",
+    "parcel": "^2.8.3",
+    "parcel-reporter-static-files-copy": "^1.5.0",
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10",
+    "stream-browserify": "^3.0.0"
   },
   "dependencies": {
     "@fontsource/open-sans": "^5.0.0",
@@ -26,6 +38,6 @@
   },
   "staticFiles": {
     "staticPath": "node_modules/emglken/build",
-    "excludeGlob": "*.js"
+    "staticOutPath": "node_modules/emglken/build"
   }
 }
