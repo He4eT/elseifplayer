@@ -2,7 +2,7 @@ import { h } from 'preact'
 import { Link } from 'wouter-preact'
 
 const fail = details => (
-  <div class='status fail'>
+  <div className='status fail'>
     <h1>
       Error
     </h1>
@@ -22,7 +22,7 @@ const fail = details => (
 )
 
 const loading = details => (
-  <div class='status loading'>
+  <div className='status loading'>
     {details.map(x => (<div key={x}>{x}</div>))}
   </div>
 )
