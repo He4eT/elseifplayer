@@ -3,10 +3,10 @@ import { useEffect, useRef, useState } from 'preact/hooks'
 
 import TextMessage from './TextMessage'
 
-const isFakeStatus = w =>
+const isFakeStatus = (w) =>
   w.height < 5
 
-const trimInputPrompt = messages =>
+const trimInputPrompt = (messages) =>
   messages.length < 1
     ? messages
     : messages.slice(-1)[0].text === '>'
@@ -21,7 +21,7 @@ const parseInbox = (inbox, currentWindow) => {
   if (!currentInbox) {
     return {
       clear: false,
-      incoming: []
+      incoming: [],
     }
   }
 
@@ -45,11 +45,11 @@ const parseInbox = (inbox, currentWindow) => {
     incoming,
     clear: isFakeStatus(currentWindow)
       ? true
-      : currentInbox.clear
+      : currentInbox.clear,
   }
 }
 
-export default function ({ inbox, currentWindow }) {
+export default function TextBuffer ({ inbox, currentWindow }) {
   const [messages, setMessages] = useState([])
   const textBufferEl = useRef(null)
 
@@ -57,7 +57,7 @@ export default function ({ inbox, currentWindow }) {
     const { incoming, clear } =
       parseInbox(inbox, currentWindow)
 
-    setMessages(messages => clear
+    setMessages((messages) => clear
       ? incoming
       : messages.concat(incoming))
 
@@ -85,7 +85,7 @@ export default function ({ inbox, currentWindow }) {
       tabindex='0'
       ref={textBufferEl}
       className={classes}>
-        {messages.map(TextMessage)}
+      {messages.map(TextMessage)}
     </section>
   )
 }

@@ -1,11 +1,11 @@
 import { h } from 'preact'
 
-export default function ({ themeEngine }) {
-  const options = themeEngine.themes.map(theme => (
+export default function ThemeSelector ({ themeEngine }) {
+  const options = themeEngine.themes.map((theme) => (
     <option
       key={theme}
       value={theme}>
-        {theme}
+      {theme}
     </option>))
 
   return (

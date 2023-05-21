@@ -15,7 +15,7 @@ import './player.css'
 
 const INITIAL_STATUS = {
   stage: 'loading',
-  details: ['Preparing']
+  details: ['Preparing'],
 }
 
 const runMachine = ({ engine: Engine, file, handlers }) => {
@@ -28,8 +28,8 @@ const runMachine = ({ engine: Engine, file, handlers }) => {
   return { sendFn, instance: vm }
 }
 
-export default function ({
-  vmParts: { file, engine }, singleWindow
+export default function Player ({
+  vmParts: { file, engine }, singleWindow,
 }) {
   const [status, setStatus] = useState(INITIAL_STATUS)
 
@@ -50,28 +50,28 @@ export default function ({
         setWindows,
         setCurrentWindowId,
         setInputType,
-        setInbox
-      })
+        setInbox,
+      }),
     })
 
     setVm(vm)
   }, [file, engine])
 
   useEffect(() => {
-    setSendMessage(_ => vm
+    setSendMessage(() => vm
       ? vm.sendFn
       : null)
   }, [vm])
 
-  const textWindow = inbox => currentWindow => {
+  const textWindow = (inbox) => (currentWindow) => {
     const props = {
       inbox,
-      currentWindow
+      currentWindow,
     }
 
     return ({
       buffer: <TextBuffer {...props} />,
-      grid: <GridBuffer {...props} />
+      grid: <GridBuffer {...props} />,
     })[currentWindow.type]
   }
 
@@ -82,18 +82,18 @@ export default function ({
     ? (<Status {...status} />)
     : (<section className='ifplayer'>
       <section className='output'>{
-          windows
-            .sort(byTop)
-            .filter(singleWindow
-              ? ({ id }) => id === currentWindowId
-              : _ => true)
-            .map(textWindow(inbox))}
+        windows
+          .sort(byTop)
+          .filter(singleWindow
+            ? ({ id }) => id === currentWindowId
+            : () => true)
+          .map(textWindow(inbox))}
       </section>
       <InputBox {...{
         inputType,
         windows,
         currentWindowId,
-        sendMessage
+        sendMessage,
       }} />
     </section>)
 }

@@ -1,5 +1,5 @@
 import {
-  useState, useEffect, useCallback
+  useState, useEffect, useCallback,
 } from 'preact/hooks'
 
 export const useHashLocation = () => {
@@ -16,7 +16,7 @@ export const useHashLocation = () => {
     return () => window.removeEventListener('hashchange', handler)
   }, [])
 
-  const navigate = useCallback(to =>
+  const navigate = useCallback((to) =>
     (window.location.hash = to.replace('#/', '')), [])
   return [loc, navigate]
 }
@@ -24,7 +24,7 @@ export const useHashLocation = () => {
 export const buildPlayLinkHref = ({ url }) =>
   `/#/play/${encodeURIComponent(url)}`
 
-export const extractView = location => {
+export const extractView = (location) => {
   const currentView = location.split('/').filter(Boolean)[0]
   return currentView || ''
 }

@@ -1,6 +1,6 @@
 import { h } from 'preact'
 
-export default function ({ style, text }) {
+export default function TextMessage ({ style, text }) {
   const defaultContent = (
     <span className={['message', style].join(' ')}>
       {text}
@@ -11,6 +11,6 @@ export default function ({ style, text }) {
     input: (<span className='message input'>&gt; {text}</span>),
     subheader: (<strong className='message subheader'>{text}</strong>),
     emphasized: (<em className='message emphasized'>{text}</em>),
-    endOfLine: (<br />)
+    endOfLine: (<br />),
   })[style] || defaultContent
 }

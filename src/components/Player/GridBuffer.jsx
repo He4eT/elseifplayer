@@ -3,7 +3,7 @@ import { useEffect, useState } from 'preact/hooks'
 
 import TextMessage from './TextMessage'
 
-export default function ({ inbox, currentWindow }) {
+export default function GridBuffer ({ inbox, currentWindow }) {
   const [prevMessages, setPrevMessages] = useState([])
   const [messages, setMessages] = useState([])
 
@@ -14,7 +14,7 @@ export default function ({ inbox, currentWindow }) {
 
     const currentInbox = currentInboxObj?.lines ?? []
 
-    const newOrPrev = (cur, prev) => i => {
+    const newOrPrev = (cur, prev) => (i) => {
       const byId = (list, i) =>
         list.find(({ line }) => line === i)
 
@@ -31,23 +31,23 @@ export default function ({ inbox, currentWindow }) {
 
     const rawMessagesContent =
       rawMessages
-        .map(x => x.content)
+        .map((x) => x.content)
         .map(([x]) => x)
         .map(({ text }) => text)
-        .map(text => text.trim())
+        .map((text) => text.trim())
 
     const isEmpty =
       rawMessagesContent
-        .map(text => text.length)
-        .every(l => l === 0)
+        .map((text) => text.length)
+        .every((l) => l === 0)
 
     const messages =
       rawMessagesContent
-        .map(text =>
+        .map((text) =>
           text.replace('   ', ' / '))
-        .map(text => ({
+        .map((text) => ({
           style: 'grid',
-          text
+          text,
         }))
 
     setMessages(isEmpty ? [] : messages)
@@ -56,7 +56,7 @@ export default function ({ inbox, currentWindow }) {
   return (
     <section
       className='buffer gridBuffer'>
-        {messages.map(TextMessage)}
+      {messages.map(TextMessage)}
     </section>
   )
 }

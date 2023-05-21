@@ -1,8 +1,8 @@
 import { h } from 'preact'
 import { Link } from 'wouter-preact'
 
-export default () => (
-  <main>
+export default function NotFoundView () {
+  return <main>
     <div className='status'>
       <h1>
         404
@@ -23,4 +23,4 @@ export default () => (
       </a>
     </div>
   </main>
-)
+}
