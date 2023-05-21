@@ -3,7 +3,7 @@ import { Link } from 'wouter-preact'
 
 export default () => (
   <main>
-    <div class='status'>
+    <div className='status'>
       <h1>
         404
       </h1>
