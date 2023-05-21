@@ -17,14 +17,14 @@ const prepareVM = ({ url, setStatus, setParts }) => {
     return args
   }
 
-  const cleanUrl = url => _ =>
+  const cleanUrl = url =>
     url.startsWith('blob:')
       ? url.replace(/#(.*)$/g, '')
       : url
 
-  return Promise.resolve()
+  return Promise.resolve(url)
     .then(st('loading', 'Downloading file'))
-    .then(cleanUrl(url))
+    .then(cleanUrl)
     .then(fetch)
     .then(st('loading', 'Processing file'))
     .then(response => response.arrayBuffer())
