@@ -17,7 +17,7 @@
     "preact/jsx-dev-runtime": "preact/jsx-runtime"
   },
   "devDependencies": {
-    "buffer": "^5.7.1",
+    "buffer": "^6.0.3",
     "crypto-browserify": "^3.12.0",
     "eslint": "^8.41.0",
     "eslint-config-preact": "^1.3.0",
@@ -33,7 +33,7 @@
     "cheap-glkote": "^0.4.0",
     "emglken": "^0.3.3",
     "lz-string": "^1.4.4",
-    "preact": "^10.5.12",
+    "preact": "^10.15.0",
     "wouter-preact": "^2.7.3"
   },
   "staticFiles": {
