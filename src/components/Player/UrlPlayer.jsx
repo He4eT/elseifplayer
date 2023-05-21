@@ -22,6 +22,10 @@ const prepareVM = ({ url, setStatus, setParts }) => {
       ? url.replace(/#(.*)$/g, '')
       : url
 
+  const fetchWasm = (wasmBinaryName) =>
+    fetch(wasmBinaryName)
+      .then((response) => response.arrayBuffer())
+
   return Promise.resolve(url)
     .then(st('loading', 'Downloading file'))
     .then(cleanUrl)
@@ -30,9 +34,15 @@ const prepareVM = ({ url, setStatus, setParts }) => {
     .then((response) => response.arrayBuffer())
     .then((arrayBuffer) => new Uint8Array(arrayBuffer))
     .then(st('loading', 'Downloading engine'))
-    .then((file) => setParts({
-      file,
-      engine: engineByFilename(url),
+    .then((storyfile) => {
+      let parts = engineByFilename(url)
+      return [storyfile, parts.engine, parts.wasmBinaryName]
+    })
+    .then(([storyfile, engine, wasmBinaryName]) => Promise.all([
+      storyfile, engine, fetchWasm(wasmBinaryName),
+    ]))
+    .then(([storyfile, engine, wasmBinary]) => setParts({
+      storyfile, engine, wasmBinary,
     }))
     .then(st('loading', 'Running'))
     .catch((e) => {

@@ -38,6 +38,6 @@
   },
   "staticFiles": {
     "staticPath": "node_modules/emglken/build",
-    "staticOutPath": "node_modules/emglken/build"
+    "staticOutPath": "emglken"
   }
 }
