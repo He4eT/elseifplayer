@@ -2,15 +2,15 @@ import { h } from 'preact'
 
 export default function ({ style, text }) {
   const defaultContent = (
-    <span class={['message', style].join(' ')}>
+    <span className={['message', style].join(' ')}>
       {text}
     </span>)
 
   return ({
     grid: (<div>{text}&nbsp;</div>),
-    input: (<span class='message input'>&gt; {text}</span>),
-    subheader: (<strong>{text}</strong>),
-    emphasized: (<em>{text}</em>),
+    input: (<span className='message input'>&gt; {text}</span>),
+    subheader: (<strong className='message subheader'>{text}</strong>),
+    emphasized: (<em className='message emphasized'>{text}</em>),
     endOfLine: (<br />)
   })[style] || defaultContent
 }
