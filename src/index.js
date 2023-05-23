@@ -50,14 +50,14 @@ function App () {
           <Route path='/play/:encodedUrl'>
             { playerView(themeEngine, false) }
           </Route>
-          <Route path='/play/:encodedUrl/focus'>
-            { playerView(themeEngine, true) }
-          </Route>
-          <Route path='/play/:encodedUrl/:theme/focus'>
-            { playerView(themeEngine, true) }
-          </Route>
           <Route path='/play/:encodedUrl/:theme'>
             { playerView(themeEngine, false) }
+          </Route>
+          <Route path='/focus/:encodedUrl'>
+            { playerView(themeEngine, true) }
+          </Route>
+          <Route path='/focus/:encodedUrl/:theme'>
+            { playerView(themeEngine, true) }
           </Route>
 
           <Route>
