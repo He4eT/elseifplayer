@@ -18,6 +18,7 @@
 
   background-color: var(--bg-color);
   border: var(--border-width) solid var(--main-color);
+  border-top: var(--separator-width) solid var(--main-color);
   padding: var(--inner-padding);
   margin: 0;
   margin-top: var(--input-box-margin);
@@ -73,7 +74,7 @@
 .ifplayer .output .gridBuffer {
   flex-shrink: 0;
   max-height: 100%;
-  border-bottom: var(--border-width) solid var(--main-color);
+  border-bottom: var(--separator-width) solid var(--main-color);
 }
 
 .ifplayer .output .textBuffer {
