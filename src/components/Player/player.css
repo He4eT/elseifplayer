@@ -78,6 +78,7 @@
 .ifplayer .output .textBuffer {
   flex: 2 1;
   outline: none;
+  scroll-behavior: smooth;
 }
 
 .ifplayer .output .textBuffer > br:first-child,
