@@ -41,6 +41,7 @@
   flex-grow: 2;
   flex-direction: column;
   overflow-y: hidden;
+  overflow-wrap: break-word;
 
   border: var(--border-width) solid var(--main-color);
 }
