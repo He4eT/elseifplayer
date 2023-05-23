@@ -1,6 +1,7 @@
 body {
   --outer-padding: 0px;
   --border-width: 0px;
+  --separator-width: 2px;
   --inner-padding: 8px;
   --input-box-margin: 0px;
 }
