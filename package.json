@@ -9,7 +9,7 @@
   },
   "author": "He4eT",
   "license": "MIT",
-  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "browserslist": "defaults",
   "engines": {
     "node": ">=14.0.0"
   },
