@@ -54,7 +54,7 @@ export const unhandledRejectionHandler = (onExit) => (event) => {
   if (event.reason.name === 'ExitStatus' || event.reason.message === 'Program terminated with exit(0)') {
     onExit()
   } else {
-    console.error('Unhandled rejection (promise: ', event.promise, ', reason: ', event.reason, ').');
+    console.error('Unhandled rejection (promise: ', event.promise, ', reason: ', event.reason, ').')
   }
   event.preventDefault()
 }
