@@ -9,10 +9,13 @@ export const useHashLocation = () => {
   const [loc, setLoc] = useState(currentLoc())
 
   useEffect(() => {
-    const handler = () => setLoc(currentLoc())
+    const handler = () => {
+      setLoc(currentLoc())
+      window.scrollTo(0, 0)
+    }
 
-    window.addEventListener('hashchange', handler)
     handler()
+    window.addEventListener('hashchange', handler)
     return () => window.removeEventListener('hashchange', handler)
   }, [])
 
