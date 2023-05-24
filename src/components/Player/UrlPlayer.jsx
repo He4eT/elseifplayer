@@ -26,10 +26,16 @@ const prepareVM = ({ url, setStatus, setParts }) => {
     fetch(wasmBinaryName)
       .then((response) => response.arrayBuffer())
 
+  const checkResponse = (response) => {
+    if (response.ok) return response
+    throw new Error(response.statusText)
+  }
+
   return Promise.resolve(url)
     .then(st('loading', 'Downloading file'))
     .then(cleanUrl)
     .then(fetch)
+    .then(checkResponse)
     .then(st('loading', 'Processing file'))
     .then((response) => response.arrayBuffer())
     .then((arrayBuffer) => new Uint8Array(arrayBuffer))
