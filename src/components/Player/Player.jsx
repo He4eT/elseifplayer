@@ -9,7 +9,7 @@ import GridBuffer from './GridBuffer'
 import InputBox from './InputBox'
 import Status from './Status'
 
-import { Handlers } from './playerHandlers'
+import { Handlers, unhandledRejectionHandler } from './playerHandlers'
 
 import './player.css'
 
@@ -47,20 +47,29 @@ export default function Player ({
   const [sendMessage, setSendMessage] = useState(null)
 
   useEffect(() => {
-    const vm = runMachine({
+    const handlers = Handlers({
+      setStatus,
+      setWindows,
+      setCurrentWindowId,
+      setInputType,
+      setInbox,
+    })
+
+    setVm(runMachine({
       engine,
       wasmBinary,
       storyfile,
-      handlers: Handlers({
-        setStatus,
-        setWindows,
-        setCurrentWindowId,
-        setInputType,
-        setInbox,
-      }),
-    })
+      handlers,
+    }))
 
-    setVm(vm)
+    const rejectionHandler =
+      unhandledRejectionHandler(handlers.onExit)
+
+    window.addEventListener('unhandledrejection', rejectionHandler)
+
+    return () => {
+      window.removeEventListener('unhandledrejection', rejectionHandler)
+    }
   }, [storyfile, engine, wasmBinary])
 
   useEffect(() => {
