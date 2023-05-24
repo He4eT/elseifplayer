@@ -89,6 +89,15 @@
   display: none;
 }
 
+.ifplayer .output .textBuffer .message.input {
+  color: var(--input-color);
+}
+
+.ifplayer .output .textBuffer .message.emphasized,
+.ifplayer .output .textBuffer .message.subheader {
+  color: var(--accent-color);
+}
+
 .status {
   padding: var(--inner-padding);
 }
