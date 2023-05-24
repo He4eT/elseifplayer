@@ -18,38 +18,38 @@ body {
 .light {
   --bg-color: hsl(0, 0%, 100%, 1);
   --main-color: hsl(0, 0%, 0%, 0.8);
+  --accent-color: hsl(0, 0%, 0%, 0.8);
+  --input-color: hsl(0, 0%, 0%, 0.8);
 }
 
 .dim {
   --bg-color: hsl(0, 0%, 20%, 1);
   --main-color: hsl(0, 0%, 100%, 0.8);
+  --accent-color: hsl(0, 0%, 100%, 0.8);
+  --input-color: hsl(0, 0%, 100%, 0.8);
 }
 
 .dark {
   --bg-color: hsl(0, 0%, 0%, 1);
   --main-color: hsl(0, 0%, 100%, 1);
+  --accent-color: hsl(0, 0%, 100%, 1);
+  --input-color: hsl(0, 0%, 100%, 1);
 }
 
 /* solarized */
 
 .solarized-light {
-  --main-color: #586e75;
   --bg-color: #eee8d5;
+  --main-color: #586e75;
+  --accent-color: #b58900;
+  --input-color: #2aa198;
 }
 
 .solarized-dark {
-  --main-color: #93a1a1;
   --bg-color: #073642;
-}
-
-.solarized-light strong,
-.solarized-dark strong {
-  color: #b58900;
-}
-
-.solarized-light .message.input,
-.solarized-dark .message.input {
-  color: #2aa198;
+  --main-color: #93a1a1;
+  --accent-color: #b58900;
+  --input-color: #2aa198;
 }
 
 /* named */
@@ -57,29 +57,41 @@ body {
 .emo {
   --bg-color: #4d4d4d;
   --main-color: #ff77aa;
+  --accent-color: #ff77aa;
+  --input-color: #ff77aa;
 }
 
 .nord {
   --bg-color: #50586c;
   --main-color: #dce2f0;
+  --accent-color: #dce2f0;
+  --input-color: #dce2f0;
 }
 
 .redrum {
   --bg-color: #000000;
   --main-color: #ff0000;
+  --accent-color: #ff0000;
+  --input-color: #ff0000;
 }
 
 .toxin {
   --bg-color: #606060;
   --main-color: #d6ed17;
+  --accent-color: #d6ed17;
+  --input-color: #d6ed17;
 }
 
 .valve {
   --bg-color: #292929;
   --main-color: #fb7e14;
+  --accent-color: #fb7e14;
+  --input-color: #fb7e14;
 }
 
 .wasp {
   --bg-color: #f9d142;
   --main-color: #292826;
+  --accent-color: #292826;
+  --input-color: #292826;
 }
