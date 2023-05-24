@@ -106,6 +106,11 @@ export default function InputBox ({
     }
   }
 
+  const noopHandler = (event) => {
+    event.target.valut = ''
+    event.preventDefault()
+  }
+
   const inputHandlers = {
     char: {
       maxlength: '1',
@@ -119,6 +124,11 @@ export default function InputBox ({
       placeholder: ' > ',
       onKeyDown: lineArrowHandler,
       onKeyPress: lineHandler,
+    },
+    finished: {
+      placeholder: 'The program has finished',
+      onKeyDown: noopHandler,
+      onKeyPress: noopHandler,
     },
   }
 
@@ -134,6 +144,6 @@ export default function InputBox ({
       autocomplete='off'
       onDblClick={enterFullscreen}
       onInput={({ target: { value } }) => setInputText(value)}
-      type='search' />
+      type='text' />
   )
 }
