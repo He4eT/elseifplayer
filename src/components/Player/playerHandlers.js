@@ -1,7 +1,4 @@
-import {
-  compressToUTF16 as encode,
-  decompressFromUTF16 as decode,
-} from 'lz-string'
+import { encode, decode } from 'base32768'
 
 export const Handlers = ({
   setStatus,
@@ -31,7 +28,7 @@ export const Handlers = ({
     setInputType(null)
   },
   /* */
-  onFileNameRequest: (tosave, usage, _, setFileName) => {
+  onFileNameRequest: (_tosave, usage, _gameId, setFileName) => {
     setFileName({
       usage,
       filename: prompt('Enter the filename'),
