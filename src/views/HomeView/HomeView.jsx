@@ -42,7 +42,7 @@ export default function HomeView ({ themeEngine }) {
 
       <section>
         <h2>
-          Interface theme
+          Interface Theme
         </h2>
 
         <ThemeSelector {...{
@@ -66,7 +66,7 @@ export default function HomeView ({ themeEngine }) {
 
       <section>
         <h2>
-          Play a game from the list
+          Play a Game from the List
         </h2>
 
         <p>
@@ -80,7 +80,7 @@ export default function HomeView ({ themeEngine }) {
 
       <section>
         <h2>
-          Play the game from a file
+          Play the Game from a File
         </h2>
 
         <p>
