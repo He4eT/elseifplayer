@@ -24,7 +24,6 @@ html, body {
 
   color: var(--main-color);
   background-color: var(--bg-color);
-  transition: background-color 0.2s ease;
 
   /* Fix for Jumping Scrollbar Issue  */
   padding-left: calc(100vw - 100%);
@@ -63,7 +62,7 @@ summary:hover {
   opacity: 0.8;
 }
 
-*:focus {
+*:focus-visible {
   outline: 1px solid var(--main-color);
   outline-offset: 3px;
 }
