@@ -25,7 +25,7 @@ export default function GamesView () {
           href='https://ifdb.org/'
           title='The Interactive Fiction Database'>
           IFDB
-        </a> games
+        </a> Games
       </h1>
 
       <p>
