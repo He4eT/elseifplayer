@@ -106,11 +106,6 @@ export default function InputBox ({
     }
   }
 
-  const noopHandler = (event) => {
-    event.target.valut = ''
-    event.preventDefault()
-  }
-
   const inputHandlers = {
     char: {
       maxlength: '1',
@@ -127,8 +122,7 @@ export default function InputBox ({
     },
     finished: {
       placeholder: 'The program has finished',
-      onKeyDown: noopHandler,
-      onKeyPress: noopHandler,
+      disabled: true,
     },
   }
 
