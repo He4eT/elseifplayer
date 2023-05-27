@@ -3,13 +3,13 @@ import { Link } from 'wouter-preact'
 
 import './ThemesView.css'
 
-const Preview = (themeEngine) => (theme) =>
+const Preview = (themeEngine, theme) =>
   <section key={theme} className={`themePreview ${theme}`}>
     <div className='output'>
       <div className='message input'>
         &gt; look
       </div>
-      <div><br/></div>
+      <div><br /></div>
       <div className='message subheader'>
         {theme}
       </div>
@@ -17,7 +17,7 @@ const Preview = (themeEngine) => (theme) =>
         Observe a vibrant demonstration of colors at work,
         showcasing their versatile usage right before your eyes.
       </div>
-      <div><br/></div>
+      <div><br /></div>
     </div>
     <button onClick={() => themeEngine.setTheme(theme)}>
       Apply this colors
@@ -25,7 +25,9 @@ const Preview = (themeEngine) => (theme) =>
   </section>
 
 export default function ThemesView ({ themeEngine }) {
-  const themes = themeEngine.themes.map(Preview(themeEngine))
+  const themes = themeEngine
+    .themes
+    .map((theme) => Preview(themeEngine, theme))
 
   return (
     <main className='view themes'>
@@ -47,7 +49,7 @@ export default function ThemesView ({ themeEngine }) {
           <div className='message input'>
             &gt; look
           </div>
-          <div><br/></div>
+          <div><br /></div>
           <div className='message subheader'>
             Selected: {themeEngine.currentTheme}
           </div>
@@ -55,7 +57,7 @@ export default function ThemesView ({ themeEngine }) {
             You can set random one with the button below
             or choose any theme from the list.
           </div>
-          <div><br/></div>
+          <div><br /></div>
         </div>
         <button onClick={() => themeEngine.setRandomTheme()}>
           Set a random theme
