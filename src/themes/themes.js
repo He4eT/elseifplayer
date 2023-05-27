@@ -27,5 +27,10 @@ export const useThemeEngine = (initialTheme = getSavedTheme()) => {
     localStorage.setItem(LS_THEME_KEY, newTheme)
   }
 
-  return { currentTheme, setTheme, themes }
+  const setRandomTheme = () => {
+    const randomTheme = themes[Math.floor(Math.random() * themes.length)]
+    setTheme(randomTheme)
+  }
+
+  return { currentTheme, setTheme, setRandomTheme, themes }
 }

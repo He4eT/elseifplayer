@@ -50,6 +50,11 @@ export default function HomeView ({ themeEngine }) {
         }} />
 
         <p>
+          Preview and choose from available themes on the <Link href={'/#/themes/'}>
+            themes page
+          </Link>.
+        </p>
+        <p>
           <small>
             Double-click the input field during the game
             to enter full-screen mode.

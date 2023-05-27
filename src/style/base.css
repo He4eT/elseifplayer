@@ -22,8 +22,9 @@ html, body {
   justify-content: center;
   align-items: center;
 
-  background-color: var(--bg-color);
   color: var(--main-color);
+  background-color: var(--bg-color);
+  transition: background-color 0.2s ease;
 
   /* Fix for Jumping Scrollbar Issue  */
   padding-left: calc(100vw - 100%);
@@ -72,11 +73,6 @@ summary:hover {
   background: var(--main-color);
 }
 
-input::placeholder {
-  color: var(--main-color);
-  opacity: 0.8;
-}
-
 ul {
   list-style: square;
 }
@@ -85,6 +81,23 @@ hr {
   border: 0;
   height: 0;
   border-top: 2px solid var(--main-color);
+}
+
+/* */
+
+input::placeholder {
+  color: var(--main-color);
+  opacity: 0.8;
+}
+
+button {
+  border: 2px solid var(--main-color);
+  background-color: var(--bg-color);
+  color: var(--main-color);
+  padding: var(--inner-padding);
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
 }
 
 /*  */
