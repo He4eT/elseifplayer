@@ -7,7 +7,6 @@ export const themes = [
   'solarized-dark',
   /* Original */
   'emo',
-  'nord',
   'redrum',
   'toxin',
   'valve',
@@ -120,6 +119,7 @@ export const themes = [
   'nautilus',
   'nebula',
   'night_runner',
+  'nord',
   'nord_light',
   'norse',
   'oblivion',

@@ -1,0 +1,39 @@
+.app > .view.themes {
+  padding: var(--inner-padding);
+  --current-border: var(--main-color);
+}
+
+.themePreview {
+  border: 2px solid var(--current-border);
+  padding: calc(2 * var(--inner-padding));
+  margin-bottom: 16px;
+
+  background-color: var(--bg-color);
+  color: var(--main-color);
+}
+
+.themePreview.current {
+  padding: 0;
+  border: none;
+  margin-bottom: 64px;
+}
+
+.themePreview .output {
+  border: 2px solid var(--main-color);
+  padding: var(--inner-padding);
+  margin-bottom: 8px;
+}
+
+.themePreview .output .message.subheader {
+  font-weight: bold;
+  color: var(--accent-color);
+  text-transform: capitalize;
+}
+
+.themePreview .output .message.input {
+  color: var(--input-color);
+}
+
+.themePreview button {
+  width: 100%;
+}

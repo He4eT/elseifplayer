@@ -11,6 +11,7 @@ import {
 
 import HomeView from '~/src/views/HomeView/HomeView'
 import GamesView from '~/src/views/GamesView/GamesView'
+import ThemesView from '~/src/views/ThemesView/ThemesView'
 import PlayerView from '~/src/views/PlayerView/PlayerView'
 import NotFoundView from '~/src/views/NotFoundView'
 
@@ -45,6 +46,11 @@ function App () {
           </Route>
           <Route path='/games/'>
             <GamesView />
+          </Route>
+          <Route path='/themes/'>
+            <ThemesView {...{
+              themeEngine,
+            }} />
           </Route>
 
           <Route path='/play/:encodedUrl'>
