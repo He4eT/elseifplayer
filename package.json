@@ -30,9 +30,9 @@
   },
   "dependencies": {
     "@fontsource/open-sans": "^5.0.0",
+    "base32768": "^3.0.1",
     "cheap-glkote": "^0.5.1",
     "emglken": "^0.5.2",
-    "lz-string": "^1.4.4",
     "preact": "^10.15.0",
     "wouter-preact": "^2.7.3"
   },
