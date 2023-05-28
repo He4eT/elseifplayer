@@ -66,6 +66,8 @@ export default function UrlPlayer ({ url, singleWindow }) {
     setParts(null)
 
     prepareVM({ url, setStatus, setParts })
+
+    return () => setParts(null)
   }, [url])
 
   return vmParts

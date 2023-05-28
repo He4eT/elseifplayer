@@ -20,17 +20,18 @@ const INITIAL_STATUS = {
 
 const runMachine = ({ engine: Engine, wasmBinary, storyfile, handlers }) => {
   const { Dialog, GlkOte, send } = CheapGlkOte(handlers)
-  const vm = new Engine()
+  const instance = new Engine()
 
-  vm.init(storyfile, {
+  instance.init(storyfile, {
     Dialog,
     GlkOte,
     Glk: {},
     wasmBinary,
+    arguments: ['storyfile'],
   })
-  vm.start()
+  instance.start()
 
-  return { send, instance: vm }
+  return { send, instance }
 }
 
 export default function Player ({
@@ -68,6 +69,7 @@ export default function Player ({
     window.addEventListener('unhandledrejection', rejectionHandler)
 
     return () => {
+      setVm(null)
       window.removeEventListener('unhandledrejection', rejectionHandler)
     }
   }, [storyfile, engine, wasmBinary])
@@ -76,6 +78,8 @@ export default function Player ({
     setSendMessage(() => vm
       ? vm.send
       : null)
+
+    return () => setSendMessage(null)
   }, [vm])
 
   const textWindow = (inbox) => (currentWindow) => {
