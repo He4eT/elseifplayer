@@ -36,10 +36,12 @@ export default function MenuOverlay ({
   return (
     <dialog ref={dialog} className='menu'>
       <section>
-        <div className='navigation'>
-          <Link href="/">
-            ElseIfPlayer
-          </Link>
+        <div>
+          <button
+            onClick={() => dialog.current.close()}
+          >
+            Close this menu
+          </button>
         </div>
 
         <div className='appearance'>
@@ -49,7 +51,7 @@ export default function MenuOverlay ({
               onFullscreenRequest()
             }}
           >
-            Request fullscreen
+            Full screen
           </button>
           <button
             onClick={() => themeEngine.setRandomTheme()}
@@ -64,12 +66,10 @@ export default function MenuOverlay ({
           </label>
         </div>
 
-        <div>
-          <button
-            onClick={() => dialog.current.close()}
-          >
-            Close
-          </button>
+        <div className='navigation'>
+          <Link href="/">
+            ElseIfPlayer
+          </Link>
         </div>
       </section>
     </dialog>
