@@ -9,9 +9,18 @@
   padding: var(--outer-padding);
 }
 
-.ifplayer .inputBox {
-  flex: 0 1 auto;
+.ifplayer .inputControls {
+  position: relative;
+  margin-top: var(--input-box-margin);
+}
 
+.ifplayer .inputControls .menuButton {
+  position: absolute;
+  right: 0;
+  height: 100%;
+}
+
+.ifplayer .inputBox {
   font: inherit;
   color: inherit;
   outline: 0;
@@ -21,7 +30,7 @@
   border-top: var(--separator-width) solid var(--main-color);
   padding: var(--inner-padding);
   margin: 0;
-  margin-top: var(--input-box-margin);
+  width: 100%;
 }
 
 .ifplayer .inputBox::placeholder {
