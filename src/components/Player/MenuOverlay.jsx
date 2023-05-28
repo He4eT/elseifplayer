@@ -6,12 +6,26 @@ import ThemeSelector from
 
 import './MenuOverlay.css'
 
-export default function MenuOverlay ({ themeEngine }) {
+export default function MenuOverlay ({
+  themeEngine, onFullscreenRequest, menuOpen, setMenuOpen,
+}) {
   const dialog = useRef(null)
 
   useEffect(() => {
+    const dialogOpen = dialog.current.open
+
+    if (menuOpen && !dialogOpen) {
+      dialog.current.showModal()
+    }
+
+    if (!menuOpen && dialogOpen) {
+      dialog.current.close()
+    }
+  }, [menuOpen])
+
+  useEffect(() => {
     const closeHandler = () => {
-      console.log('dialog closed')
+      setMenuOpen(false)
     }
 
     dialog.current.addEventListener('close', closeHandler)
@@ -27,8 +41,16 @@ export default function MenuOverlay ({ themeEngine }) {
             ElseIfPlayer
           </Link>
         </div>
+
         <div className='appearance'>
-          <button>Request fullscreen</button>
+          <button
+            onClick={() => {
+              dialog.current.close()
+              onFullscreenRequest()
+            }}
+          >
+            Request fullscreen
+          </button>
           <button
             onClick={() => themeEngine.setRandomTheme()}
           >
@@ -41,6 +63,7 @@ export default function MenuOverlay ({ themeEngine }) {
             }} />
           </label>
         </div>
+
         <div>
           <button
             onClick={() => dialog.current.close()}

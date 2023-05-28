@@ -57,7 +57,9 @@ const prepareVM = ({ url, setStatus, setParts }) => {
     })
 }
 
-export default function UrlPlayer ({ url, singleWindow }) {
+export default function UrlPlayer ({
+  url, singleWindow, onFullscreenRequest, setMenuOpen,
+}) {
   const [status, setStatus] = useState(INITIAL_STATUS)
   const [vmParts, setParts] = useState(null)
 
@@ -73,6 +75,8 @@ export default function UrlPlayer ({ url, singleWindow }) {
   return vmParts
     ? (<Player {...{
       vmParts,
+      onFullscreenRequest,
+      setMenuOpen,
       singleWindow,
     }} />)
     : (<Status {...status} />)

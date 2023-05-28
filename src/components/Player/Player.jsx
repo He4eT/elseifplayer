@@ -35,7 +35,10 @@ const runMachine = ({ engine: Engine, wasmBinary, storyfile, handlers }) => {
 }
 
 export default function Player ({
-  vmParts: { storyfile, engine, wasmBinary }, singleWindow,
+  vmParts: { storyfile, engine, wasmBinary },
+  onFullscreenRequest,
+  setMenuOpen,
+  singleWindow,
 }) {
   const [status, setStatus] = useState(INITIAL_STATUS)
 
@@ -113,6 +116,8 @@ export default function Player ({
         windows,
         currentWindowId,
         sendMessage,
+        onFullscreenRequest,
+        setMenuOpen,
       }} />
     </section>)
 }
