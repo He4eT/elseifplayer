@@ -1,14 +1,14 @@
 export default [
   [
+    'Lost Pig',
+    'https://ifdb.org/viewgame?id=mohwfk47yjzii14w',
+    'https://mirror.ifarchive.org/if-archive/games/zcode/LostPig.z8',
+  ],
+  [
     /* Check with cheap-glk */
     'Counterfeit Monkey',
     'https://ifdb.org/viewgame?id=aearuuxv83plclpl',
     'https://mirror.ifarchive.org/if-archive/games/glulx/CounterfeitMonkey.gblorb',
-  ],
-  [
-    'Lost Pig',
-    'https://ifdb.org/viewgame?id=mohwfk47yjzii14w',
-    'https://mirror.ifarchive.org/if-archive/games/zcode/LostPig.z8',
   ],
   [
     /* Works. Check inputs */
