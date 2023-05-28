@@ -27,7 +27,19 @@ export default function GridBuffer ({ inbox, currentWindow }) {
         .map((_, i) => i)
         .map(newOrPrev(currentInbox, prevMessages))
 
-    setPrevMessages(rawMessages)
+    /* */
+
+    const shouldUpdatePrev = (rawMessages, prevMessages) => {
+      const serialize = JSON.stringify
+      return serialize(rawMessages) !== serialize(prevMessages)
+    }
+
+    if (shouldUpdatePrev(rawMessages, prevMessages)) {
+      setPrevMessages(rawMessages)
+    }
+
+    /* */
+
 
     const rawMessagesContent =
       rawMessages
