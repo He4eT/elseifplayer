@@ -84,8 +84,11 @@
 }
 
 .ifplayer .output .textBuffer > br:first-child,
+.ifplayer .output .gridBuffer > br:first-child,
 .ifplayer .output .textBuffer > br:last-child,
-.ifplayer .output .textBuffer > br + br + br {
+.ifplayer .output .gridBuffer > br:last-child,
+.ifplayer .output .textBuffer > br + br + br,
+.ifplayer .output .gridBuffer > br + br + br {
   display: none;
 }
 

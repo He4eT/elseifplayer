@@ -7,7 +7,7 @@ export default function TextMessage ({ style, text }) {
     </span>)
 
   return ({
-    grid: (<div>{text}&nbsp;</div>),
+    grid: (text?.length > 0 ? <div>{text}</div> : <br />),
     input: (<span className='message input'>&gt; {text}</span>),
     subheader: (<strong className='message subheader'>{text}</strong>),
     emphasized: (<em className='message emphasized'>{text}</em>),
