@@ -307,15 +307,15 @@ export default [
     'https://ifdb.org/viewgame?id=stsdri5zh7a4i5my',
     'https://ifarchive.org/if-archive/games/competition2016/Inside%20the%20Facility/Facility.z8',
   ],
-  [
+  /* [
     'Junior Arithmancer',
     'https://ifdb.org/viewgame?id=pw1rbjt1t4n4n87s',
     'https://ifarchive.org/if-archive/games/competition2018/Junior%20Arithmancer/Junior_Arithmancer.gblorb',
-  ],
+  ], */
   [
     'Make It Good',
     'https://ifdb.org/viewgame?id=jdrbw1htq4ah8q57',
-    'https://mirror.ifarchive.org/if-archive/games/zcode/MakeItGood.zblorb',
+    'https://mirror.ifarchive.org/if-archive/games/zcode/MakeItGood.z8',
   ],
   [
     'Sub Rosa',
