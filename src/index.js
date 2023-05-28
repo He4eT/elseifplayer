@@ -25,9 +25,9 @@ function App () {
   const playerView = (themeEngine, singleWindow) =>
     function view (params) {
       return (<PlayerView {...{
-        ...themeEngine,
-        ...params,
+        themeEngine,
         singleWindow,
+        ...params,
       }} />)
     }
 

@@ -2,15 +2,18 @@ import { h } from 'preact'
 import { useState, useEffect } from 'preact/hooks'
 
 import UrlPlayer from '~/src/components/Player/UrlPlayer'
+import MenuOverlay from '~/src/components/Player/MenuOverlay'
 
 import './PlayerView.css'
 
 const decode = (encodedUrl) => decodeURIComponent(encodedUrl)
 
 export default function PlayerView ({
-  setTheme, theme, encodedUrl, singleWindow,
+  theme, themeEngine, encodedUrl, singleWindow,
 }) {
-  useEffect(() => setTheme(theme), [setTheme, theme])
+  useEffect(() => {
+    themeEngine.setTheme(theme)
+  }, [theme, themeEngine])
 
   const [targetUrl, setTargetUrl] = useState(decode(encodedUrl))
 
@@ -20,6 +23,9 @@ export default function PlayerView ({
 
   return (
     <main>
+      <MenuOverlay {...{
+        themeEngine,
+      }}/>
       <UrlPlayer {...{
         url: targetUrl,
         singleWindow,
