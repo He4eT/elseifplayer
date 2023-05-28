@@ -129,14 +129,23 @@ export default function InputBox ({
   }
 
   return (
-    <input {...inputHandlers[inputType]}
-      className='inputBox'
-      ref={inputEl}
-      value={inputText}
-      autofocus
-      autocomplete='off'
-      onDblClick={onFullscreenRequest}
-      onInput={({ target: { value } }) => setInputText(value)}
-      type='text' />
+    <section className='inputControls'>
+      <input {...inputHandlers[inputType]}
+        className='inputBox'
+        ref={inputEl}
+        value={inputText}
+        autofocus
+        autocomplete='off'
+        onDblClick={onFullscreenRequest}
+        onInput={({ target: { value } }) => setInputText(value)}
+        type='text' />
+      <button
+        aria-label='Menu'
+        className='menuButton'
+        onClick={() => setMenuOpen(true)}
+      >
+        =
+      </button>
+    </section>
   )
 }
