@@ -21,13 +21,24 @@ export default function PlayerView ({
     setTargetUrl(decode(encodedUrl))
   }, [encodedUrl])
 
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  const onFullscreenRequest = () => {
+    document.documentElement.requestFullscreen()
+  }
+
   return (
     <main>
       <MenuOverlay {...{
         themeEngine,
+        onFullscreenRequest,
+        menuOpen,
+        setMenuOpen,
       }}/>
       <UrlPlayer {...{
         url: targetUrl,
+        onFullscreenRequest,
+        setMenuOpen,
         singleWindow,
       }} />
     </main>

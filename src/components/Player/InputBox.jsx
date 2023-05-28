@@ -38,6 +38,8 @@ export default function InputBox ({
   windows,
   currentWindowId,
   sendMessage,
+  onFullscreenRequest,
+  setMenuOpen,
 }) {
   const [targetWindow, setTargetWindow] = useState(null)
   const [inputText, setInputText] = useState('')
@@ -126,9 +128,6 @@ export default function InputBox ({
     },
   }
 
-  const enterFullscreen = () =>
-    document.documentElement.requestFullscreen()
-
   return (
     <input {...inputHandlers[inputType]}
       className='inputBox'
@@ -136,7 +135,7 @@ export default function InputBox ({
       value={inputText}
       autofocus
       autocomplete='off'
-      onDblClick={enterFullscreen}
+      onDblClick={onFullscreenRequest}
       onInput={({ target: { value } }) => setInputText(value)}
       type='text' />
   )
