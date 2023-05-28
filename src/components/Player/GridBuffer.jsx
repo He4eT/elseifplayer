@@ -44,22 +44,27 @@ export default function GridBuffer ({ inbox, currentWindow }) {
     const rawMessagesContent =
       rawMessages
         .map((x) => x.content)
-        .map(([x]) => x)
-        .map(({ text }) => text)
-        .map((text) => text.trim())
+        .flat()
+        .map((message) => ({
+          ...message,
+          text: message.text.trim(),
+        }))
 
     const isEmpty =
       rawMessagesContent
-        .map((text) => text.length)
+        .map(({text}) => text.length)
         .every((l) => l === 0)
+
+    const getGridStyle = ({style}) => {
+      if (['alert', 'normal'].includes(style)) return 'grid'
+      else return style || 'grid'
+    }
 
     const messages =
       rawMessagesContent
-        .map((text) =>
-          text.replace('   ', ' / '))
-        .map((text) => ({
-          style: 'grid',
-          text,
+        .map((message) => ({
+          style: getGridStyle(message),
+          text: message.text.replace('   ', ' / '),
         }))
 
     setMessages(isEmpty ? [] : messages)
