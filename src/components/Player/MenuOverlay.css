@@ -1,0 +1,41 @@
+.menu {
+  width: 100%;
+
+  border-left: none;
+  border-right: none;
+  text-align: center;
+  padding-top: 0;
+  padding-bottom: 0;
+
+  background-color: var(--bg-color);
+  border-color: var(--main-color);
+  color: var(--main-color);
+}
+
+.menu::backdrop {
+  background: none;
+  backdrop-filter: blur(2px);
+}
+
+.menu > section {
+  margin: 32px auto 40px;
+  gap: 32px;
+  max-width: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu .navigation {
+  color: var(--accent-color);
+}
+
+.menu .appearance {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.menu select,
+.menu button {
+  width: 100%;
+}
