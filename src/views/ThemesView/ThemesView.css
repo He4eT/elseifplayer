@@ -6,7 +6,7 @@
 .themePreview {
   border: 2px solid var(--current-border);
   padding: calc(2 * var(--inner-padding));
-  margin-bottom: 16px;
+  margin-bottom: 32px;
 
   background-color: var(--bg-color);
   color: var(--main-color);
