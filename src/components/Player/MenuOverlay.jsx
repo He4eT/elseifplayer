@@ -38,6 +38,7 @@ export default function MenuOverlay ({
       <section>
         <div>
           <button
+            tabIndex={0}
             onClick={() => dialog.current.close()}
           >
             Close this menu
@@ -67,7 +68,7 @@ export default function MenuOverlay ({
         </div>
 
         <div className='navigation'>
-          <Link href="/">
+          <Link href="/" tabIndex={0}>
             ElseIfPlayer
           </Link>
         </div>
