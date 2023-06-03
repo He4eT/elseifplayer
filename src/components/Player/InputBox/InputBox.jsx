@@ -35,6 +35,17 @@ const keyNames = {
 }
 /* eslint-enable */
 
+const hasModifier = (event) => {
+  const modifiers = [
+    event.altKey,
+    event.ctrlKey,
+    event.metaKey,
+    event.shiftKey,
+  ]
+
+  return modifiers.some((modifier) => modifier === true)
+}
+
 export default function InputBox ({
   inputType,
   windows,
@@ -75,6 +86,8 @@ export default function InputBox ({
       : charHandlerDefault)(event)
 
   const charHandlerDefault = (event) => {
+    if (hasModifier(event)) { return undefined }
+
     event.preventDefault()
 
     const key =
