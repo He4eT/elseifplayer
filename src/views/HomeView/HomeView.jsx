@@ -4,7 +4,7 @@ import { Link } from 'wouter-preact'
 import {
   useHashLocation,
   buildPlayLinkHref,
-} from '~/src/utils/utils.routing'
+} from '~/src/routing'
 
 import LocalFileSelector from
   '~/src/components/FileSelector/LocalFileSelector'

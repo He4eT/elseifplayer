@@ -4,7 +4,7 @@ import { useState, useEffect } from 'preact/hooks'
 import { engineByFilename } from './common/engines'
 
 import Player from './Player'
-import Status from './Status'
+import Status from './Status/Status'
 
 const INITIAL_STATUS = {
   stage: 'loading',

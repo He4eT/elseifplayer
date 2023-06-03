@@ -3,7 +3,7 @@ import { Link } from 'wouter-preact'
 
 import {
   buildPlayLinkHref,
-} from '~/src/utils/utils.routing'
+} from '~/src/routing'
 
 export default function GameEntry ({ name, ifdb, url }) {
   return (

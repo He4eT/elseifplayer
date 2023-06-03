@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import { useEffect, useRef, useState } from 'preact/hooks'
 
-import s from './InputBox/MenuButton.module.scss'
+import s from './MenuButton/MenuButton.module.scss'
 
 /* eslint-disable */
 const keyCodes = {
