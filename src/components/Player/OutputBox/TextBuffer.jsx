@@ -67,12 +67,12 @@ export default function TextBuffer ({ inbox, currentWindow }) {
       const lastInput =
         inputs[inputs.length - 1]
 
-      textBufferEl.current.scrollTo({
-        top: lastInput
-          ? lastInput.offsetTop
-          : textBufferEl.current.scrollHeight,
-        behavior: 'smooth',
-      })
+      lastInput
+        ? lastInput.scrollIntoView()
+        : textBufferEl.current.scrollTo({
+          top: textBufferEl.current.scrollHeight,
+          behavior: 'smooth',
+        })
     }, 0)
   }, [currentWindow, inbox])
 

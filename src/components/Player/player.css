@@ -103,6 +103,7 @@
 }
 
 .ifplayer .output .textBuffer .message.input {
+  scroll-margin-top: var(--inner-padding);
   color: var(--input-color);
 }
 
