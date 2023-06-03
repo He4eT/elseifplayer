@@ -1,14 +1,22 @@
 .menuButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: none;
-  border-left: none;
+  border: none;
   outline-offset: -8px;
   position: absolute;
   right: 0;
   height: 100%;
   padding: 0;
-  aspect-ratio: 1;
 
   &:focus-visible {
     outline-offset: -4px;
+  }
+
+  .menuIcon {
+    height: 32px;
+    width: 32px;
+    fill: CurrentColor;
   }
 }
