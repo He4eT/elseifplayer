@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import { useEffect, useRef, useState } from 'preact/hooks'
 
-import s from './MenuButton/MenuButton.module.scss'
+import MenuButton from './MenuButton/MenuButton'
 
 /* eslint-disable */
 const keyCodes = {
@@ -141,13 +141,8 @@ export default function InputBox ({
         onDblClick={onFullscreenRequest}
         onInput={({ target: { value } }) => setInputText(value)}
         type='search' />
-      <button
-        aria-label='Menu'
-        className={s.menuButton}
-        onClick={() => setMenuOpen(true)}
-      >
-        =
-      </button>
+      <MenuButton
+        onClick={() => setMenuOpen(true)} />
     </section>
   )
 }
