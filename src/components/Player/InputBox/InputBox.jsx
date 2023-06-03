@@ -60,8 +60,15 @@ export default function InputBox ({
   const inputEl = useRef(null)
 
   useEffect(() => {
+    let setFocus = () => {
+      inputEl.current && inputEl.current.focus()
+    }
+
     setInputText('')
-    inputEl.current && inputEl.current.focus()
+    setFocus()
+
+    document.addEventListener('fullscreenchange', setFocus)
+    return () => document.removeEventListener('fullscreenchange', setFocus)
   }, [inputType])
 
   useEffect(() => {
