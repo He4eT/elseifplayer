@@ -10,6 +10,11 @@
   height: 100%;
   padding: 0;
 
+  @media (max-width: 800px) {
+    padding: 0 calc(0.5 * var(--inner-padding));
+    overflow: hidden;
+  }
+
   &:focus-visible {
     outline-offset: -4px;
   }
@@ -19,5 +24,10 @@
     fill: none;
     stroke: currentColor;
     stroke-width: 2px;
+
+    @media (max-width: 800px) {
+      transform: scaleX(2) scaleY(0.5);
+      fill: currentColor;
+    }
   }
 }

@@ -57,7 +57,7 @@ export default function GridBuffer ({ inbox, currentWindow }) {
 
     const getGridStyle = ({style}) => {
       if (['alert', 'normal'].includes(style)) return 'grid'
-      else return style || 'grid'
+      return style || 'grid'
     }
 
     const messages =
