@@ -24,13 +24,14 @@ export default function MenuOverlay ({
   }, [menuOpen])
 
   useEffect(() => {
+    const currentDialog = dialog.current
     const closeHandler = () => {
       setMenuOpen(false)
     }
 
-    dialog.current.addEventListener('close', closeHandler)
-    return () => dialog.current.removeEventListener('close', closeHandler)
-  }, [dialog])
+    currentDialog.addEventListener('close', closeHandler)
+    return () => currentDialog.removeEventListener('close', closeHandler)
+  }, [dialog, setMenuOpen])
 
 
   return (
