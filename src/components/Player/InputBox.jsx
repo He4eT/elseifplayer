@@ -1,6 +1,8 @@
 import { h } from 'preact'
 import { useEffect, useRef, useState } from 'preact/hooks'
 
+import s from './InputBox/MenuButton.module.scss'
+
 /* eslint-disable */
 const keyCodes = {
   KEY_BACKSPACE: 8,
@@ -111,9 +113,6 @@ export default function InputBox ({
   const inputHandlers = {
     char: {
       maxlength: '1',
-      autocapitalize: 'off',
-      autocorrect: 'off',
-      spellcheck: 'false',
       placeholder: 'Press any key here',
       onKeyDown: charHandler,
     },
@@ -136,12 +135,15 @@ export default function InputBox ({
         value={inputText}
         autofocus
         autocomplete='off'
+        spellCheck='false'
+        autocapitalize='off'
+        autocorrect='off'
         onDblClick={onFullscreenRequest}
         onInput={({ target: { value } }) => setInputText(value)}
-        type='text' />
+        type='search' />
       <button
         aria-label='Menu'
-        className='menuButton'
+        className={s.menuButton}
         onClick={() => setMenuOpen(true)}
       >
         =
