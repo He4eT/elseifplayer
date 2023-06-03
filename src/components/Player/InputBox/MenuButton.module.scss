@@ -1,0 +1,13 @@
+.menuButton {
+  border-left: none;
+  outline-offset: -8px;
+  position: absolute;
+  right: 0;
+  height: 100%;
+  padding: 0;
+  aspect-ratio: 1;
+
+  &:focus-visible {
+    outline-offset: -4px;
+  }
+}
