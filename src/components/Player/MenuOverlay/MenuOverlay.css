@@ -20,7 +20,7 @@
 .menu > section {
   margin: 32px auto 40px;
   gap: 32px;
-  max-width: 250px;
+  max-width: 270px;
   display: flex;
   flex-direction: column;
 }
