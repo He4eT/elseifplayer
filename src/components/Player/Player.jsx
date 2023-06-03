@@ -3,13 +3,16 @@ import { useState, useEffect } from 'preact/hooks'
 
 import CheapGlkOte from 'cheap-glkote'
 
-import TextBuffer from './TextBuffer'
-import GridBuffer from './GridBuffer'
+import TextBuffer from './OutputBox/TextBuffer'
+import GridBuffer from './OutputBox/GridBuffer'
 
-import InputBox from './InputBox'
-import Status from './Status'
+import InputBox from './InputBox/InputBox'
+import Status from './Status/Status'
 
-import { Handlers, unhandledRejectionHandler } from './playerHandlers'
+import {
+  Handlers,
+  unhandledRejectionHandler
+} from './common/playerHandlers'
 
 import './player.css'
 

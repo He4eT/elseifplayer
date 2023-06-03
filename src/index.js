@@ -4,7 +4,7 @@ import { Route, Router, Switch } from 'wouter-preact'
 import {
   useHashLocation,
   extractView,
-} from '~/src/utils/utils.routing'
+} from './routing'
 import {
   useThemeEngine,
 } from '~/src/themes/themes'
