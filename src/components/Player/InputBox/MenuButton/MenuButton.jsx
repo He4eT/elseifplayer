@@ -11,10 +11,12 @@ export default MenuButton = ({ onClick }) => {
     >
       <svg
         class={s.menuIcon}
-        viewBox='0 0 24 24'
+        viewBox='0 0 28 32'
         xmlns='http://www.w3.org/2000/svg'
       >
-        <path d='M10 10h4v4h-4zm0-6h4v4h-4zm0 12h4v4h-4z'/>
+        <rect x='12' y='4' width='4' height='4'></rect>
+        <rect x='12' y='14' width='4' height='4'></rect>
+        <rect x='12' y='24' width='4' height='4'></rect>
       </svg>
     </button>
   )

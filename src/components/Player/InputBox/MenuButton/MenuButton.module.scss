@@ -16,7 +16,8 @@
 
   .menuIcon {
     height: 32px;
-    width: 32px;
-    fill: CurrentColor;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2px;
   }
 }

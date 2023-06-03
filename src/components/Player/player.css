@@ -29,6 +29,7 @@
   border: var(--border-width) solid var(--main-color);
   border-top: var(--separator-width) solid var(--main-color);
   padding: var(--inner-padding);
+  padding-right: calc(3 * var(--inner-padding));
   margin: 0;
   width: 100%;
 }
