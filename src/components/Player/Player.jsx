@@ -11,7 +11,7 @@ import Status from './Status/Status'
 
 import {
   Handlers,
-  unhandledRejectionHandler
+  unhandledRejectionHandler,
 } from './common/playerHandlers'
 
 import './player.css'

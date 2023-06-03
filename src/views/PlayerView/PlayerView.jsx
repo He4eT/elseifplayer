@@ -34,7 +34,7 @@ export default function PlayerView ({
         onFullscreenRequest,
         menuOpen,
         setMenuOpen,
-      }}/>
+      }} />
       <UrlPlayer {...{
         url: targetUrl,
         onFullscreenRequest,

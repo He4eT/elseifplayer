@@ -1,8 +1,8 @@
 import { h } from 'preact'
 
-import s from './MenuButton.module.scss'
+import * as s from './MenuButton.module.scss'
 
-export default MenuButton = ({ onClick }) => {
+export default function MenuButton ({ onClick }) {
   return (
     <button
       aria-label='Menu'
@@ -14,9 +14,9 @@ export default MenuButton = ({ onClick }) => {
         viewBox='0 0 28 32'
         xmlns='http://www.w3.org/2000/svg'
       >
-        <rect x='12' y='4' width='4' height='4'></rect>
-        <rect x='12' y='14' width='4' height='4'></rect>
-        <rect x='12' y='24' width='4' height='4'></rect>
+        <rect x='12' y='4' width='4' height='4' />
+        <rect x='12' y='14' width='4' height='4' />
+        <rect x='12' y='24' width='4' height='4' />
       </svg>
     </button>
   )
