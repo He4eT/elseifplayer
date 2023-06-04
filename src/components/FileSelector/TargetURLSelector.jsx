@@ -1,5 +1,3 @@
-import { h } from 'preact'
-
 export default function TargetURLSelector ({ theme, setLocation, buildLink }) {
   const urlRE = /^(http|https):\/\/[^ "]+$/
 

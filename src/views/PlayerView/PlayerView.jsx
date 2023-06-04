@@ -1,4 +1,3 @@
-import { h } from 'preact'
 import { useState, useEffect } from 'preact/hooks'
 
 import UrlPlayer from '~/src/components/Player/UrlPlayer'

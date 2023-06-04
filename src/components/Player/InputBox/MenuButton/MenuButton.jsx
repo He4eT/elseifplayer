@@ -1,5 +1,3 @@
-import { h } from 'preact'
-
 import * as s from './MenuButton.module.scss'
 
 export default function MenuButton ({ onClick }) {
