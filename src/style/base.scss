@@ -30,18 +30,17 @@ html, body {
 
   /* Fix for Jumping Scrollbar Issue  */
   padding-left: calc(100vw - 100%);
-}
 
-.app > main {
-  flex: 1 1 auto;
+  & > main {
+    flex: 1 1 auto;
 
-  height: 100%;
-  width: 100%;
-  box-sizing: border-box;
-}
-@media (min-width: 800px) {
-  .app > main {
-    margin: 5vh 0;
-    max-width: 800px;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+
+    @media (min-width: 800px) {
+      margin: 5vh 0;
+      max-width: 800px;
+    }
   }
 }
