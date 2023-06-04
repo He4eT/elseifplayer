@@ -1,25 +1,10 @@
-import { Link } from 'wouter-preact'
+import Status from '~/src/components/Player/Status/Status'
 
 export default function NotFoundView () {
   return <main>
-    <div className='status'>
-      <h1>
-        404
-      </h1>
-      <p>
-        Page not found
-      </p>
-      <hr />
-      <Link href='/'>
-        Home
-      </Link>
-      |
-      <a
-        target='_blank'
-        rel='noopener noreferrer'
-        href='https://github.com/He4eT/elseifplayer/issues'>
-        Report bug
-      </a>
-    </div>
+    <Status
+      stage='fail'
+      details={['404', 'Page Not Found']}
+    />
   </main>
 }
