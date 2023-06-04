@@ -20,7 +20,7 @@ import '~/src/style/base.css'
 
 function App () {
   const themeEngine = useThemeEngine()
-  const [location] = useHashLocation()
+  const [currentLocation] = useHashLocation()
 
   const playerView = (themeEngine, singleWindow) =>
     function view (params) {
@@ -35,7 +35,7 @@ function App () {
     <Router hook={useHashLocation}>
       <div className={[
         'app',
-        extractView(location),
+        extractView(currentLocation),
         themeEngine.currentTheme].join(' ')}>
 
         <Switch>
