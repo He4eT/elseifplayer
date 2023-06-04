@@ -2,7 +2,8 @@ import { render } from 'preact'
 
 import '@fontsource/open-sans'
 
-import '~/src/style/base.css'
+import './style/base.scss'
+import './style/components.scss'
 
 import App from './App'
 

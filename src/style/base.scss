@@ -1,0 +1,52 @@
+/* Layout */
+
+html, body {
+  margin: 0;
+  height: 100%;
+
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  line-height: 27px;
+
+  /* To prevent the white flash */
+  background: #000000;
+}
+
+#root {
+  height: 100%;
+}
+
+.app {
+  min-height: 100%;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--main-color);
+  background-color: var(--bg-color);
+
+  /* Fix for Jumping Scrollbar Issue  */
+  padding-left: calc(100vw - 100%);
+}
+
+.app > main {
+  flex: 1 1 auto;
+
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+@media (min-width: 800px) {
+  .app > main {
+    margin: 5vh 0;
+    max-width: 800px;
+  }
+}
+
+.status {
+  padding: var(--inner-padding);
+  word-break: break-word;
+}

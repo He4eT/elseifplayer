@@ -1,52 +1,16 @@
-/* Layout */
+/* Focus */
 
-html, body {
-  margin: 0;
-  height: 100%;
-
-  font-family: 'Open Sans', sans-serif;
-  font-size: 18px;
-  line-height: 27px;
-
-  /* To prevent the white flash */
-  background: #000000;
+*:focus-visible {
+  outline: calc(0.5 * var(--separator-width)) solid var(--main-color);
+  outline-offset: calc(1px + var(--separator-width));
 }
 
-#root {
-  height: 100%;
+*::selection {
+  color: var(--bg-color);
+  background: var(--main-color);
 }
 
-.app {
-  min-height: 100%;
-  box-sizing: border-box;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  color: var(--main-color);
-  background-color: var(--bg-color);
-
-  /* Fix for Jumping Scrollbar Issue  */
-  padding-left: calc(100vw - 100%);
-}
-
-.app > main {
-  flex: 1 1 auto;
-
-  height: 100%;
-  width: 100%;
-  box-sizing: border-box;
-}
-@media (min-width: 800px) {
-  .app > main {
-    margin: 5vh 0;
-    max-width: 800px;
-  }
-}
-
-/* Common */
+/* Links */
 
 a,
 summary {
@@ -65,19 +29,7 @@ summary:hover {
   opacity: 0.8;
 }
 
-*:focus-visible {
-  outline: calc(0.5 * var(--separator-width)) solid var(--main-color);
-  outline-offset: calc(1px + var(--separator-width));
-}
-
-*::selection {
-  color: var(--bg-color);
-  background: var(--main-color);
-}
-
-ul {
-  list-style: square;
-}
+/* Separators */
 
 hr {
   border: 0;
@@ -85,12 +37,13 @@ hr {
   border-top: var(--separator-width) solid var(--main-color);
 }
 
-/* */
+/* Lists */
 
-input::placeholder {
-  color: var(--main-color);
-  opacity: 0.8;
+ul {
+  list-style: square;
 }
+
+/* Buttons */
 
 button {
   border: var(--separator-width) solid var(--main-color);
@@ -100,6 +53,13 @@ button {
   font-family: inherit;
   font-size: inherit;
   cursor: pointer;
+}
+
+/* Inputs */
+
+input::placeholder {
+  color: var(--main-color);
+  opacity: 0.8;
 }
 
 input,
@@ -146,10 +106,4 @@ input[type='file'] {
   font-size: 0;
   text-indent: -100%;
   cursor: pointer;
-}
-/*  */
-
-.status {
-  padding: var(--inner-padding);
-  word-break: break-word;
 }
