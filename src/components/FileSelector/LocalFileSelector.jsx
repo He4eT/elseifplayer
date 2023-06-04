@@ -1,5 +1,3 @@
-import { h } from 'preact'
-
 export default function LocalFileSelector ({ theme, setLocation, buildLink }) {
   const fileInputHandler = ({ target }) => {
     const file = target.files[0]

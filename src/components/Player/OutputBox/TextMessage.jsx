@@ -1,5 +1,3 @@
-import { h } from 'preact'
-
 export default function TextMessage ({ style, text }) {
   const defaultContent = (
     <span className={['message', style].join(' ')}>

@@ -1,5 +1,3 @@
-import { h } from 'preact'
-
 export default function ThemeSelector ({ themeEngine }) {
   const options = themeEngine.themes.map((theme) => (
     <option

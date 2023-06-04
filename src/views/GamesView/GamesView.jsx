@@ -1,4 +1,3 @@
-import { h } from 'preact'
 import { Link } from 'wouter-preact'
 
 import GameEntry from
