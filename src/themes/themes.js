@@ -1,6 +1,6 @@
 import { useState } from 'preact/hooks'
 
-import {themes} from './themeList.js'
+import { themes } from './themeList.js'
 import './themes.css'
 
 const LS_THEME_KEY = 'elseifplayer/theme'
