@@ -5,7 +5,7 @@ import {
 const windowLocation = () =>
   window.location.hash.replace('#', '') || '/'
 
-export const buildPlayLinkHref = ({url}) =>
+export const buildPlayLinkHref = ({ url }) =>
   `/#/play/${encodeURIComponent(url)}`
 
 export const extractView = (location) => {

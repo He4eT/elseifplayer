@@ -8,7 +8,7 @@ const monkeyTypesThemes = [
   .sort((a, b) => a.name.localeCompare(b.name))
 
 const names = monkeyTypesThemes
-  .map(({name}) => `'${name}',`).join('\n')
+  .map(({ name }) => `'${name}',`).join('\n')
 
 const css = monkeyTypesThemes
   .map((theme) => [

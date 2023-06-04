@@ -52,10 +52,10 @@ export default function GridBuffer ({ inbox, currentWindow }) {
 
     const isEmpty =
       rawMessagesContent
-        .map(({text}) => text.length)
+        .map(({ text }) => text.length)
         .every((l) => l === 0)
 
-    const getGridStyle = ({style}) => {
+    const getGridStyle = ({ style }) => {
       if (['alert', 'normal'].includes(style)) return 'grid'
       return style || 'grid'
     }
