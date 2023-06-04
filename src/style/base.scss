@@ -28,8 +28,10 @@ html, body {
   color: var(--main-color);
   background-color: var(--bg-color);
 
-  /* Fix for Jumping Scrollbar Issue  */
-  padding-left: calc(100vw - 100%);
+  /* Fix for Jumping Scrollbar Issue */
+  @media (min-width: 800px) {
+    padding-left: calc(100vw - 100%);
+  }
 
   & > main {
     flex: 1 1 auto;

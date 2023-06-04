@@ -62,23 +62,10 @@
   box-sizing: border-box;
 
   padding: var(--inner-padding);
-
-  scrollbar-color: var(--main-color) var(--bg-color);
-  scrollbar-width: thin;
 }
 
 .ifplayer .output .buffer:empty {
   display: none;
-}
-
-.ifplayer .output .buffer::-webkit-scrollbar {
-  width: 8px;
-}
-
-.ifplayer .output .buffer::-webkit-scrollbar-thumb {
-  background-color: var(--main-color);
-  border: 4px solid var(--bg-color);
-  border-left-width: 0px;
 }
 
 .ifplayer .output .gridBuffer {
