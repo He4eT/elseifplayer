@@ -116,6 +116,15 @@ select {
   -webkit-appearance: none;
   border-radius: 0;
   width: 200px;
+  background-image: repeating-linear-gradient(
+    315deg,
+    var(--bg-color),
+    var(--bg-color) var(--inner-padding),
+    var(--main-color) var(--inner-padding),
+    var(--main-color) calc(var(--inner-padding) + var(--separator-width)),
+    var(--bg-color) calc(var(--inner-padding) + var(--separator-width)),
+    var(--bg-color) 100%
+  );
 }
 
 label {
