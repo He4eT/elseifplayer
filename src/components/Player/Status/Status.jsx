@@ -1,7 +1,9 @@
 import { Link } from 'wouter-preact'
 
+import * as s from './Status.module.scss'
+
 const fail = (details) => (
-  <div className='status fail'>
+  <div className={[s.status, s.fail].join(' ')}>
     <h1>
       Error
     </h1>
@@ -22,7 +24,7 @@ const fail = (details) => (
 )
 
 const loading = (details) => (
-  <div className='status loading'>
+  <div className={[s.status, s.loading].join(' ')}>
     {details.map((x) => (<div key={x}>{x}</div>))}
   </div>
 )

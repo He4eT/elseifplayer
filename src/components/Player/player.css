@@ -111,19 +111,3 @@
 .ifplayer .output .textBuffer .message.subheader {
   color: var(--accent-color);
 }
-
-.status {
-  padding: var(--inner-padding);
-}
-
-.status.loading > div:after {
-  animation: dots0123 1s infinite;
-  content: '';
-}
-
-@keyframes dots0123 {
-  0%   { content: ''; }
-  33%  { content: '.'; }
-  66%  { content: '..'; }
-  100% { content: '...'; }
-}
