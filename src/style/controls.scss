@@ -1,3 +1,22 @@
+/* Scrollbars */
+
+body {
+  * {
+    scrollbar-color: var(--main-color) var(--bg-color);
+    scrollbar-width: thin;
+  }
+
+  *::-webkit-scrollbar {
+    width: var(--inner-padding);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--main-color);
+    border: calc(0.5 * var(--inner-padding)) solid var(--bg-color);
+    border-left-width: 0;
+  }
+}
+
 /* Focus */
 
 *:focus-visible {
