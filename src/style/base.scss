@@ -15,34 +15,3 @@ html, body {
 #root {
   height: 100%;
 }
-
-.app {
-  min-height: 100%;
-  box-sizing: border-box;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  color: var(--main-color);
-  background-color: var(--bg-color);
-
-  /* Fix for Jumping Scrollbar Issue */
-  @media (min-width: 800px) {
-    padding-left: calc(100vw - 100%);
-  }
-
-  & > main {
-    flex: 1 1 auto;
-
-    height: 100%;
-    width: 100%;
-    box-sizing: border-box;
-
-    @media (min-width: 800px) {
-      margin: 5vh 0;
-      max-width: 800px;
-    }
-  }
-}

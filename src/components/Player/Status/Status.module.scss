@@ -6,8 +6,12 @@
 }
 
 .status {
-  padding: var(--inner-padding);
   word-break: break-word;
+  padding-block: var(--inner-padding);
+
+  @media (max-width: 800px) {
+    padding: var(--inner-padding);
+  }
 
   &.loading > div:after {
     animation: dots0123 1s infinite;

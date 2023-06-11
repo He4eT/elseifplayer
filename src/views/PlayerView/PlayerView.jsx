@@ -3,8 +3,6 @@ import { useState, useEffect } from 'preact/hooks'
 import UrlPlayer from '~/src/components/Player/UrlPlayer'
 import MenuOverlay from '~/src/components/Player/MenuOverlay/MenuOverlay'
 
-import './PlayerView.css'
-
 const decode = (encodedUrl) => decodeURIComponent(encodedUrl)
 
 export default function PlayerView ({

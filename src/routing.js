@@ -9,7 +9,10 @@ export const buildPlayLinkHref = ({ url }) =>
   `/#/play/${encodeURIComponent(url)}`
 
 export const extractView = (location) => {
+  if (location === '/') return 'home'
+
   const currentView = location.split('/').filter(Boolean)[0]
+
   return currentView || ''
 }
 
