@@ -3,7 +3,7 @@ import { Link } from 'wouter-preact'
 import * as s from './Status.module.scss'
 
 const fail = (details) => (
-  <div className={[s.status, s.fail].join(' ')}>
+  <div className={[s.status].join(' ')}>
     <h1>
       Error
     </h1>

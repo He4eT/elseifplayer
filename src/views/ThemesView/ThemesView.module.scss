@@ -1,0 +1,38 @@
+.themes {
+  --current-border: var(--main-color);
+
+  .themePreview {
+    border: 2px solid var(--current-border);
+    padding: calc(2 * var(--inner-padding));
+    margin-bottom: 32px;
+
+    background-color: var(--bg-color);
+    color: var(--main-color);
+
+    &.current {
+      padding: 0;
+      border: none;
+      margin-block: 64px;
+    }
+
+    .output {
+      border: 2px solid var(--main-color);
+      padding: var(--inner-padding);
+      margin-bottom: 8px;
+
+      .message.subheader {
+        font-weight: bold;
+        color: var(--accent-color);
+        text-transform: capitalize;
+      }
+
+      .message.input {
+        color: var(--input-color);
+      }
+    }
+
+    button {
+      width: 100%;
+    }
+  }
+}

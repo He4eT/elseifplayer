@@ -12,13 +12,11 @@ import TargetURLSelector from
 import ThemeSelector from
   '~/src/components/ThemeSelector/ThemeSelector'
 
-import './HomeView.css'
-
 export default function HomeView ({ themeEngine }) {
   const setLocation = useHashLocation()[1]
 
   return (
-    <main className='view home'>
+    <main>
       <h1>
         ElseIFPlayer
       </h1>

@@ -5,7 +5,7 @@ import GameEntry from
 
 import top2019 from './top2019'
 
-import './GamesView.css'
+import * as s from './GamesView.module.scss'
 
 const tutorialGame = {
   name: 'The Dreamhold',
@@ -15,8 +15,7 @@ const tutorialGame = {
 
 export default function GamesView () {
   return (
-    <main className='view games'>
-
+    <main className={s.games}>
       <h1>
         <a
           target='_blank'
@@ -32,25 +31,25 @@ export default function GamesView () {
           go back</Link>.
       </p>
 
-      <h2>
-        Tutorial
-      </h2>
+      <section className={s.tutorial}>
+        <h2>
+          Tutorial
+        </h2>
 
-      <p>
-        If you are not familiar with Interactive Fiction,
-        you should start with this tutorial game
-        by&nbsp;Andrew&nbsp;Plotkin:
-      </p>
+        <p>
+          If you are not familiar with Interactive Fiction,
+          you should start with this tutorial game
+          by&nbsp;Andrew&nbsp;Plotkin:
+        </p>
 
-      <ul>
-        <li>
-          <GameEntry {...{
-            ...tutorialGame,
-          }} />
-        </li>
-      </ul>
-
-      <br />
+        <ul>
+          <li>
+            <GameEntry {...{
+              ...tutorialGame,
+            }} />
+          </li>
+        </ul>
+      </section>
 
       <h2>
         Interactive Fiction Top 50 of All Time

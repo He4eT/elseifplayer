@@ -1,15 +1,15 @@
 import { Link } from 'wouter-preact'
 
-import './ThemesView.css'
+import * as s from './ThemesView.module.scss'
 
 const Preview = (themeEngine, theme) =>
-  <section key={theme} className={`themePreview ${theme}`}>
-    <div className='output'>
-      <div className='message input'>
+  <section key={theme} className={[s.themePreview, theme].join(' ')}>
+    <div className={s.output}>
+      <div className={[s.message, s.input].join(' ')}>
         &gt; look
       </div>
       <div><br /></div>
-      <div className='message subheader'>
+      <div className={[s.message, s.subheader].join(' ')}>
         {theme}
       </div>
       <div>
@@ -29,7 +29,7 @@ export default function ThemesView ({ themeEngine }) {
     .map((theme) => Preview(themeEngine, theme))
 
   return (
-    <main className='view themes'>
+    <main className={s.themes}>
       <h1>
         Themes Page
       </h1>
@@ -39,17 +39,16 @@ export default function ThemesView ({ themeEngine }) {
           go back</Link>.
       </p>
 
-      <h2>
-        Current Theme
-      </h2>
-
-      <section className={'themePreview current'}>
-        <div className='output'>
-          <div className='message input'>
+      <section className={[s.themePreview, s.current].join(' ')}>
+        <h2>
+          Current Theme
+        </h2>
+        <div className={s.output}>
+          <div className={[s.message, s.input].join(' ')}>
             &gt; look
           </div>
           <div><br /></div>
-          <div className='message subheader'>
+          <div className={[s.message, s.subheader].join(' ')}>
             Selected: {themeEngine.currentTheme}
           </div>
           <div>
