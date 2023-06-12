@@ -2,6 +2,7 @@ import bocfel from 'emglken/src/bocfel.js'
 import git from 'emglken/src/git.js'
 import hugo from 'emglken/src/hugo.js'
 import tads from 'emglken/src/tads.js'
+import scare from 'emglken/src/scare.js'
 
 const formats = [
   {
@@ -18,6 +19,11 @@ const formats = [
     id: 'hugo',
     extensions: /hex$/,
     engine: hugo,
+  },
+  {
+    id: 'scare',
+    extensions: /taf$/,
+    engine: scare,
   },
   {
     id: 'tads',

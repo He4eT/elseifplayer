@@ -83,12 +83,13 @@ export default function HomeView ({ themeEngine }) {
         <p>
           <details>
             <summary>Supported formats</summary>
+            <p>Text-only games are supported:</p>
             <ul>
-              <li>TADS games (.t3, .gam);</li>
-              <li>Z-machine games (.z3, .z4, .z5, .z8, .blorb);</li>
-              <li>Glulx VM games (.gblorb, .ulx);</li>
-              <li>Hugo games (.hex);</li>
-              <li>Text-only games are supported;</li>
+              <li>ADRIFT 4 (.taf)</li>
+              <li>Glulx (.gblorb, .ulx)</li>
+              <li>Hugo (.hex)</li>
+              <li>TADS 2/3 (.gam, .t3)</li>
+              <li>Z-code (.z3, .z4, .z5, .z8, .blorb)</li>
             </ul>
           </details>
         </p>
