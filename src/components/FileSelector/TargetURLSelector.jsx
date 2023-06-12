@@ -4,7 +4,7 @@ export default function TargetURLSelector ({ theme, setLocation, buildLink }) {
   const onKeyPress = ({ keyCode, target }) => {
     if (keyCode !== 13) return
 
-    const url = target.value
+    const url = encodeURI(target.value)
 
     if (urlRE.test(url)) {
       setLocation(buildLink({ url, theme }))
