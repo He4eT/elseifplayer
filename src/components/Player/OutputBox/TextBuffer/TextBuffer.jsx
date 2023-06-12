@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'preact/hooks'
 
-import TextMessage from './TextMessage'
+import TextMessage from '../TextMessage/TextMessage'
+
+import * as s from '../../Player.module.scss'
 
 const isFakeStatus = (w) =>
   w.height < 5
@@ -75,17 +77,19 @@ export default function TextBuffer ({ inbox, currentWindow }) {
     }, 0)
   }, [currentWindow, inbox])
 
-  const classes = [
+  const classes = () => [
+    s.buffer,
     isFakeStatus(currentWindow)
-      ? 'gridBuffer'
-      : 'textBuffer',
-    'buffer'].join(' ')
+      ? s.gridBuffer
+      : s.textBuffer,
+  ].join(' ')
 
   return (
     <section
       tabindex='0'
       ref={textBufferEl}
-      className={classes}>
+      className={classes()}
+    >
       {messages.map(TextMessage)}
     </section>
   )

@@ -14,7 +14,7 @@ import ThemesView from '~/src/views/ThemesView/ThemesView'
 import PlayerView from '~/src/views/PlayerView/PlayerView'
 import NotFoundView from '~/src/views/NotFoundView/NotFoundView'
 
-import * as style from './style/App.module.scss'
+import * as s from './style/App.module.scss'
 
 export default function App () {
   const themeEngine = useThemeEngine()
@@ -32,9 +32,10 @@ export default function App () {
   return (
     <Router hook={useHashLocation}>
       <div className={[
-        style.app,
-        style[extractView(currentLocation)],
-        themeEngine.currentTheme].join(' ')}>
+        s.app,
+        s[extractView(currentLocation)],
+        themeEngine.currentTheme,
+      ].join(' ')}>
 
         <Switch>
           <Route path='/'>

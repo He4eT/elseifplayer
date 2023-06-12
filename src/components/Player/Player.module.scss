@@ -1,0 +1,49 @@
+.elseifplayer {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+
+  background-color: var(--bg-color);
+  color: var(--main-color);
+  padding: var(--outer-padding);
+
+  .output {
+    display: flex;
+    flex-grow: 2;
+    flex-direction: column;
+    overflow-y: hidden;
+    overflow-wrap: break-word;
+
+    border: var(--border-width) solid var(--main-color);
+
+    .buffer {
+      overflow-y: scroll;
+      box-sizing: border-box;
+
+      padding: var(--inner-padding);
+
+      &:empty {
+        display: none;
+      }
+
+      & > br:first-child,
+      & > br:last-child,
+      & > br + br + br {
+        display: none;
+      }
+
+      &.gridBuffer {
+        flex-shrink: 0;
+        max-height: 100%;
+        border-bottom: var(--separator-width) solid var(--main-color);
+      }
+
+      &.textBuffer {
+        flex: 2 1;
+        outline: none;
+        scroll-behavior: smooth;
+      }
+    }
+  }
+}

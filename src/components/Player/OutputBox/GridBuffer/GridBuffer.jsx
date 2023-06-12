@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'preact/hooks'
 
-import TextMessage from './TextMessage'
+import TextMessage from '../TextMessage/TextMessage'
+
+import * as s from '../../Player.module.scss'
 
 export default function GridBuffer ({ inbox, currentWindow }) {
   const [prevMessages, setPrevMessages] = useState([])
@@ -70,8 +72,7 @@ export default function GridBuffer ({ inbox, currentWindow }) {
   }, [inbox, currentWindow, prevMessages])
 
   return (
-    <section
-      className='buffer gridBuffer'>
+    <section className={[s.buffer, s.gridBuffer].join(' ')}>
       {messages.map(TextMessage)}
     </section>
   )

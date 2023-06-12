@@ -2,8 +2,8 @@ import { useState, useEffect } from 'preact/hooks'
 
 import CheapGlkOte from 'cheap-glkote'
 
-import TextBuffer from './OutputBox/TextBuffer'
-import GridBuffer from './OutputBox/GridBuffer'
+import TextBuffer from './OutputBox/TextBuffer/TextBuffer'
+import GridBuffer from './OutputBox/GridBuffer/GridBuffer'
 
 import InputBox from './InputBox/InputBox'
 import Status from './Status/Status'
@@ -13,7 +13,7 @@ import {
   unhandledRejectionHandler,
 } from './common/playerHandlers'
 
-import './player.css'
+import * as s from './Player.module.scss'
 
 const INITIAL_STATUS = {
   stage: 'loading',
@@ -104,14 +104,16 @@ export default function Player ({
 
   return status.stage !== 'ready'
     ? (<Status {...status} />)
-    : (<section className='ifplayer'>
-      <section className='output'>{
-        windows
+    : (<section className={s.elseifplayer}>
+      <section className={s.output}>
+        {
+          windows
           .sort(byTop)
           .filter(singleWindow
             ? ({ id }) => id === currentWindowId
             : () => true)
-          .map(textWindow(inbox))}
+          .map(textWindow(inbox))
+        }
       </section>
       <InputBox {...{
         inputType,
