@@ -108,11 +108,11 @@ export default function Player ({
       <section className={s.output}>
         {
           windows
-          .sort(byTop)
-          .filter(singleWindow
-            ? ({ id }) => id === currentWindowId
-            : () => true)
-          .map(textWindow(inbox))
+            .sort(byTop)
+            .filter(singleWindow
+              ? ({ id }) => id === currentWindowId
+              : () => true)
+            .map(textWindow(inbox))
         }
       </section>
       <InputBox {...{
