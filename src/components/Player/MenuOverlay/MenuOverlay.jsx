@@ -4,7 +4,7 @@ import { Link } from 'wouter-preact'
 import ThemeSelector from
   '~/src/components/ThemeSelector/ThemeSelector'
 
-import './MenuOverlay.css'
+import * as s from './MenuOverlay.module.scss'
 
 export default function MenuOverlay ({
   themeEngine, onFullscreenRequest, menuOpen, setMenuOpen,
@@ -35,7 +35,7 @@ export default function MenuOverlay ({
 
 
   return (
-    <dialog ref={dialog} className='menu'>
+    <dialog ref={dialog} className={s.menu}>
       <section>
         <div>
           <button
@@ -46,7 +46,7 @@ export default function MenuOverlay ({
           </button>
         </div>
 
-        <div className='appearance'>
+        <div className={s.appearance}>
           <button
             onClick={() => {
               dialog.current.close()
@@ -68,7 +68,7 @@ export default function MenuOverlay ({
           </label>
         </div>
 
-        <div className='navigation'>
+        <div className={s.navigation}>
           <Link href="/" tabIndex={0}>
             ElseIfPlayer
           </Link>

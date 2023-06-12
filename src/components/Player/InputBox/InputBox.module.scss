@@ -1,0 +1,31 @@
+.inputControls {
+  position: relative;
+  margin-top: var(--input-box-margin);
+
+  .inputBox {
+    font: inherit;
+    color: inherit;
+    outline: 0;
+
+    background-color: var(--bg-color);
+    border: var(--border-width) solid var(--main-color);
+    border-top: var(--separator-width) solid var(--main-color);
+    padding: var(--inner-padding);
+    padding-right: calc(4 * var(--inner-padding));
+    margin: 0;
+    width: 100%;
+
+    &::placeholder {
+      color: var(--main-color);
+      opacity: 1;
+    }
+
+    &:focus::placeholder {
+      opacity: 0.5;
+    }
+
+    &::-webkit-search-cancel-button {
+      display: none;
+    }
+  }
+}

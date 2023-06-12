@@ -1,0 +1,11 @@
+.message {
+  &.input {
+    scroll-margin-top: var(--inner-padding);
+    color: var(--input-color);
+  }
+
+  &.emphasized,
+  &.subheader {
+    color: var(--accent-color);
+  }
+}

@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'preact/hooks'
 
 import MenuButton from './MenuButton/MenuButton'
 
+import * as s from './InputBox.module.scss'
+
 /* eslint-disable */
 const keyCodes = {
   KEY_BACKSPACE: 8,
@@ -147,9 +149,9 @@ export default function InputBox ({
   }
 
   return (
-    <section className='inputControls'>
+    <section className={s.inputControls}>
       <input {...inputHandlers[inputType]}
-        className='inputBox'
+        className={s.inputBox}
         ref={inputEl}
         value={inputText}
         autofocus
