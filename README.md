@@ -27,6 +27,8 @@ npm run build <public-url>
   npm run build /some-directory
   ```
 
+The finalized production bundle will be generated and stored in the `/docs` directory.
+
 ## Direct links
 
 You can provide a direct link to a specific game using the following URL format:
