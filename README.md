@@ -3,7 +3,7 @@
 ElseIFPlayer is an interactive fiction player for the web.
 It's powered by [cheap-glkote](https://github.com/He4eT/cheap-glkote) and [Emglken](https://github.com/curiousdannii/emglken).
 
-To see a live demo, visit [https://he4et.github.io/elseifplayer/](https://he4et.github.io/elseifplayer/).
+Player available here: [https://he4et.github.io/elseifplayer/](https://he4et.github.io/elseifplayer/).
 
 ## Getting Started
 
