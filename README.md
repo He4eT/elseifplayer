@@ -1,42 +1,45 @@
 # [ElseIFPlayer](https://he4et.github.io/elseifplayer/)
 
-Interactive Fiction player for the web.
-Powered by [cheap-glkote](https://github.com/He4eT/cheap-glkote) and [Emglken](https://github.com/curiousdannii/emglken).
+ElseIFPlayer is an interactive fiction player for the web.
+It's powered by [cheap-glkote](https://github.com/He4eT/cheap-glkote) and [Emglken](https://github.com/curiousdannii/emglken).
 
-To see a live demo, check out [https://he4et.github.io/elseifplayer/](https://he4et.github.io/elseifplayer/).
+To see a live demo, visit [https://he4et.github.io/elseifplayer/](https://he4et.github.io/elseifplayer/).
 
 ## Getting Started
 
-- Make shure that you have NodeJS and NPM installed
-- Install required packages with `npm install`
-- Run local development server with `npm run dev`
+- Ensure that you have Node.js and NPM installed on your system.
+- Install the required packages by running the command `npm install` in your project directory.
+- Launch the local development server using `npm run dev`.
 
 ## Build
 
-For making a production build use
-`npm run build <public-url>`
+To create a production build, use the following command:
+```
+npm run build <public-url>
+```
 
-- If you want to host player on `https://your.domain/` use `npm run build /`
-- For `https://your.domain/some-directory/` use `npm run build /some-derectory`
+- If you intend to host the player on `https://your.domain/`, use `npm run build /`.
+- For hosting it in a specific directory like `https://your.domain/some-directory/`, use `npm run build /some-directory`.
 
 ## Direct links
 
-You can provide the direct link to your game:
+You can provide direct links to your games using the following URL format:
+```
+/#/<mode>/<encodedURL>/[theme]/
+```
 
-`/#/mode/encodedURL/[theme]/`
-
-- `mode` — player interface mode:
-  - `play` — default multi-window mode
-  - `focus` — single window mode without additional windows, such as the status bar
-- `encodedURL` — storyfile location encoded with `encodeURIComponent`
-- `theme` — [UI theme](https://github.com/He4eT/elseifplayer/blob/master/src/themes/themes.js), optional
+- The `mode` parameter specifies the player interface mode:
+  - `play`: the default multi-window mode
+  - `focus`: the single-window mode without additional windows, such as the status bar
+- The `encodedURL` parameter represents the location of the storyfile encoded with `encodeURIComponent`.
+- The `theme` parameter is optional and allows you to choose a specific UI theme.
 
 ### CORS
 
-If the player and your storyfile located on different domains
-you shoud set appropriate [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings.
+If the player and your storyfile are located on different domains,
+you need to use appropriate [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings.
 
-In case you cannot change the server settings [Parchment Proxy](https://iplayif.com/proxy/) can be used.
+If you cannot modify the server settings, you can use the [Parchment Proxy](https://iplayif.com/proxy/) as an alternative.
 
 ### Direct Link Examples
 
@@ -45,3 +48,10 @@ In case you cannot change the server settings [Parchment Proxy](https://iplayif.
 - [Play "Lost Pig" with Nord theme](https://he4et.github.io/elseifplayer/#/play/https%3A%2F%2Fmirror.ifarchive.org%2Fif-archive%2Fgames%2Fzcode%2FLostPig.z8/nord/)
 - [Play "Lost Pig" without statusbar with Dim theme](https://he4et.github.io/elseifplayer/#/focus/https%3A%2F%2Fmirror.ifarchive.org%2Fif-archive%2Fgames%2Fzcode%2FLostPig.z8/dim/)
 - [Play "Lost Pig" loaded with Parchment Proxy](https://he4et.github.io/elseifplayer/#/play/https%3A%2F%2Fiplayif.com%2Fproxy%2F%3Furl%3Dhttps%3A%2F%2Fifarchive.org%2Fif-archive%2Fgames%2Fzcode%2FLostPig.z8)
+
+## License
+
+ElseIFPlayer is released under the MIT License.
+However, it is important to note that while using ElseIFPlayer,
+you must also adhere to the licenses of the interpreters listed on the
+[Emglken page](https://github.com/curiousdannii/emglken#included-projects).
