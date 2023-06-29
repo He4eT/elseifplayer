@@ -1,4 +1,4 @@
-# [ElseIFPlayer](https://he4et.github.io/elseifplayer/)
+# ElseIFPlayer
 
 ElseIFPlayer is an interactive fiction player for the web.
 It's powered by [cheap-glkote](https://github.com/He4eT/cheap-glkote) and [Emglken](https://github.com/curiousdannii/emglken).
@@ -23,7 +23,7 @@ npm run build <public-url>
 
 ## Direct links
 
-You can provide direct links to your games using the following URL format:
+You can provide a direct link to a specific game using the following URL format:
 ```
 /#/<mode>/<encodedURL>/[theme]/
 ```
@@ -51,7 +51,7 @@ If you cannot modify the server settings, you can use the [Parchment Proxy](http
 
 ## License
 
-ElseIFPlayer is released under the MIT License.
-However, it is important to note that while using ElseIFPlayer,
-you must also adhere to the licenses of the interpreters listed on the
+ElseIFPlayer is distributed under the MIT License.
+However, please remember to respect the licenses of the interpreters
+listed on the
 [Emglken page](https://github.com/curiousdannii/emglken#included-projects).
