@@ -1,6 +1,6 @@
 {
   "name": "elseifplayer",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Play interactive fiction games in your browser",
   "scripts": {
     "dev": "parcel index.html",
