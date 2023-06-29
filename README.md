@@ -18,8 +18,14 @@ To create a production build, use the following command:
 npm run build <public-url>
 ```
 
-- If you intend to host the player on `https://your.domain/`, use `npm run build /`.
-- For hosting it in a specific directory like `https://your.domain/some-directory/`, use `npm run build /some-directory`.
+- If you intend to host the player on `https://your.domain/`, use:
+  ```
+  npm run build /
+  ```
+- For hosting it in a specific directory like `https://your.domain/some-directory/`, use:
+  ```
+  npm run build /some-directory
+  ```
 
 ## Direct links
 
