@@ -28,11 +28,11 @@ You can provide a direct link to a specific game using the following URL format:
 /#/<mode>/<encodedURL>/[theme]/
 ```
 
-- The `mode` parameter specifies the player interface mode:
+- `mode` specifies the player interface mode:
   - `play`: the default multi-window mode
   - `focus`: the single-window mode without additional windows, such as the status bar
-- The `encodedURL` parameter represents the location of the storyfile encoded with `encodeURIComponent`.
-- The `theme` parameter is optional and allows you to choose a specific UI theme.
+- `encodedURL` represents the location of the storyfile encoded with `encodeURIComponent`.
+- `theme` is optional and allows you to choose a specific UI theme.
 
 ### CORS
 
