@@ -1,6 +1,5 @@
 .message {
   &.input {
-    scroll-margin-top: var(--inner-padding);
     color: var(--input-color);
   }
 
@@ -8,4 +7,8 @@
   &.subheader {
     color: var(--accent-color);
   }
+}
+
+.scrollTarget {
+  scroll-margin-block-start: var(--inner-padding);
 }

@@ -4,6 +4,9 @@ import TextMessage from '../TextMessage/TextMessage'
 
 import * as s from '../../Player.module.scss'
 
+const eol = { style: 'endOfLine' }
+const scrollTarget = { style: 'scrollTarget' }
+
 const isFakeStatus = (w) =>
   w.height < 5
 
@@ -22,14 +25,12 @@ const parseInbox = (inbox, currentWindow) => {
   if (!currentInbox) {
     return {
       clear: false,
-      incoming: [],
+      incoming: [scrollTarget],
     }
   }
 
   const { text: inboxMessagesRaw } =
     currentInbox
-
-  const eol = { style: 'endOfLine' }
 
   const incoming =
     inboxMessagesRaw
@@ -40,7 +41,7 @@ const parseInbox = (inbox, currentWindow) => {
           : [eol])
       /* Flatten. */
       .reduce((acc, x) =>
-        acc.concat(x), [])
+        acc.concat(x), [scrollTarget])
 
   return {
     incoming,
@@ -63,13 +64,13 @@ export default function TextBuffer ({ inbox, currentWindow }) {
       : messages.concat(incoming))
 
     setTimeout(() => {
-      const inputs =
-        textBufferEl.current.querySelectorAll('.message.input')
-      const lastInput =
-        inputs[inputs.length - 1]
+      const scrollTargets =
+        textBufferEl.current.querySelectorAll(`.${scrollTarget.style}`)
+      const freshScrollTarget =
+        scrollTargets[scrollTargets.length - 1]
 
-      lastInput
-        ? lastInput.scrollIntoView()
+      freshScrollTarget
+        ? freshScrollTarget.scrollIntoView()
         : textBufferEl.current.scrollTo({
           top: textBufferEl.current.scrollHeight,
           behavior: 'smooth',

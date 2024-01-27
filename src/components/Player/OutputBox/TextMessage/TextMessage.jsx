@@ -15,6 +15,8 @@ export default function TextMessage ({ style, text }) {
       (<strong className={[s.message, s.subheader].join(' ')}>{text}</strong>),
     emphasized:
       (<em className={[s.message, s.emphasized].join(' ')}>{text}</em>),
+    scrollTarget:
+      (<div className={[s.scrollTarget, style].join(' ')}></div>),
     endOfLine:
       (<br />),
   })[style] || defaultContent
